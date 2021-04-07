@@ -18,6 +18,7 @@ namespace Core2Base.Controllers
             _logger = logger;
         }
 
+        //adding comment
         public IActionResult Index()
         {
             return View();
