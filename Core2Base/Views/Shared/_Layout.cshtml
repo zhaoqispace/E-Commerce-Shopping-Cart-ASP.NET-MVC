@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Core2Base</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<!-- HEADER START -->
+<header class="p-3">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">BRAND</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Home</a>
+                    </li>
+
+                    <!--DROPDOWN-1-->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarShopDropdownMenuID" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Shop
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarShopDropdownMenuID">
+                            <li><a class="dropdown-item" href="#">View Catalogue</a></li>
+                            <li><a class="dropdown-item" href="#">Search Products</a></li>
+                        </ul>
+                    </li>
+                    <!--END DROPDOWN-1 -->
+
+                    <!--DROPDOWN-2-->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarAdminDropdownMenuID" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Admin
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarAdminDropdownMenuID">
+                            <li><a class="dropdown-item text-white bg-dark">Accounts Management</a></li>
+                            <li><a class="dropdown-item" href="#">View Account List</a></li>
+                            <li><a class="dropdown-item" href="#">Manage Accounts</a></li>
+                            <li><a class="dropdown-item" href="#">Search Account</a></li>
+                            <li><a class="dropdown-item text-white bg-dark">Inventory Management</a></li>
+                            <li><a class="dropdown-item" href="#">Create Product</a></li>
+                            <li><a class="dropdown-item" href="#">Manage Product</a></li>
+                            <li><a class="dropdown-item" href="#">Manage Serial Activations</a></li>
+                        </ul>
+                    </li>
+                    <!--END DROPDOWN-2 -->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/About">About</a>
+                    </li>
+                </ul>
+
+                <!--LOGGED IN END TEXT -->
+                <div class="dropdown text-end">
+                    <!--Dropdown for User Icon-->
+                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="~/defaultimages/avatar_male.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                        <li><a class="dropdown-item" href="#">Update Account</a></li>
+                        <li><a class="dropdown-item" href="#">Manage Cart</a></li>
+                        <li><a class="dropdown-item" href="#">Purchase History</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                    </ul>
+                    <!--End of Dropdown for User Icon-->
+                </div>
+                <!--END OF LOGGED IN END TEXT MENU-->
+
+                <!-- NO LOGIN END TEXT-->
+                <div class="text-end">
+                    <a href="/Home/Login"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
+                    <button type="button" class="btn btn-primary">Sign-up</button>
+                </div>
+                <!--END OF NO LOGIN END TEXT MENU -->
+
+
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- HEADER END-->
+<br />
+<!-- GAP BETWEEN HEADER & BODY -->
+
+<body>
+    <div>
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <!--End Body Section-->
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+<!--Footer-->
+<footer class="border-top footer text-muted bg-light">
+    <div class="container">
+        &copy; 2021 - BRAND
+    </div>
+</footer>
+<!--END FOOTER-->
+
+</html>
