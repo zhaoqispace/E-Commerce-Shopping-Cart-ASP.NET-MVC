@@ -1,6 +1,6 @@
 #ShoppingCartProj
-This project is for course assignment 2.
-The following features will include:
+- This project is for course assignment 2.
+- The following features will include:
 1.	Login / Logout
 2.	List Products
 3.	Search
