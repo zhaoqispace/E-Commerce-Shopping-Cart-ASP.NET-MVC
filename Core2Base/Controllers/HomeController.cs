@@ -23,16 +23,26 @@ namespace Core2Base.Controllers
             return View();
         }
 
-        public IActionResult About()
+        // showing the about us
+        public IActionResult AboutUs()
         {
             return View();
         }
 
-        public IActionResult Login()
+        // login user with email and password
+        public IActionResult Login(string email, string password)
         {
             return View();
         }
-        public IActionResult ForgotPassword()
+
+        // forgot password
+        public IActionResult ForgotPassword(string email, string newPassword)
+        {
+            return View();
+        }
+
+        // SignUp function with email and password
+        public IActionResult SignUp(string email, string password)
         {
             return View();
         }
