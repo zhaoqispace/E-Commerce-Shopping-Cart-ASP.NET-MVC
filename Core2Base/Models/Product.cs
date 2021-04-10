@@ -8,18 +8,8 @@ namespace Core2Base.Models
 {
     public class Product
     {
-        /*public string productId;
 
-        public string ProductName;
-
-        public string ProductDesc;
-
-        public string ProductCat;
-
-        public decimal Price;
-
-        public string ProductImg;*/
-
+        
         public int Id { get; set; } // better to use string type
 
         public string Name { get; set; }

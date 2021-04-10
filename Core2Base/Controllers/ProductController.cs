@@ -28,10 +28,11 @@ namespace Core2Base.Controllers
             ProductList.Add(new Product { Id = 9, Name = "Game 9", Description = "This is a wonderful game which is designed for people above age 19.", UnitPrice = 19.5, Image = "/productimages/9.jpg" });
             ProductList.Add(new Product { Id = 10, Name = "Game 10", Description = "This is a wonderful game which is designed for people above age 20.", UnitPrice = 20.5, Image = "/productimages/10.png" });
             ProductList.Add(new Product { Id = 11, Name = "Game 11", Description = "This is a wonderful game which is designed for people above age 21.", UnitPrice = 21.5, Image = "/productimages/11.jpg" });
-
+           
 
             // this ViewData key-value pair is to pass data from Controller to View
             ViewData["Products"] = ProductList;
+
             return View();
         }
 

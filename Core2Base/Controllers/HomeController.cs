@@ -38,6 +38,7 @@ namespace Core2Base.Controllers
 
             // this ViewData key-value pair is to pass data from Controller to View
             ViewData["Products"] = ProductList;
+
             return View();
         }
 
@@ -108,13 +109,6 @@ namespace Core2Base.Controllers
 
         }
 
-        // showing the about us
-        public IActionResult AboutUs()
-        {
-            return View();
-        }
-
-       
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
