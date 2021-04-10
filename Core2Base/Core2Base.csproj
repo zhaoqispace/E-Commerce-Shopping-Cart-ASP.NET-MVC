@@ -26,35 +26,10 @@
     <Content Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" />
     <Content Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" />
   </ItemGroup>
-
   <ItemGroup>
-    <None Include="Views\Product\Index.cshtml" />
-    <None Include="wwwroot\lib\font-awesome\js\all.js" />
-    <None Include="wwwroot\lib\font-awesome\js\all.min.js" />
-    <None Include="wwwroot\lib\font-awesome\js\brands.js" />
-    <None Include="wwwroot\lib\font-awesome\js\brands.min.js" />
-    <None Include="wwwroot\lib\font-awesome\js\conflict-detection.js" />
-    <None Include="wwwroot\lib\font-awesome\js\conflict-detection.min.js" />
-    <None Include="wwwroot\lib\font-awesome\js\fontawesome.js" />
-    <None Include="wwwroot\lib\font-awesome\js\fontawesome.min.js" />
-    <None Include="wwwroot\lib\font-awesome\js\regular.js" />
-    <None Include="wwwroot\lib\font-awesome\js\regular.min.js" />
-    <None Include="wwwroot\lib\font-awesome\js\solid.js" />
-    <None Include="wwwroot\lib\font-awesome\js\solid.min.js" />
-    <None Include="wwwroot\lib\font-awesome\js\v4-shims.js" />
-    <None Include="wwwroot\lib\font-awesome\js\v4-shims.min.js" />
-    <None Include="wwwroot\lib\font-awesome\sprites\brands.svg" />
-    <None Include="wwwroot\lib\font-awesome\sprites\regular.svg" />
-    <None Include="wwwroot\lib\font-awesome\sprites\solid.svg" />
-    <None Include="wwwroot\lib\font-awesome\webfonts\fa-brands-400.svg" />
-    <None Include="wwwroot\lib\font-awesome\webfonts\fa-brands-400.woff2" />
-    <None Include="wwwroot\lib\font-awesome\webfonts\fa-regular-400.svg" />
-    <None Include="wwwroot\lib\font-awesome\webfonts\fa-regular-400.woff2" />
-    <None Include="wwwroot\lib\font-awesome\webfonts\fa-solid-900.svg" />
-    <None Include="wwwroot\lib\font-awesome\webfonts\fa-solid-900.woff2" />
+    <Folder Include="wwwroot\defaultimages\" />
   </ItemGroup>
-
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>
 </Project>
