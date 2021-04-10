@@ -1947,45 +1947,6 @@ progress {
 }
 
 
-tr th:nth-child(2) {
-    width: 20%;
-}
-
-tr th:nth-child(3) {
-    width: 20%;
-}
-
-tr th:nth-child(3) {
-   
-}
-
-tr td:nth-child(3) { 
-    
-}
-
-tr th:nth-child(4) {
-    text-align: center;
-}
-
-tr td:nth-child(4) {
-    text-align: center;
-}
-
-tr th:nth-child(5) {
-    text-align: center;
-}
-
-tr td:nth-child(5) {
-    text-align: center;
-}
-
-tr th:nth-child(6) {
-    text-align: center;
-}
-
-tr td:nth-child(6) {
-    text-align: center;
-}
 
 
 
@@ -4291,7 +4252,6 @@ textarea.form-control-lg {
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
 }
-
 
 .card > hr {
   margin-right: 0;
@@ -10904,98 +10864,13 @@ textarea.form-control-lg {
   }
 }
 
-.welcomeBar {
-    margin-top: 35px;
-    margin-left: 180px;
-    display: inline-flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-    width: 30%;
-    flex: 1 1 auto;
-    font-size: 21px;
+@media screen and (max-width: 700px) {
+ .searchbar {
+     display: block;
+     
+ }
 }
 
-.shoppingCartLogo{
-    margin-bottom: 7px;
-    display: inline-flex;
-    justify-content: right;
-    flex-direction: row;
-    flex: 1 1 auto;
-    margin-right: 200px;
-}
 
-.shoppingCartHeading {
-    margin-bottom: 7px;
-    display: inline-flex;
-    justify-content: flex-end;
-    flex-direction: row;
-    flex: 1 1 auto;
-    margin-left: 530px;
-    font-size: 21px;
-}
-
-.qtyInCart {
-    color: red;
-    padding-left: 3px;
-}
-
-.shoppingCartTable {
-    width: 73%;
-    margin-top: 2%;
-    margin-left: 11%;
-    margin-bottom: 1rem;
-    color: #212529;
-    vertical-align: top;
-    border-color: #dee2e6;
-    font-size: 18px;
-}
-
-.totalPrice {
-    margin-left: 80%;
-}
-
-.checkoutBtn {
-    margin-left: 71%;
-}
-
-.plusButton {
-    margin-left: 8px;
-    background-color: #FFFFF0;
-    width: 25px;
-    height: 25px;
-    line-height: 5px;
-    padding: 5px;
-}
-
-.plusButton:hover {
-    color: #212529;
-}
-
-.minusButton {
-    margin-right: 8px;
-    background-color: #FFFFF0;
-    width: 25px;
-    height: 25px;
-    line-height: 5px;
-    padding: 5px;
-}
-
-.minusButton:hover {
-    color: #212529;
-}
-
-.removeAllButton {
-    margin-top: 4px;
-    background-color: transparent;
-    border: none;
-    width: 75px;
-    height: 25px;
-    line-height: 5px;
-    font-size: 12.5px;
-}
-
-.removeAllButton:hover {
-    color: red;
-}
 
 /*# sourceMappingURL=bootstrap.css.map */
