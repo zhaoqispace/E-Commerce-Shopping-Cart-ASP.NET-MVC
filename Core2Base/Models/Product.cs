@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,17 +8,17 @@ namespace Core2Base.Models
 {
     public class Product
     {
-        public string productId;
 
-        public string ProductName;
+        
+        public int Id { get; set; } // better to use string type
 
-        public string ProductDesc;
+        public string Name { get; set; }
 
-        public string ProductCat;
+        public string Description { get; set; }
 
-        public decimal Price;
-
-        public string ProductImg;
+        [DataType(DataType.Currency)]  // to show dollar sign
+        public double UnitPrice { get; set; }
+        public string Image { get; set; }
 
     }
 }

@@ -15,7 +15,7 @@ namespace Core2Base.Controllers
         {
             return View();
         }
-
+        
         // Retrieving total price  
         public IActionResult ViewTotalPrice()
         {
