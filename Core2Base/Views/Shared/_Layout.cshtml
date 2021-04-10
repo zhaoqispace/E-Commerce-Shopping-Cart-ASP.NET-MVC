@@ -3,8 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Core2Base</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <title>@ViewData["Title"] - Team 2 CA Project</title>
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 
@@ -12,72 +15,34 @@
 <header class="p-3">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">BRAND</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <span class="navbar-brand">ProGamer Computing</span>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/">Home</a>
+                    <li>
+                        <a class="nav-link active" href="/Home/">Home</a>
                     </li>
 
-                    <!--DROPDOWN-1-->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarShopDropdownMenuID" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Shop
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarShopDropdownMenuID">
-                            <li><a class="dropdown-item" href="#">View Catalogue</a></li>
-                            <li><a class="dropdown-item" href="#">Search Products</a></li>
-                        </ul>
-                    </li>
-                    <!--END DROPDOWN-1 -->
+                    <!-- ABOUT LINK -->
 
-                    <!--DROPDOWN-2-->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarAdminDropdownMenuID" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Admin
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarAdminDropdownMenuID">
-                            <li><a class="dropdown-item text-white bg-dark">Accounts Management</a></li>
-                            <li><a class="dropdown-item" href="#">View Account List</a></li>
-                            <li><a class="dropdown-item" href="#">Manage Accounts</a></li>
-                            <li><a class="dropdown-item" href="#">Search Account</a></li>
-                            <li><a class="dropdown-item text-white bg-dark">Inventory Management</a></li>
-                            <li><a class="dropdown-item" href="#">Create Product</a></li>
-                            <li><a class="dropdown-item" href="#">Manage Product</a></li>
-                            <li><a class="dropdown-item" href="#">Manage Serial Activations</a></li>
-                        </ul>
-                    </li>
-                    <!--END DROPDOWN-2 -->
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Home/About">About</a>
+                    <li>
+                        <a class="nav-link" href="/Home/About/">About</a>
                     </li>
                 </ul>
 
-                <!--LOGGED IN END TEXT -->
-                <div class="dropdown text-end">
-                    <!--Dropdown for User Icon-->
-                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="~/defaultimages/avatar_male.png" alt="mdo" width="32" height="32" class="rounded-circle">
-                    </a>
-                    <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                        <li><a class="dropdown-item" href="#">Update Account</a></li>
-                        <li><a class="dropdown-item" href="#">Manage Cart</a></li>
-                        <li><a class="dropdown-item" href="#">Purchase History</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Sign out</a></li>
-                    </ul>
-                    <!--End of Dropdown for User Icon-->
-                </div>
-                <!--END OF LOGGED IN END TEXT MENU-->
+                <!-- SEARCH BAR -->
+
+                <form action="">
+                    <input class="searchbar" type="text" placeholder="Enter your search here...">
+                    <button type="submit" class="search-button">
+                        <img src="~/defaultimages/magnifyingGlass.png">
+                    </button>
+                </form>
+
 
                 <!-- NO LOGIN END TEXT-->
                 <div class="text-end">
-                    <a href="/Home/Login"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
-                    <button type="button" class="btn btn-primary">Sign-up</button>
+                    <a href="/Home/Login/" type="button" class="btn btn-outline-light me-2">Login</a>
+                    <a href="/Home/SignUp/" type="button" class="btn btn-primary">Sign-up</a>
                 </div>
                 <!--END OF NO LOGIN END TEXT MENU -->
 
@@ -89,6 +54,31 @@
 <!-- HEADER END-->
 <br />
 <!-- GAP BETWEEN HEADER & BODY -->
+
+<div class="welcomeBar">
+    <p>Hello, <b>Mickey Mouse</b></p>
+    <a href="">Continue Shopping</a>
+    <p>|</p>
+    <a href="">Logout</a>
+</div>
+
+@model IEnumerable<Core2Base.Models.Product>
+    <!-- The following codes are to show the Shopping Cart Button-->
+<!-- The href link is the source of the cart icon, then no need to hard code the icon from img tag-->
+@{ int x = 1;}    @*Uncomment this line and comment the next line (x = 0), when you want to show the number of items in shopping cart*@
+@*@{ int x = 0;}        Uncomment this line and comment the above line (x = 1), when there is no item in shopping cart*@
+
+@if (x == 1)
+{
+    <span class="shoppingCartHeading">Shopping Cart</span>
+    <button type="button" class="shoppingCartLogo btn btn-primary" href="#"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart">@x</span></button>
+ }
+else
+{
+    <span class="shoppingCartHeading">Shopping Cart</span>
+    <button type="button" class="shoppingCartLogo btn btn-primary" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></button>
+}
+
 
 <body>
     <div>
@@ -105,12 +95,14 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
+
+</html>
+
 <!--Footer-->
 <footer class="border-top footer text-muted bg-light">
-    <div class="container">
-        &copy; 2021 - BRAND
+    <div class="footer_container">
+        &copy; 2021 - ProGamer Computing
+        <a class="contactUs" href="/">Contact Us</a>
     </div>
 </footer>
 <!--END FOOTER-->
-
-</html>
