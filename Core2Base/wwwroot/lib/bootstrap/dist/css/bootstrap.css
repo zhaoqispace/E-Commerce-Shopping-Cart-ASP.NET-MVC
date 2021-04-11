@@ -6429,7 +6429,7 @@ textarea.form-control-lg {
 }
 
 .loginSignupContainer {
-    width: 220px;
+    width: 300px;
 }
 
     /* Style the search box inside the navigation bar */
@@ -6467,7 +6467,7 @@ textarea.form-control-lg {
         padding: 6px;
         border: none;
         margin-top: 6px;
-        margin-right: 500px;
+        margin-right: calc(100%-60%);
         font-size: 18px;
         width: calc(100% / 2);
     }
@@ -6475,23 +6475,23 @@ textarea.form-control-lg {
     .search-button {
         background: transparent;
         border: none;
-        margin-left: 44%;
+        margin-left: 42%;
         margin-top: -32.5px;
         display: inherit;
     }
 
     .searchform {
-        width: 60%;
+        width: 30%;
     }
 
     .loginSignupContainer {
-        width: 300px;
+        width: 330px;
     }
 }
 
 
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1200px) and (min-width: 1077px) {
     .searchbar {
         float: none;
         padding: 6px;
@@ -6499,19 +6499,19 @@ textarea.form-control-lg {
         margin-top: 6px;
         margin-right: 500px;
         font-size: 18px;
-        width: calc(100% / 2);
+        width: calc(100% / 2.2);
     }
 
     .search-button {
         background: transparent;
         border: none;
-        margin-left: 44%;
+        margin-left: 34.5%;
         margin-top: -32.5px;
         display: inherit;
     }
 
     .searchform {
-        width: 60%;
+        width: 32%;
     }
 
     .loginSignupContainer {
@@ -6539,11 +6539,11 @@ textarea.form-control-lg {
     }
 
     .searchform {
-        width: 60%;
+        width: calc(100% - 55%);
     }
 
     .loginSignupContainer {
-        width: 250px;
+        width: 300px;
     }
 }
 
@@ -6567,7 +6567,12 @@ textarea.form-control-lg {
     }
 
     .searchform {
-        width: 60%;
+        width: calc(100% - 40%);
+    }
+
+    .loginSignupContainer {
+        width: 210px;
+        text-align: right;
     }
 }
 
