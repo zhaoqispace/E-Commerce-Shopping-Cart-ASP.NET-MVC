@@ -204,3 +204,26 @@ tr th:nth-child(6) {
 tr td:nth-child(6) {
     text-align: center;
 }
+
+@media screen and (max-width: 1299px) {
+    .shoppingCartHeading {
+        margin-bottom: 7px;
+        display: inline-flex;
+        justify-content: flex-end;
+        flex-direction: row;
+        flex: 1 1 auto;
+        margin-left: 100px;
+        font-size: 21px;
+    }
+
+    .welcomeBar {
+        margin-top: 35px;
+        margin-left: 80px;
+        display: inline-flex;
+        justify-content: space-evenly;
+        flex-direction: row;
+        width: 20%;
+        flex: 1 1 auto;
+        font-size: 21px;
+    }
+}
