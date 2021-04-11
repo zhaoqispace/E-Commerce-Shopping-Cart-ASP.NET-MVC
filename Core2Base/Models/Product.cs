@@ -8,27 +8,12 @@ namespace Core2Base.Models
 {
     public class Product
     {
-        /*public string productId;
-
-        public string ProductName;
-
-        public string ProductDesc;
-
-        public string ProductCat;
-
-        public decimal Price;
-
-        public string ProductImg;*/
-
-        public int Id { get; set; } // better to use string type
-
+        public string Id { get; set; } // better to use string type
         public string Name { get; set; }
-
         public string Description { get; set; }
-
+        public string Category { get; set; }
         [DataType(DataType.Currency)]  // to show dollar sign
         public double UnitPrice { get; set; }
         public string Image { get; set; }
-
     }
 }
