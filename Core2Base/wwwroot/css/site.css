@@ -2,9 +2,9 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
 }
 
 /* Provide sufficient contrast against white background */
@@ -205,6 +205,16 @@ tr td:nth-child(6) {
     text-align: center;
 }
 
+.loginSignupForm {
+    width: 100%;
+    padding-right: var(--bs-gutter-x, 0.75rem);
+    padding-left: var(--bs-gutter-x, 0.75rem);
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 900px;
+}
+
+
 @media only screen and (max-width: 998px) and (min-width: 900px) {
     .shoppingCartLogo {
         margin-bottom: 7px;
@@ -234,6 +244,19 @@ tr td:nth-child(6) {
         width: 46%;
         flex: 1 1 auto;
         font-size: 18px;
+    }
+
+    .loginSignupForm {
+        width: 100%;
+        padding-right: var(--bs-gutter-x, 0.75rem);
+        padding-left: var(--bs-gutter-x, 0.75rem);
+        margin-right: auto;
+        margin-left: 19%;
+        max-width: 550px;
+    }
+
+    .registerOrLogin {
+        margin-right: 55%;
     }
 
 }
@@ -271,6 +294,19 @@ tr td:nth-child(6) {
             flex: 1 1 auto;
             font-size: 21px;
         }
+
+        .registerOrLogin {
+            margin-right: 20%;
+        }
+
+        .loginSignupForm {
+            width: 100%;
+            padding-right: var(--bs-gutter-x, 0.75rem);
+            padding-left: var(--bs-gutter-x, 0.75rem);
+            margin-right: auto;
+            margin-left: 18.5%;
+            max-width: 650px;
+        }
     }
 
 
@@ -306,9 +342,20 @@ tr td:nth-child(6) {
             flex: 1 1 auto;
             font-size: 21px;
         }
+
+        .loginSignupForm {
+            width: 100%;
+            padding-right: var(--bs-gutter-x, 0.75rem);
+            padding-left: var(--bs-gutter-x, 0.75rem);
+            margin-right: auto;
+            margin-left: 19%;
+            max-width: 750px;
+        }
+
+        .registerOrLogin {
+            margin-right: 35%;
+        }
     }
-
-
 
     @media only screen and (max-width: 1400px) and (min-width: 1200px) {
 
@@ -341,6 +388,20 @@ tr td:nth-child(6) {
             flex: 1 1 auto;
             font-size: 21px;
         }
+
+        .loginSignupForm {
+            width: 100%;
+            padding-right: var(--bs-gutter-x, 0.75rem);
+            padding-left: var(--bs-gutter-x, 0.75rem);
+            margin-right: auto;
+            max-width: 850px;
+            margin-left: 17%;
+        }
+
+        .registerOrLogin {
+            margin-right: 37%;
+        }
+
     }
 
 
@@ -375,6 +436,25 @@ tr td:nth-child(6) {
             flex: 1 1 auto;
             font-size: 21px;
         }
+
+        container-login {
+            max-width: 1320px;
+            margin-left: 10%;
+        }
+
+        .loginSignupForm {
+            width: 100%;
+            padding-right: var(--bs-gutter-x, 0.75rem);
+            padding-left: var(--bs-gutter-x, 0.75rem);
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 900px;
+        }
+
+        .registerOrLogin {
+            margin-right: 10%;
+        }
+        
     }
 
 
@@ -411,4 +491,19 @@ tr td:nth-child(6) {
             flex: 1 1 auto;
             font-size: 21px;
         }
+
+        .loginSignupForm {
+            width: 100%;
+            padding-right: var(--bs-gutter-x, 0.75rem);
+            padding-left: var(--bs-gutter-x, 0.75rem);
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 900px;
+        }
+
+        .registerOrLogin {
+            margin-right: 19%;
+        }
     }
+
+
