@@ -205,21 +205,14 @@ tr td:nth-child(6) {
     text-align: center;
 }
 
-@media only screen and (max-width: 1076px) {
-    
-}
-
-
-
-@media only screen and (max-width: 1200px) {
-
+@media only screen and (max-width: 998px) and (min-width: 900px) {
     .shoppingCartLogo {
         margin-bottom: 7px;
         display: inline-flex;
         justify-content: right;
         flex-direction: row;
         flex: 1 1 auto;
-        margin-right: 9%;
+        margin-right: 10%;
     }
 
     .shoppingCartHeading {
@@ -228,86 +221,194 @@ tr td:nth-child(6) {
         justify-content: flex-end;
         flex-direction: row;
         flex: 1 1 auto;
-        margin-left: 9%;
-        font-size: 21px;
+        margin-left: 15%;
+        font-size: 17px;
     }
 
     .welcomeBar {
         margin-top: 35px;
-        margin-left: 180px;
+        margin-left: calc(100% / 13);
         display: inline-flex;
         justify-content: space-evenly;
         flex-direction: row;
-        width: 30%;
+        width: 46%;
         flex: 1 1 auto;
-        font-size: 21px;
+        font-size: 18px;
     }
+
 }
 
-@media only screen and (max-width: 1400px) and (min-width: 1201px) {
 
-    .shoppingCartLogo {
-        margin-bottom: 7px;
-        display: inline-flex;
-        justify-content: right;
-        flex-direction: row;
-        flex: 1 1 auto;
-        margin-right: 12%;
-    }
 
-    .shoppingCartHeading {
-        margin-bottom: 7px;
-        display: inline-flex;
-        justify-content: flex-end;
-        flex-direction: row;
-        flex: 1 1 auto;
-        margin-left: 12%;
-        font-size: 21px;
-    }
+    @media only screen and (max-width: 1099px) and (min-width: 999px) {
 
-    .welcomeBar {
-        margin-top: 35px;
-        margin-left: calc(100% / 5);
-        display: inline-flex;
-        justify-content: space-evenly;
-        flex-direction: row;
-        width: 30%;
-        flex: 1 1 auto;
-        font-size: 21px;
-    }
-}
+        .shoppingCartLogo {
+            margin-bottom: 7px;
+            display: inline-flex;
+            justify-content: right;
+            flex-direction: row;
+            flex: 1 1 auto;
+            margin-right: 10%;
+        }
 
-@media only screen and (max-width: 1600px) and (min-width: 1401px) {
+        .shoppingCartHeading {
+            margin-bottom: 7px;
+            display: inline-flex;
+            justify-content: flex-end;
+            flex-direction: row;
+            flex: 1 1 auto;
+            margin-left: 15%;
+            font-size: 21px;
+        }
 
-    .shoppingCartLogo {
-        margin-bottom: 7px;
-        display: inline-flex;
-        justify-content: right;
-        flex-direction: row;
-        flex: 1 1 auto;
-        margin-right: 15%;
-    }
-
-    .shoppingCartHeading {
-        margin-bottom: 7px;
-        display: inline-flex;
-        justify-content: flex-end;
-        flex-direction: row;
-        flex: 1 1 auto;
-        margin-left: 25%;
-        font-size: 21px;
-    }
-
-    .welcomeBar {
-        margin-top: 35px;
-        margin-left: calc(100% / 12);
-        display: inline-flex;
-        justify-content: space-evenly;
-        flex-direction: row;
-        width: 35%;
-        flex: 1 1 auto;
-        font-size: 21px;
+        .welcomeBar {
+            margin-top: 35px;
+            margin-left: calc(100% / 13);
+            display: inline-flex;
+            justify-content: space-evenly;
+            flex-direction: row;
+            width: 46%;
+            flex: 1 1 auto;
+            font-size: 21px;
+        }
     }
 
 
-}
+
+    @media only screen and (max-width: 1199px) and (min-width: 1100px) {
+
+        .shoppingCartLogo {
+            margin-bottom: 7px;
+            display: inline-flex;
+            justify-content: right;
+            flex-direction: row;
+            flex: 1 1 auto;
+            margin-right: 10%;
+        }
+
+        .shoppingCartHeading {
+            margin-bottom: 7px;
+            display: inline-flex;
+            justify-content: flex-end;
+            flex-direction: row;
+            flex: 1 1 auto;
+            margin-left: 17%;
+            font-size: 21px;
+        }
+
+        .welcomeBar {
+            margin-top: 35px;
+            margin-left: calc(100% / 13);
+            display: inline-flex;
+            justify-content: space-evenly;
+            flex-direction: row;
+            width: 46%;
+            flex: 1 1 auto;
+            font-size: 21px;
+        }
+    }
+
+
+
+    @media only screen and (max-width: 1400px) and (min-width: 1200px) {
+
+        .shoppingCartLogo {
+            margin-bottom: 7px;
+            display: inline-flex;
+            justify-content: right;
+            flex-direction: row;
+            flex: 1 1 auto;
+            margin-right: 10%;
+        }
+
+        .shoppingCartHeading {
+            margin-bottom: 7px;
+            display: inline-flex;
+            justify-content: flex-end;
+            flex-direction: row;
+            flex: 1 1 auto;
+            margin-left: 20%;
+            font-size: 21px;
+        }
+
+        .welcomeBar {
+            margin-top: 35px;
+            margin-left: calc(100% / 13);
+            display: inline-flex;
+            justify-content: space-evenly;
+            flex-direction: row;
+            width: 41%;
+            flex: 1 1 auto;
+            font-size: 21px;
+        }
+    }
+
+
+    @media only screen and (max-width: 1532px) and (min-width: 1401px) {
+
+        .shoppingCartLogo {
+            margin-bottom: 7px;
+            display: inline-flex;
+            justify-content: right;
+            flex-direction: row;
+            flex: 1 1 auto;
+            margin-right: 10%;
+        }
+
+        .shoppingCartHeading {
+            margin-bottom: 7px;
+            display: inline-flex;
+            justify-content: flex-end;
+            flex-direction: row;
+            flex: 1 1 auto;
+            margin-left: 28.8%;
+            font-size: 21px;
+        }
+
+        .welcomeBar {
+            margin-top: 35px;
+            margin-left: calc(100% / 13);
+            display: inline-flex;
+            justify-content: space-evenly;
+            flex-direction: row;
+            width: 35%;
+            flex: 1 1 auto;
+            font-size: 21px;
+        }
+    }
+
+
+
+
+    @media only screen and (max-width: 1600px) and (min-width: 1533px) {
+
+        .shoppingCartLogo {
+            margin-bottom: 7px;
+            display: inline-flex;
+            justify-content: right;
+            flex-direction: row;
+            flex: 1 1 auto;
+            margin-right: 15%;
+        }
+
+        .shoppingCartHeading {
+            margin-bottom: 7px;
+            display: inline-flex;
+            justify-content: flex-end;
+            flex-direction: row;
+            flex: 1 1 auto;
+            margin-left: 27.9%;
+            font-size: 21px;
+        }
+
+        .welcomeBar {
+            margin-top: 35px;
+            margin-left: calc(100% / 12);
+            display: inline-flex;
+            justify-content: space-evenly;
+            flex-direction: row;
+            width: 35%;
+            flex: 1 1 auto;
+            font-size: 21px;
+        }
+    }
