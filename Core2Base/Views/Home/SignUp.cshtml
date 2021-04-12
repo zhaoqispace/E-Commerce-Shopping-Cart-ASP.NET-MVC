@@ -14,73 +14,66 @@
     }
 </style>
 <br />
-<div class="container text-center bg-light">
+<div class="loginSignupForm text-center bg-light">
     <main class="form-signin">
-        <form>
+        <form id="form" action="/action_page.php" data-toggle="validator" role="form" method="POST">
             <br />
             <h2> Register </h2>
             <p> Please fill in all particulars in this electronic form in order to create an account. All specified fields are mandatory.</p>
             <hr />
 
-            <div class="form text-start">
-                <p>Salutations: </p>
-                <label for="Mr."> Mr.: </label>
-                <input type="radio" id="male" name="Salutations" value="Mr." required>
-                <label for="Ms."> Ms.: </label>
-                <input type="radio" id="female" name="Salutations" value="Ms.">
-                <label for="Mrs."> Mrs.: </label>
-                <input type="radio" id="female" name="Salutations" value="Mrs.">
-                <label for="Mdm."> Mdm.: </label>
-                <input type="radio" id="female" name="Salutations" value="Mdm.">
-                <label for="Dr."> Dr.: </label>
-                <input type="radio" id="other" name="Salutations" value="Dr.">
+
+            <div class="form-floating">
+                <select class="form-control" aria-labelledby="salutations">
+                    <option>Mr.</option>
+                    <option>Mrs.</option>
+                    <option>Ms.</option>
+                    <option>Mdm.</option>
+                    <option>Dr.</option>
+                </select>
+                <label for="salutations">Salutations: </label>
             </div>
 
             <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" placeholder="enter first name: " required>
-                <label for="floatingInput"><i class="fa fa-address-card"></i> First Name: </label>
+                <input type="text" class="form-control" id="firstname" placeholder="enter first name: " required>
+                <label for="firstname"><i class="fa fa-address-card"></i> First Name: </label>
             </div>
 
             <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" placeholder="enter last name: " required>
-                <label for="floatingInput"><i class="fa fa-address-card"></i> Last Name: </label>
-            </div>
-
-            <div class="form text-start">
-                <p>Please select your gender: </p>
-                <label for="male"> Male: </label>
-                <input type="radio" id="male" name="gender" value="male" required>
-                <label for="female"> Female: </label>
-                <input type="radio" id="female" name="gender" value="female">
-                <label for="other"> Other: </label>
-                <input type="radio" id="other" name="gender" value="other">
+                <input type="text" class="form-control" id="lastname" placeholder="enter last name: " required>
+                <label for="lastname"><i class="fa fa-address-card"></i> Last Name: </label>
             </div>
 
             <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="enter email: e.g. name@example.com etc." required>
-                <label for="floatingInput"><i class="fa fa-envelope"></i> Email address</label>
+
+                <select class="form-control" aria-labelledby="gender">
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Others</option>
+                </select>
+
+                <label for="gender"><i class="fa fa-transgender-alt"></i> Please select your Gender: </label>
+
             </div>
 
             <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" placeholder="enter username: " required>
-                <label for="floatingInput"><i class="fa fa-user-alt"></i> Username</label>
+                <input type="email" class="form-control" id="email" placeholder="enter email: e.g. name@example.com etc." required>
+                <label for="email"><i class="fa fa-envelope"></i> Email address</label>
             </div>
 
             <div class="form-floating">
-                <input type="password" class="form-control" id="password" placeholder="enter password: ">
+                <input type="password" minlength="8" class="form-control" id="password" placeholder="enter password: ">
                 <label for="floatingInput"><i class="fa fa-key"></i> Password</label>
             </div>
 
             <div class="form-floating">
-                <input type="password" class="form-control" id="re-enter password" placeholder="re-enter password: " required>
-                <label for="floatingInput"><i class="fa fa-key"></i> Re-Enter Password</label>
+                <input type="password" minlength="8" class="form-control" id="reenterpassword" placeholder="re-enter password: " required>
+                <label for="re-enter password"><i class="fa fa-key"></i> Re-Enter Password</label>
+
             </div>
 
             <div class="form-floating">
-                <input type="date" class="form-control" id="start" placeholder="enter birthdate: "
-                       value="01/01/1900"
-                       min="01/01/1901" max="31/04/2021"
-                       required>
+                <input type="date" id="birthday" class="form-control" min="1910-01-01" max="2003-12-31" required>
                 <label for="start"><i class="fa fa-birthday-cake"></i> Enter Birthdate: </label>
 
             </div>
@@ -98,19 +91,20 @@
             <button type="submit" class="registerbtn">Register</button>
 
             <div class="container signin">
-                <p>Already have an account? <a href="/Home/Login">Sign in</a>.</p>
+                <p class="registerOrLogin">Already have an account? <a href="/Home/Login">Sign in</a>.</p>
             </div>
 
             <table>
                 <tr>
                     <td colspan="2" align="center">
-                        <div id="err_msg">@ViewData["errMsg"]</div>
+                        <span id="err_msg">@ViewData["errmsg"]</span>
+                    </td>
                 </tr>
 
             </table>
 
 
         </form>
+
     </main>
 </div>
-
