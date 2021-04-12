@@ -14,6 +14,7 @@ namespace Core2Base.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         //combine product controller with home controller
+        //test commit
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
