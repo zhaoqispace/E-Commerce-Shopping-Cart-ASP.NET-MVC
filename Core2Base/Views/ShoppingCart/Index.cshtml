@@ -29,7 +29,7 @@
                 <td>@product.Name</td>
                 <td>@product.Description</td>
                 <td>
-                    <button type="button" class="minusButton">-</button>1<button type="button" class="plusButton">+</button> @*Need to change 1 to a quantity field when .cs file is ready*@
+                    <button type="button" class="minusButton">-</button><input id="qtyInCart" type="text" onkeypress="return event.charCode >= 48" value="1"><button type="button" class="plusButton">+</button> @*Need to change 1 to a quantity field when .cs file is ready*@
                     <br />
                     <button type="button" class="removeAllButton">Remove All</button>
                 </td>

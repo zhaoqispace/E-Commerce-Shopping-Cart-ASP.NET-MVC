@@ -552,4 +552,8 @@ tr td:nth-child(6) {
     }
 }
 
-
+#qtyInCart {
+    width: 11%;
+    text-align: center;
+    border: none;
+}
