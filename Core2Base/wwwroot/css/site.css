@@ -162,7 +162,6 @@ body {
     margin-top: 4px;
     background-color: transparent;
     border: none;
-    width: 75px;
     height: 25px;
     line-height: 5px;
     font-size: 12.5px;
@@ -219,6 +218,12 @@ tr td:nth-child(6) {
     max-width: 900px;
 }
 
+.quantity {
+    width: 12%;
+    text-align: center;
+    border: none;
+    color: black;
+}
 
 @media only screen and (max-width: 998px) and (min-width: 900px) {
     .shoppingCartLogo {
@@ -311,6 +316,13 @@ tr td:nth-child(6) {
         margin-left: 18.5%;
         max-width: 650px;
     }
+
+    .quantity {
+        width: 12%;
+        text-align: center;
+        border: none;
+        color: black;
+    }
 }
 
 
@@ -359,6 +371,13 @@ tr td:nth-child(6) {
     .registerOrLogin {
         margin-right: 35%;
     }
+
+    .quantity {
+        width: 36%;
+        text-align: center;
+        border: none;
+        color: black;
+    }
 }
 
 @media only screen and (max-width: 1300px) and (min-width: 1199px) {
@@ -404,6 +423,13 @@ tr td:nth-child(6) {
 
     .registerOrLogin {
         margin-right: 37%;
+    }
+
+    .quantity {
+        width: 32%;
+        text-align: center;
+        border: none;
+        color: black;
     }
 }
 
@@ -452,6 +478,13 @@ tr td:nth-child(6) {
 
     .registerOrLogin {
         margin-right: 37%;
+    }
+
+    .quantity {
+        width: 28%;
+        text-align: center;
+        border: none;
+        color: black;
     }
 }
 
@@ -505,6 +538,13 @@ tr td:nth-child(6) {
     .registerOrLogin {
         margin-right: 10%;
     }
+
+    .quantity {
+        width: 24%;
+        text-align: center;
+        border: none;
+        color: black;
+    }
 }
 
 @media only screen and (max-width: 1600px) and (min-width: 1533px) {
@@ -550,10 +590,11 @@ tr td:nth-child(6) {
     .registerOrLogin {
         margin-right: 19%;
     }
+
+    .quantity {
+        width: 19%;
+        text-align: center;
+        border: none;
+    }
 }
 
-#qtyInCart {
-    width: 11%;
-    text-align: center;
-    border: none;
-}
