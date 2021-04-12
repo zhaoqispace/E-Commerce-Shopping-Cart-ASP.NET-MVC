@@ -7,6 +7,6 @@ namespace Core2Base.Data
 {
     public class Data
     {
-        protected static readonly string connectionString = "Server=DESKTOP-BRANDON;Database=ShoppingCart; Integrated Security=true";
+        protected static readonly string connectionString = "Server=(local);Database=ShoppingCart; Integrated Security=true";
     }
 }
