@@ -1,36 +1,6 @@
-﻿<!--@{
-    ViewData["Title"] = "Login";
-}
+﻿@{ ViewData["Title"] = "Login"; }
 
-<br />
-<div class="container text-center bg-light">
-    <main class="form-signin">
-        <form>
-            <br />
-            <img src="~/defaultimages/login.png" alt="mdo" width="50" height="50">
-            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-
-            <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Email address</label>
-            </div>
-            <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
-            </div>
-            <br />-->
-<!--<button class="w-100 btn btn-lg btn-primary" type="submit">Sign In</button>-->
-<!--<a class="w-100 btn btn-lg btn-primary" href="#">Sign in</a>
-            <a class="w-100 btn btn-lg btn-secondary" href="/Home/ForgotPassword">Forgot Password</a>
-        </form>
-    </main>
-</div>-->
-
-@{ ViewData["Title"] = "Login"; }
-
-@{
-    Layout = "/Views/Shared/_LoginPageLayout.cshtml";
-}
+@{ Layout = "/Views/Shared/_LoginPageLayout.cshtml"; }
 
 <style>
     #err_msg {
@@ -40,7 +10,7 @@
     }
 </style>
 <br />
-<div class="container text-center bg-light">
+<div class="loginSignupForm text-center bg-light">
     <main class="form-signin">
         <form id="form" action="/Home/Login" method="POST">
             <br />
@@ -48,14 +18,14 @@
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
             <div class="form-floating">
-                <input class="form-control" id="email" name="email" placeholder="name@example.com" @ViewData["email"]>
-                <label for="floatingInput">Email address</label>
+                <input class="form-control" type="email" id="email" name="email" placeholder="name@example.com" @ViewData["email"]>
+                <label for="floatingInput"><i class="fa fa-envelope"></i> Email address</label>
             </div>
 
 
             <div class="form-floating">
                 <input type="password" class="form-control" name="password" id="password" placeholder="Password">
-                <label for="password">Password</label>
+                <label for="password"><i class="fa fa-key"></i> Password</label>
 
             </div>
 
@@ -70,9 +40,10 @@
 
         </form>
         <a class="w-100 btn btn-lg btn-secondary" href="/Home/ForgotPassword">Forgot Password</a>
-        <div class="container signin">
-            <p>Don't have an account? <a href="/Home/Signup"><button type="submit" class="signupbtn">Register here</a>.</p>
+        <div class="container">
+            <p class="registerOrLogin">Don't have an account? <a href="/Home/SignUp">Register here</a>.</p>
         </div>
     </main>
 </div>
+
 

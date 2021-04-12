@@ -39,6 +39,7 @@ namespace Core2Base.Controllers
 
             // this ViewData key-value pair is to pass data from Controller to View
             ViewData["Products"] = ProductList;
+
             return View();
         }
 
@@ -93,29 +94,12 @@ namespace Core2Base.Controllers
             return View();
         }
 
-        // SignUp function with email and password
+        // SignUp function with email,password and re-entered password
         public IActionResult SignUp(string email, string password)
         {
-            if (password == null)
-            {
-                ViewData["errMsg"] = "Sorry. Password must be more than 8 characters.";
-                return View();
-            }
-
-            else
-            {
-                return View();
-            }
-
-        }
-
-        // showing the about us
-        public IActionResult AboutUs()
-        {
             return View();
-        }
 
-       
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
