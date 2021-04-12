@@ -35,9 +35,20 @@
                 <td>@product.Description</td>
                 <td>3</td>
                 <td>@product.UnitPrice</td>
-                <td>9th April 2021</td>
-                <td>
-                    <select name="cars" id="cars">
+                <td><select name="purchaseDate" id="purchaseDate">
+                    @for(var i = 0; i < 1; i++)
+                    {
+                        @foreach (var date in Products) {
+                        <option value="29 April 2021">
+                            @date.Name
+                        </option>
+                        }                 
+                    }
+                </select>
+                </td>
+                <td> 
+                    
+                    <select name="activationCodes" id="activationCodes">
                         <option value="5-12312313131231231">5-123123131312312312-8wiqwoeiqjeo</option>
                         <option value="5-12312313131231231">5-123123131312312312-8wiieuiwuo</option>
                         <option value="5-12312313131321123">5-12312313131321123iwuo</option>
