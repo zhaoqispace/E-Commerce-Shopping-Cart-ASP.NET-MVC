@@ -17,9 +17,7 @@ namespace Core2Base.Models
         public string UserImg { set; get; }
 
         public AccountType AccountType;
-
     }
-
     public enum AccountType
     {
         customer, 

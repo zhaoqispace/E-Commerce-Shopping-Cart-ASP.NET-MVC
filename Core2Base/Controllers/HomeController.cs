@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using Core2Base.Models;
 using Core2Base.Data;
 using BC = BCrypt.Net.BCrypt;
+using Microsoft.AspNetCore.Http;
 
 namespace Core2Base.Controllers
 {
@@ -68,11 +69,12 @@ namespace Core2Base.Controllers
 
                 if (user != null && BC.Verify(password, user.Password))
                 {
+                    HttpContext.Session.SetString("email", email);
                     return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    ViewData["errMsg"] = "Your email or password is wrong. Please try again";
+                    ViewData["errMsg"] = "You have entered an incorrect email or password. Please try again";
                     return View();
                 }
             }
@@ -107,7 +109,12 @@ namespace Core2Base.Controllers
             return View();
         }
 
-       
+       public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            Response.Cookies.Delete(".AspNetCore.Session");
+            return RedirectToAction("Index", "Home");
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
