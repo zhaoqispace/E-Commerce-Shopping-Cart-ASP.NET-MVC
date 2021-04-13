@@ -10,33 +10,33 @@ namespace Core2Base.Data
 {
     public class UserData : Data
     {
-        public static List<User> GetUserInfo()
+        public static User GetUserInfo(string Email)
         {
-            List<User> users = new List<User>();
+            User user = null;
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                string sql = @"Select * FROM User";
+                string sql = @"Select * FROM [User] left outer join UserAddress on [User].AddressID = UserAddress.AddressID where Email = " + "'" + Email + "'";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataReader reader = cmd.ExecuteReader();
 
-                while (reader.Read())
+                if (reader.Read())
                 {
-                    User user = new User()
+                    user = new User()
                     {
-                        UserId = (string)reader["UserId"],
+                        UserId = Convert.ToString(reader["UserId"]),
                         FirstName = (string)reader["FirstName"],
                         LastName = (string)reader["LastName"],
                         Email = (string)reader["Email"],
                         Password = (string)reader["Password"],
-                        AddressId = (string)reader["AddressId"],
-                        UserImg = (string)reader["UserImg"],
+                        Address = (string)reader["Address"],
+                        PostalCode = (string)reader["PostalCode"],
+                        UserImg = (string)reader["UserImg"]
                     };
-                    users.Add(user);
                 }
-                return users;
+                return user;
             }
         }
 
