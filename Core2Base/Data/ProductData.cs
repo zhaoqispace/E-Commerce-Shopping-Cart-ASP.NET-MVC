@@ -30,7 +30,7 @@ namespace Core2Base.Data
                         Description = (string)reader["ProductDesc"],
                         Category = (string)reader["ProductCat"],
                         UnitPrice = (double)reader["Price"],
-                        Image = (string)reader["ProductImg"],
+                        Image = (string)reader["ProductImg"]
                     };
                     products.Add(product);
                 }
