@@ -16,7 +16,7 @@
 <br />
 <div class="loginSignupForm text-center bg-light">
     <main class="form-signin">
-        <form id="form" action="/action_page.php" data-toggle="validator" role="form" method="POST">
+        <form id="form" action="/home/Index" data-toggle="validator" role="form" method="POST">
             <br />
             <h2> Register </h2>
             <p> Please fill in all particulars in this electronic form in order to create an account. All specified fields are mandatory.</p>
@@ -62,12 +62,16 @@
             </div>
 
             <div class="form-floating">
-                <input type="password" minlength="8" class="form-control" id="password" placeholder="enter password: ">
+                <input type="password" class="form-control" id="reenterpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*\W+)(?=.*[A-Z]).{8,}"
+                       placeholder="re-enter password: " title="Your password must consist of at least a digit, one lower case letter,
+                       one upper case letter, and at least a length of 8 characters" required>
+
                 <label for="floatingInput"><i class="fa fa-key"></i> Password</label>
             </div>
 
             <div class="form-floating">
-                <input type="password" minlength="8" class="form-control" id="reenterpassword" placeholder="re-enter password: " required>
+                <input type="password" class="form-control" id="reenterpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*\W+)(?=.*[A-Z]).{8,}"
+                       placeholder="re-enter password: " required>
                 <label for="re-enter password"><i class="fa fa-key"></i> Re-Enter Password</label>
 
             </div>
@@ -86,9 +90,9 @@
 
             <hr>
 
-            <p>By creating an account, you agree to our Terms & Privacy Policy.</p>
+            <p>By creating an account, you agree to our <a href="#">Terms & Privacy Policy.</a>.</p>
 
-            <button type="submit" class="registerbtn">Register</button>
+            <button type="submit" class="w-100 btn btn-lg btn-primary">Sign Up.</button>
 
             <div class="container signin">
                 <p class="registerOrLogin">Already have an account? <a href="/Home/Login">Sign in</a>.</p>

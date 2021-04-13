@@ -96,16 +96,9 @@ namespace Core2Base.Controllers
         // SignUp function with email and password
         public IActionResult SignUp(string email, string password)
         {
-            if (password == null)
-            {
-                ViewData["errMsg"] = "Sorry. Password must be more than 8 characters.";
+         
                 return View();
-            }
 
-            else
-            {
-                return View();
-            }
 
         }
 
