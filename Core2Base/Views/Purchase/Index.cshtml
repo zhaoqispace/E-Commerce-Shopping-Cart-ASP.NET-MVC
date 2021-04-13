@@ -7,6 +7,11 @@
     Layout = "/Views/Shared/_MyPurchasesPageLayout.cshtml";
 }
 
+@{
+    var Products = (List<Product>)ViewData["Products"];
+}
+
+
 <h3 class="pageHeader">My Purchases</h3>
 
 <table class="table">
@@ -22,62 +27,108 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td><img src="~/productimages/counterstrike.jpg" alt="CounterStrike Logo" height="150" width="150"></td>
-            <td>Counterstrike: Global Offensive</td>
-            <td>
-                Counter-Strike: Global Offensive (CS:GO) expands upon the team-based first person shooter gameplay that
-                was extremely fun.
-            </td>
-            <td>3</td>
-            <td>$89</td>
-            <td>9th April 2021</td>
-            <td>
-                <select name="cars" id="cars">
-                    <option value="5-123123131312312312-8wiqwoeiqjeo">5-123123131312312312-8wiqwoeiqjeo</option>
-                    <option value="5-123123131312312312-8wiieuiwuo">5-123123131312312312-8wiieuiwuo</option>
-                    <option value="5-12312313131321123iwu">5-12312313131321123iwuo</option>
-                    <option value="1231233211231321123iwu">6-1231233211231321123iwu</option>
+        @foreach (var product in Products)
+        {
+            <tr>
+                <td><img src="~/productimages/counterstrike.jpg" alt="CounterStrike Logo" height="150" width="150"></td>
+                <td>@product.Name</td>
+                <td>@product.Description</td>
+                <td>3</td>
+                <td>@product.UnitPrice</td>
+                <td><select name="purchaseDate" id="purchaseDate">
+                    @for(var i = 0; i < 1; i++)
+                    {
+                        @foreach (var date in Products) {
+                        <option value="29 April 2021">
+                            @date.Name
+                        </option>
+                        }                 
+                    }
                 </select>
-            </td>
-        </tr>
-
-        <tr>
-            <td><img src="~/productimages/dota2.jpg" alt="Dota 2 Logo" height="150" width="150"></td>
-            <td>Dota 2</td>
-            <td>
-                Dota 2 is a multiplayer online battle arena (MOBA) video game.
-            </td>
-            <td>1</td>
-            <td>$59</td>
-            <td>1st April 2021</td>
-            <td>
-                <select name="cars" id="cars">
-                    <option value="5-123123131312312312-8wiqwoeiqjeo">5-123123131312312312-8wiqwwqerjeo</option>
-                    <option value="5-12312313131231232-8wiieuiwuo">5-123123132131232312-8wiieuiwuo</option>
-                    <option value="5-123123123123131321123iwu">5-121312321123iwuo</option>
-                    <option value="12332131231321123iwu">6-121312231321123iwu</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td><img src="~/productimages/worldofwarcraft.jpg" alt="WoW Logo" height="150" width="150"></td>
-            <td>World of Warcraft: Shadowlands</td>
-            <td>
-                Shadowlands is World of Warcraft's new expansion, following Battle for Azeroth. This, WoW's eighth expansion,
-                features the very first level squish.
-            </td>
-            <td>2</td>
-            <td>$79</td>
-            <td>2nd February 2021</td>
-            <td>
-                <select name="cars" id="cars">
-                    <option value="5-123123131312312312-8wiqwoeiqjeo">5-1231231313123156778-8wiqwoeiqjeo</option>
-                    <option value="5-12132131212-8wiieuiwuo">5-12312321321312312-8wiieuiwuo</option>
-                    <option value="5-12321312123iwu">5-123123121312wuo</option>
-                    <option value="123123323123123iwu">6-12332131221123iwu</option>
-                </select>
-            </td>
-        </tr>
+                </td>
+                <td>
+                    <select name="activationCodes" id="activationCodes">
+                        <option value="5-12312313131231231">5-123123131312312312-8wiqwoeiqjeo</option>
+                        <option value="5-12312313131231231">5-123123131312312312-8wiieuiwuo</option>
+                        <option value="5-12312313131321123">5-12312313131321123iwuo</option>
+                        <option value="1231233211231321123">6-1231233211231321123iwu</option>
+                    </select>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+    @*
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Purchase Date</th>
+                    <th scope="col">Activation Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="~/productimages/counterstrike.jpg" alt="CounterStrike Logo" height="150" width="150"></td>
+                    <td>Counterstrike: Global Offensive</td>
+                    <td>
+                        Counter-Strike: Global Offensive (CS:GO) expands upon the team-based first person shooter gameplay that
+                        was extremely fun.
+                    </td>
+                    <td>3</td>
+                    <td>$89</td>
+                    <td>9th April 2021</td>
+                    <td>
+                        <select name="cars" id="cars">
+                            <option value="5-123123131312312312-8wiqwoeiqjeo">5-123123131312312312-8wiqwoeiqjeo</option>
+                            <option value="5-123123131312312312-8wiieuiwuo">5-123123131312312312-8wiieuiwuo</option>
+                            <option value="5-12312313131321123iwu">5-12312313131321123iwuo</option>
+                            <option value="1231233211231321123iwu">6-1231233211231321123iwu</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><img src="~/productimages/dota2.jpg" alt="Dota 2 Logo" height="150" width="150"></td>
+                    <td>Dota 2</td>
+                    <td>
+                        Dota 2 is a multiplayer online battle arena (MOBA) video game.
+                    </td>
+                    <td>1</td>
+                    <td>$59</td>
+                    <td>1st April 2021</td>
+                    <td>
+                        <select name="cars" id="cars">
+                            <option value="5-123123131312312312-8wiqwoeiqjeo">5-123123131312312312-8wiqwwqerjeo</option>
+                            <option value="5-12312313131231232-8wiieuiwuo">5-123123132131232312-8wiieuiwuo</option>
+                            <option value="5-123123123123131321123iwu">5-121312321123iwuo</option>
+                            <option value="12332131231321123iwu">6-121312231321123iwu</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="~/productimages/worldofwarcraft.jpg" alt="WoW Logo" height="150" width="150"></td>
+                    <td>World of Warcraft: Shadowlands</td>
+                    <td>
+                        Shadowlands is World of Warcraft's new expansion, following Battle for Azeroth. This, WoW's eighth expansion,
+                        features the very first level squish.
+                    </td>
+                    <td>2</td>
+                    <td>$79</td>
+                    <td>2nd February 2021</td>
+                    <td>
+                        <select name="cars" id="cars">
+                            <option value="5-123123131312312312-8wiqwoeiqjeo">5-1231231313123156778-8wiqwoeiqjeo</option>
+                            <option value="5-12132131212-8wiieuiwuo">5-12312321321312312-8wiieuiwuo</option>
+                            <option value="5-12321312123iwu">5-123123121312wuo</option>
+                            <option value="123123323123123iwu">6-12332131221123iwu</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>*@

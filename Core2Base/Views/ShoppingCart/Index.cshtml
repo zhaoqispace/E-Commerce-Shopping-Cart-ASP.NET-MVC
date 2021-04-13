@@ -3,6 +3,10 @@
     ViewData["Title"] = "Shopping Cart";
 }
 
+@{
+    var Products = (List<Product>)ViewData["Products"];
+}
+
 <h3 class="pageHeader">Shopping Cart</h3>
 
 <div class="shoppingCartTable">
@@ -18,61 +22,97 @@
             </tr>
         </thead>
         <tbody>
+            @foreach (var product in Products)
+            {
             <tr>
-                <td><img src="~/productimages/dota2_2.jpg" alt="Dota2 Logo" height="150" width="150"></td>
-                <td>Dota 2</td>
+                <td><img src="~/productimages/dota2_2.jpg" alt="Dota2 Logo" height="150" width="150"></td> 
+                <td>@product.Name</td>
+                <td>@product.Description</td>
                 <td>
-                    Dota 2 is a multiplayer online battle arena (MOBA) video game.
-                </td>
-                <td>
-                    <button type="button" class="minusButton">-</button>1<button type="button" class="plusButton">+</button>
+                    <button type="button" class="minusButton">-</button><input class="quantity" type="text" onkeypress="return event.charCode >= 48" value="1"><button type="button" class="plusButton">+</button> @*Need to change 1 to a quantity field when .cs file is ready*@
                     <br />
                     <button type="button" class="removeAllButton">Remove All</button>
                 </td>
-                <td>$89</td>
-                <td>$89</td>
+                <td>@product.UnitPrice</td>
+                <td>@(product.UnitPrice * 2)</td>    @*Need to change 2 to a quantity field when .cs file is ready*@
             </tr>
-
-            <tr>
-                <td><img src="~/productimages/worldofwarcraft_2.jpg" alt="WorldofWarcraft Logo" height="150" width="150"></td>
-                <td>World of Warcraft</td>
-                <td>
-                    A "Massively Multiplayer" online game (MMORPG).
-                </td>
-                <td>
-                    <button type="button" class="minusButton">-</button>2<button type="button" class="plusButton">+</button>
-                    <br />
-                    <button type="button" class="removeAllButton">Remove All</button>
-                </td>
-                <td>$59</td>
-                <td>$108</td>
-            </tr>
-
-            <tr>
-                <td><img src="~/productimages/counterstrike.jpg" alt="Counterstrike Logo" height="150" width="150"></td>
-                <td>Counterstrike</td>
-                <td>
-                    Counter-Strike: Global Offensive (CS:GO) expands upon the team-based first person shooter gameplay that
-                    was extremely fun.
-                </td>
-                <td>
-                    <button type="button" class="minusButton">-</button>2<button type="button" class="plusButton">+</button>
-                    <br />
-                    <button type="button" class="removeAllButton">Remove All</button>
-                </td>
-                <td>$49</td>
-                <td>$98</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><b>Total:</b></td>
-                <td class="totalPrice">$295</td>
-            </tr>
+            }
         </tbody>
     </table>
 </div>
 
 <input type="submit" value="Checkout" class="checkoutBtn btn btn-primary">
+
+
+@*<h3 class="pageHeader">Shopping Cart</h3>*@
+
+                    @*<div class="shoppingCartTable">
+                        <table class="table">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Unit Price</th>
+                                    <th scope="col">Sub-Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>*@
+                                @*<tr>
+                                    <td><img src="~/productimages/dota2_2.jpg" alt="Dota2 Logo" height="150" width="150"></td>
+                                    <td>Dota 2</td>
+                                    <td>
+                                        Dota 2 is a multiplayer online battle arena (MOBA) video game.
+                                    </td>
+                                    <td>
+                                        <button type="button" class="minusButton">-</button>1<button type="button" class="plusButton">+</button>
+                                        <br />
+                                        <button type="button" class="removeAllButton">Remove All</button>
+                                    </td>
+                                    <td>$89</td>
+                                    <td>$89</td>
+                                </tr>
+
+                            <tr>
+                                <td><img src="~/productimages/worldofwarcraft_2.jpg" alt="WorldofWarcraft Logo" height="150" width="150"></td>
+                                <td>World of Warcraft</td>
+                                <td>
+                                    A "Massively Multiplayer" online game (MMORPG).
+                                </td>
+                                <td>
+                                    <button type="button" class="minusButton">-</button>2<button type="button" class="plusButton">+</button>
+                                    <br />
+                                    <button type="button" class="removeAllButton">Remove All</button>
+                                </td>
+                                <td>$59</td>
+                                <td>$108</td>
+                            </tr>
+
+                            <tr>
+                                <td><img src="~/productimages/counterstrike.jpg" alt="Counterstrike Logo" height="150" width="150"></td>
+                                <td>Counterstrike</td>
+                                <td>
+                                    Counter-Strike: Global Offensive (CS:GO) expands upon the team-based first person shooter gameplay that
+                                    was extremely fun.
+                                </td>
+                                <td>
+                                    <button type="button" class="minusButton">-</button>2<button type="button" class="plusButton">+</button>
+                                    <br />
+                                    <button type="button" class="removeAllButton">Remove All</button>
+                                </td>
+                                <td>$49</td>
+                                <td>$98</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><b>Total:</b></td>
+                                <td class="totalPrice">$295</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>*@
+@*<input type="submit" value="Checkout" class="checkoutBtn btn btn-primary">*@
