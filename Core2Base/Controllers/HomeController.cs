@@ -66,7 +66,7 @@ namespace Core2Base.Controllers
             {
                 User user = UserData.GetUserInfo(email);
 
-                if (BC.Verify(password, user.Password))
+                if (user != null && BC.Verify(password, user.Password))
                 {
                     return RedirectToAction("Index", "Home");
                 }
