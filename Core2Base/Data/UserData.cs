@@ -17,9 +17,10 @@ namespace Core2Base.Data
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                string sql = @"Select * FROM [User] left outer join UserAddress on [User].AddressID = UserAddress.AddressID where Email = " + "'" + Email + "'";
+                string sql = @"Select * FROM [User] left outer join UserAddress on [User].AddressID = UserAddress.AddressID where Email = @Email";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@Email", Email);
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
