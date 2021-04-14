@@ -7,7 +7,7 @@ namespace Core2Base.Models
 {
     public class User
     {
-        public string UserId { set; get; }
+        public Guid UserId { set; get; }
         public string FirstName { set; get; }
         public string LastName { set; get; }
         public string Email { set; get; }

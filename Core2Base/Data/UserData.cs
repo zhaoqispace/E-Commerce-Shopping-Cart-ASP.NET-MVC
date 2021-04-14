@@ -27,7 +27,7 @@ namespace Core2Base.Data
                 {
                     user = new User()
                     {
-                        UserId = Convert.ToString(reader["UserId"]),
+                        UserId = (Guid)(reader["UserId"]),
                         FirstName = (string)reader["FirstName"],
                         LastName = (string)reader["LastName"],
                         Email = (string)reader["Email"],
