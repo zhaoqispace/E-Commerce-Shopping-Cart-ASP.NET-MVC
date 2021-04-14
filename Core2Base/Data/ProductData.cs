@@ -25,7 +25,7 @@ namespace Core2Base.Data
                 {
                     Product product = new Product()
                     {
-                        Id = Convert.ToString(reader["ProductId"]),
+                        Id = (Guid)(reader["ProductId"]),
                         Name = (string)reader["ProductName"],
                         Description = (string)reader["ProductDesc"],
                         Category = (string)reader["ProductCat"],

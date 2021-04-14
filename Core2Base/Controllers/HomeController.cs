@@ -90,10 +90,7 @@ namespace Core2Base.Controllers
         // SignUp function with email and password
         public IActionResult SignUp(string email, string password)
         {
-         
                 return View();
-
-
         }
 
         // showing the about us
