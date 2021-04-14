@@ -15,6 +15,7 @@ namespace Core2Base.Models
         public string Address { set; get; }
         public string PostalCode { set; get; }
         public string UserImg { set; get; }
+        public string Salutation { set; get; }
 
         public AccountType AccountType;
     }

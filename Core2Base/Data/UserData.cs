@@ -17,7 +17,7 @@ namespace Core2Base.Data
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                string sql = @"Select * FROM [User] left outer join UserAddress on [User].AddressID = UserAddress.AddressID where Email = @Email";
+                string sql = @"Select * FROM [User] where Email = @Email";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@Email", Email);
@@ -32,6 +32,7 @@ namespace Core2Base.Data
                         LastName = (string)reader["LastName"],
                         Email = (string)reader["Email"],
                         Password = (string)reader["Password"],
+                        Salutation = (string)reader["Salutation"],
                         Address = (string)reader["Address"],
                         PostalCode = (string)reader["PostalCode"],
                         UserImg = (string)reader["UserImg"]
