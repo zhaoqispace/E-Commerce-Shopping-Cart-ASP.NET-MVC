@@ -159,10 +159,8 @@ body {
     }
 
 .removeAllButton {
-    margin-top: 4px;
-    background-color: transparent;
-    border: none;
-    width: 75px;
+    margin-top: 8px;
+    background-color: #FFFFF0;
     height: 25px;
     line-height: 5px;
     font-size: 12.5px;
@@ -219,8 +217,14 @@ tr td:nth-child(6) {
     max-width: 900px;
 }
 
+.quantity {
+    width: 12%;
+    text-align: center;
+    border: none;
+    color: black;
+}
 
-@media only screen and (max-width: 998px) and (min-width: 900px) {
+@media only screen and (max-width: 999px) and (min-width: 900px) {
     .shoppingCartLogo {
         margin-bottom: 7px;
         display: inline-flex;
@@ -311,6 +315,13 @@ tr td:nth-child(6) {
         margin-left: 18.5%;
         max-width: 650px;
     }
+
+    .quantity {
+        width: 12%;
+        text-align: center;
+        border: none;
+        color: black;
+    }
 }
 
 
@@ -359,6 +370,13 @@ tr td:nth-child(6) {
     .registerOrLogin {
         margin-right: 35%;
     }
+
+    .quantity {
+        width: 36%;
+        text-align: center;
+        border: none;
+        color: black;
+    }
 }
 
 @media only screen and (max-width: 1300px) and (min-width: 1199px) {
@@ -405,11 +423,18 @@ tr td:nth-child(6) {
     .registerOrLogin {
         margin-right: 37%;
     }
+
+    .quantity {
+        width: 32%;
+        text-align: center;
+        border: none;
+        color: black;
+    }
 }
 
 
 
-@media only screen and (max-width: 1400px) and (min-width: 1300px) {
+@media only screen and (max-width: 1401px) and (min-width: 1300px) {
 
     .shoppingCartLogo {
         margin-bottom: 7px;
@@ -453,10 +478,17 @@ tr td:nth-child(6) {
     .registerOrLogin {
         margin-right: 37%;
     }
+
+    .quantity {
+        width: 28%;
+        text-align: center;
+        border: none;
+        color: black;
+    }
 }
 
 
-@media only screen and (max-width: 1532px) and (min-width: 1401px) {
+@media only screen and (max-width: 1533px) and (min-width: 1401px) {
 
     .shoppingCartLogo {
         margin-bottom: 7px;
@@ -473,7 +505,7 @@ tr td:nth-child(6) {
         justify-content: flex-end;
         flex-direction: row;
         flex: 1 1 auto;
-        margin-left: 28.8%;
+        margin-left: 27.8%;
         font-size: 21px;
     }
 
@@ -505,6 +537,13 @@ tr td:nth-child(6) {
     .registerOrLogin {
         margin-right: 10%;
     }
+
+    .quantity {
+        width: 24%;
+        text-align: center;
+        border: none;
+        color: black;
+    }
 }
 
 @media only screen and (max-width: 1600px) and (min-width: 1533px) {
@@ -523,7 +562,7 @@ tr td:nth-child(6) {
         justify-content: flex-end;
         flex-direction: row;
         flex: 1 1 auto;
-        margin-left: 27.9%;
+        margin-left: 27%;
         font-size: 21px;
     }
 
@@ -550,6 +589,11 @@ tr td:nth-child(6) {
     .registerOrLogin {
         margin-right: 19%;
     }
-}
 
+    .quantity {
+        width: 19%;
+        text-align: center;
+        border: none;
+    }
+}
 
