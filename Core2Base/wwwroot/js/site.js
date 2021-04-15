@@ -35,9 +35,9 @@ $(".quantity").on("keyup", function () {
         $(this).val(99);
     }
 
-    if ($(this).val() != Number) {
-        alert("Sorry, no special characters are allowed in quantity field.");
-        $(this).val(99);
+    if (/^[0-9]*$/.test($(".quantity").val()) == false) {
+        alert("Sorry, no special characters or alphabets are allowed in quantity field.");
+        $(this).val(1);
     }
 });
 
@@ -49,4 +49,3 @@ $(document).ready(function () {
         $(".qtyInCart").text(currentItems);
     });
 });
-
