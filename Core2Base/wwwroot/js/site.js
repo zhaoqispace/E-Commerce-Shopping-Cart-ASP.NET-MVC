@@ -23,6 +23,16 @@ $('.minusButton').click(function Minus() {
     }
 });
 
+
+
+var currentItems = 0;
+$(document).ready(function () {
+
+    $(".add-to-cart").click(function () {
+        currentItems++;
+        $(".qtyInCart").text(currentItems);
+    });
+
 $(".quantity").on("keyup", function () {
 
     if ($(this).val() < 1 && $(this).val() != ' ') {

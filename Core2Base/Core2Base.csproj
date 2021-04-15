@@ -67,6 +67,7 @@
     <Folder Include="wwwroot\js\" />
   </ItemGroup>
   <ItemGroup>
+
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.2" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>
