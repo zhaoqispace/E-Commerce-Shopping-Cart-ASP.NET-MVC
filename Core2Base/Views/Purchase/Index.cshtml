@@ -31,7 +31,7 @@
         {
             <tr>
                 <td><img src="~/productimages/counterstrike.jpg" alt="CounterStrike Logo" height="150" width="150"></td>
-                <td>@product.Name</td>
+                <td>@product.ProductName</td>
                 <td>@product.Description</td>
                 <td>3</td>
                 <td>@product.UnitPrice</td>
@@ -40,7 +40,7 @@
                     {
                         @foreach (var date in Products) {
                         <option value="29 April 2021">
-                            @date.Name
+                            @date.ProductName
                         </option>
                         }                 
                     }

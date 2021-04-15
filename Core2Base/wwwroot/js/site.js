@@ -16,3 +16,15 @@ $('.minusButton').click(function Minus() {
         numberInCart.val(parseInt(numberInCart.val(), 10) - counter);
     }
 });
+
+
+
+var currentItems = 0;
+$(document).ready(function () {
+
+    $(".add-to-cart").click(function () {
+        currentItems++;
+        $(".qtyInCart").text(currentItems);
+    });
+
+});
