@@ -1,9 +1,27 @@
-﻿@*@model IEnumerable<Core2Base.Models.Product>*@
+@{
+    ViewData["Title"] = "HomePage";
+}
 
 
+<!-- The following codes are to show the product list-->
+<!-- The ViewData["Products"] key-value pair is temporarily used to get data frm ProductController-->
 
-    @{
-        ViewData["Title"] = "HomePage";
+@{
+    var Products = (List<Product>)ViewData["Products"];
+}
+<div class="container d-flex flex-wrap ">
+
+    @foreach (var product in Products)
+    {
+        <div class="card">
+            <img src="@product.Image" class="card-img-top" alt="@product.Name &nbsp @product.Description" width="150" height="200">
+            <div class="card-body d-grid">
+                <h5 class="card-title">@product.Name</h5>
+                <h5 class="card-title">@Html.DisplayFor(p => product.UnitPrice)</h5>
+                <p class="card-text">@product.Description</p>
+                <a href="#" class="mt-auto col-6 btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
     }
 
 

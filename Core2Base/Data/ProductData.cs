@@ -26,12 +26,12 @@ namespace Core2Base.Data
                 {
                     Product product = new Product()
                     {
-                        Id = Convert.ToString(reader["ProductId"]),
+                        Id = (Guid)(reader["ProductId"]),
                         Name = (string)reader["ProductName"],
                         Description = (string)reader["ProductDesc"],
                         Category = (string)reader["ProductCat"],
                         UnitPrice = (double)reader["Price"],
-                        Image = (string)reader["ProductImg"],
+                        Image = (string)reader["ProductImg"]
                     };
                     products.Add(product);
                 }
