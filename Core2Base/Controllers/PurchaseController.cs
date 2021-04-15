@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+using Core2Base.Data;
+using Core2Base.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Core2Base.Models;
@@ -17,15 +20,27 @@ namespace Core2Base.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            List<Product> ProductList = ProductData.GetProductInfo();
-            ViewData["Products"] = ProductList;
+            //getting purchase history
+            List<PurchaseHistory> purchaseHistoryList = PurchaseHistoryData.GetPurchaseHistory();
+            ViewData["PurchaseHistory"] = purchaseHistoryList;
+
             return View();
         }
 
-        // Retrieving total price  
-        public IActionResult ViewTotalPrice()
+        // Retrieving activation status  
+        public IActionResult GetActivationStatus([FromBody] ProductDate pDate)
         {
-            return View();
+            Debug.WriteLine("Date", pDate.Date);
+            Debug.WriteLine("ProductID", pDate.ProductID);
+            string newFormat = DateTime.ParseExact(pDate.Date, "dd/MM/yyyy", CultureInfo.InvariantCulture).ToString("yyyy-dd-MM", CultureInfo.InvariantCulture);
+            Debug.WriteLine("New format", newFormat);
+            string activationCode = PurchaseHistoryData.GetDateAndActivation(newFormat ,pDate.ProductID);
+            Debug.WriteLine(activationCode);
+            return Json(new
+            {
+                success = true,
+                status = activationCode
+            });
         }
     }
 }
