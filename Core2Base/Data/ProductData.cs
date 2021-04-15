@@ -37,5 +37,38 @@ namespace Core2Base.Data
                 return products;
             }
         }
+
+        public static List<Product> SearchProducts(string searchTerm)
+        {
+            List<Product> products = new List<Product>();
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string sql = @"Select * FROM Product where ProductName like @ProductName";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@ProductName", '%' + searchTerm + '%');
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Product product = new Product()
+                    {
+                        Id = (Guid)reader["ProductId"],
+                        Name = (string)reader["ProductName"],
+                        Description = (string)reader["ProductDesc"],
+                        Category = (string)reader["ProductCat"],
+                        UnitPrice = (double)reader["Price"],
+                        Image = (string)reader["ProductImg"],
+                    };
+                    products.Add(product);
+                }
+
+
+                return products;
+            }
+        }
+
     }
 }
