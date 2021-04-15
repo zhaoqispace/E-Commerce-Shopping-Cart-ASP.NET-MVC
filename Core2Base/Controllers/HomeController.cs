@@ -28,8 +28,6 @@ namespace Core2Base.Controllers
             ViewData["Products"] = ProductList;
             return View();
         }
-        public IActionResult AddToCart()
-
         // Retrieving products 
         public IActionResult ShowProductLists()
         {
