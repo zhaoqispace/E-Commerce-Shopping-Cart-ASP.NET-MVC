@@ -52,7 +52,7 @@ namespace Core2Base.Data
                 cmd.Parameters.AddWithValue("@Price", '%' + searchTerm + '%');
                 cmd.Parameters.AddWithValue("@ProductDesc", '%' + searchTerm + '%');
                 SqlDataReader reader = cmd.ExecuteReader();
-
+                
                 while (reader.Read())
                 {
                     Product product = new Product()
