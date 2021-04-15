@@ -34,6 +34,11 @@ $(".quantity").on("keyup", function () {
         alert("Sorry, The purchase limit for each product is 99.");
         $(this).val(99);
     }
+
+    if ($(this).val() != Number) {
+        alert("Sorry, no special characters are allowed in quantity field.");
+        $(this).val(99);
+    }
 });
 
 var currentItems = 0;
@@ -43,5 +48,5 @@ $(document).ready(function () {
         currentItems++;
         $(".qtyInCart").text(currentItems);
     });
-
 });
+
