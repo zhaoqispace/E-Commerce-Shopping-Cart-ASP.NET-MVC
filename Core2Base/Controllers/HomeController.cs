@@ -30,20 +30,6 @@ namespace Core2Base.Controllers
             return View();
         }
 
-
-        // this method is implemented by Zhao Qi, which may  conflict with backend team coding
-        // please come back to me if you are not satisfied with the way I code it
-        public IActionResult SearchResults(string searchTerm)
-        {
-
-           List<Product> foundProducts = ProductData.SearchProducts(searchTerm);
-
-            ViewData["foundProducts"] = foundProducts;
-            return View(foundProducts);
-        }
-
-
-
         // Retrieving products 
         public IActionResult ShowProductLists()
         {

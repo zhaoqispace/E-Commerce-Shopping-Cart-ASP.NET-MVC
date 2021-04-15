@@ -1,3 +1,4 @@
+﻿
 @{
     ViewData["Title"] = "HomePage";
 }
@@ -23,35 +24,7 @@
             </div>
         </div>
     }
-
-
-
-    <!-- The following codes are to show the product list-->
-    <!-- The ViewData["Products"] key-value pair is temporarily used to get data frm ProductController-->
-    @{
-            var Products = (List<Product>)ViewData["Products"];
-
-        }
-
-
-    <div class="container d-flex flex-wrap id=" ProductList"">
-
-        @foreach (var product in Products)
-        {
-            <div class="card">
-                <img src="@product.Image" class="card-img-top" alt="..." width="150" height="200">
-                <div class="card-body">
-                    <h5 class="card-title" name="product">@product.Name</h5>
-                    <h5 class="card-title">@Html.DisplayFor(p => product.UnitPrice)</h5>
-                    <p class="card-text">@product.Description</p>
-                    <button type="button" class=" btn btn-primary add-to-cart">Add to Cart</button>
-                </div>
-            </div>
-        }
-    </div>
-
-
-
+</div>
 
 
 
