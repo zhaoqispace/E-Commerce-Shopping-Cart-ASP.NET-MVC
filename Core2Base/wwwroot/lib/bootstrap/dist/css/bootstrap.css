@@ -756,6 +756,11 @@ progress {
     width: 50%;
 }
 
+.col-addCart {
+    flex: 0 0 auto;
+    width: 60%;
+}
+
 .col-7 {
     flex: 0 0 auto;
     width: 58.3333333333%;

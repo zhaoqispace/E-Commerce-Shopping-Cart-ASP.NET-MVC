@@ -33,7 +33,7 @@ namespace Core2Base.Controllers
         //Search Results method and page
         public IActionResult SearchResults(string searchTerm)
         {
-
+            searchTerm = searchTerm.Trim();
             List<Product> foundProducts = ProductData.SearchProducts(searchTerm);
 
             ViewData["foundProducts"] = foundProducts;
