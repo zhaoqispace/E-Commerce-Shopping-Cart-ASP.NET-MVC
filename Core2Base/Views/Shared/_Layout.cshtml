@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    
 </head>
 
 <!-- HEADER START -->
@@ -27,7 +28,7 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="/Home/">Home</a>
                     </li>
-                    
+
                     <!-- ABOUT LINK -->
 
                     <li class="nav-item">
@@ -37,9 +38,9 @@
 
                 <!-- SEARCH BAR -->
 
-                <form class="form-inline" action="">
-                    <input class="py-1 searchbar" type="text" placeholder="Enter your search here...">
-                    <button type="submit" class="search-button">
+                <form class="form-inline" action="/Home/SearchResults" method="post">
+                    <input name="searchTerm" class="py-1 searchbar" type="text" placeholder="Enter your search here...">
+                    <button type="submit" value="Search" class="search-button">
                         <img src="~/defaultimages/magnifyingGlass.png">
                     </button>
                 </form>
@@ -71,19 +72,21 @@
 @model IEnumerable<Core2Base.Models.Product>
     <!-- The following codes are to show the Shopping Cart Button-->
 <!-- The href link is the source of the cart icon, then no need to hard code the icon from img tag-->
-@{ int x = 1;}    @*Uncomment this line and comment the next line (x = 0), when you want to show the number of items in shopping cart*@
-@*@{ int x = 0;}        Uncomment this line and comment the above line (x = 1), when there is no item in shopping cart*@
+@*@{ var qtyInCart = 0;}*@    @*Uncomment this line and comment the next line (x = 0), when you want to show the number of items in shopping cart*@
+@{ var qtyInCart = 1;}        @*Uncomment this line and comment the above line (x = 1), when there is no item in shopping cart*@
 
-@if (x == 1)
+@if (qtyInCart == 1)
 {
-    <span class="shoppingCartHeading">Shopping Cart &nbsp</span> 
-    <button type="button" class="shoppingCartLogo btn btn-primary" href="#"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart">@x</span></button>
+    <span class="shoppingCartHeading">Shopping Cart &nbsp</span>
+
+    <button type="button" class="shoppingCartLogo btn btn-primary" href="#"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart">0</span></button>
 }
 else
 {
     <span class="shoppingCartHeading">Shopping Cart</span>
-    <button type="button" class="shoppingCartLogo btn btn-primary" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></button>
+    <button type="button" class="shoppingCartLogo btn btn-primary" href="#"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart"></span></button>
 }
+
 
 
 <body>
@@ -106,6 +109,7 @@ else
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>   <!-- add by Zhao Qi-->
     @RenderSection("Scripts", required: false)
 </body>
 

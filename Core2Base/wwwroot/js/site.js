@@ -35,3 +35,13 @@ $(".quantity").on("keyup", function () {
         $(this).val(99);
     }
 });
+
+var currentItems = 0;
+$(document).ready(function () {
+
+    $(".add-to-cart").click(function () {
+        currentItems++;
+        $(".qtyInCart").text(currentItems);
+    });
+
+});

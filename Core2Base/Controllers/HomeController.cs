@@ -30,6 +30,17 @@ namespace Core2Base.Controllers
             return View();
         }
 
+        //Search Results method and page
+        public IActionResult SearchResults(string searchTerm)
+        {
+
+            List<Product> foundProducts = ProductData.SearchProducts(searchTerm);
+
+            ViewData["foundProducts"] = foundProducts;
+            return View(foundProducts);
+        }
+
+
         // Retrieving products 
         public IActionResult ShowProductLists()
         {
