@@ -24,19 +24,27 @@
         <tbody>
             @foreach (var product in Products)
             {
-            <tr>
-                <td><img src="~/productimages/dota2_2.jpg" alt="Dota2 Logo" height="150" width="150"></td> 
-                <td>@product.Name</td>
-                <td>@product.Description</td>
-                <td>
-                    <button type="button" class="minusButton">-</button><input class="quantity" type="text" onkeypress="return event.charCode >= 48" value="1"><button type="button" class="plusButton">+</button> @*Need to change 1 to a quantity field when .cs file is ready*@
-                    <br />
-                    <button type="button" class="removeAllButton">Remove All</button>
-                </td>
-                <td>@product.UnitPrice</td>
-                <td>@(product.UnitPrice * 2)</td>    @*Need to change 2 to a quantity field when .cs file is ready*@
-            </tr>
+                <tr>
+                    <td><img src="~/productimages/dota2_2.jpg" alt="Dota2 Logo" height="150" width="150"></td>
+                    <td>@product.Name</td>
+                    <td>@product.Description</td>
+                    <td>
+                        <button type="button" class="minusButton">-</button><input class="quantity" type="text" onkeypress="return event.charCode >= 48" value="1"><button type="button" class="plusButton">+</button> @*Need to change 1 to a quantity field when .cs file is ready*@
+                        <br />
+                        <button type="button" class="removeAllButton">Remove From Cart</button>
+                    </td>
+                    <td>@product.UnitPrice</td>
+                    <td>@(product.UnitPrice * 2)</td>    @*Need to change 2 to a quantity field when .cs file is ready*@
+                </tr>
             }
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><b>Total:</b></td>
+                <td class="totalPrice">$295</td>
+            </tr>
         </tbody>
     </table>
 </div>
