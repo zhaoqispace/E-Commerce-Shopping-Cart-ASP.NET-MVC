@@ -49,3 +49,11 @@ $(document).ready(function () {
         $(".qtyInCart").text(currentItems);
     });
 });
+
+$('.search-button').click(function () {
+    if ($.trim($('.searchbar').val()) == '' && ($('.searchbar').val()) != '')
+        alert('Input is blank. Please fill in your search parameters');
+});
+
+
+
