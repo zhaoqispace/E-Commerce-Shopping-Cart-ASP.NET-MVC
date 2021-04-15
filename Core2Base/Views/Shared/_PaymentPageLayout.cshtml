@@ -43,39 +43,31 @@
                         <img src="~/defaultimages/magnifyingGlass.png">
                     </button>
                 </form>
+
+
+                <!-- NO LOGIN END TEXT-->
+                <div class="ml-auto">
+                    <a href="/Home/Login/" type="button" class="btn btn-outline-light me-2">Login</a>
+                </div>
+                <!--END OF NO LOGIN END TEXT MENU -->
+
             </div>
         </div>
     </nav>
 </header>
-
 <!-- HEADER END-->
 <br />
 <!-- GAP BETWEEN HEADER & BODY -->
-
 <div class="welcomeBar">
     <p>Hello, <b>Mickey Mouse</b></p>
-    <a href="/ShoppingCart/Index">View Your Shopping Cart</a>
+    <a href="">Continue Shopping</a>
     <p>|</p>
     <a href="">Logout</a>
 </div>
 
-@model IEnumerable<Core2Base.Models.Product>
-    <!-- The following codes are to show the Shopping Cart Button-->
-<!-- The href link is the source of the cart icon, then no need to hard code the icon from img tag-->
-@{ int x = 1;}    @*Uncomment this line and comment the next line (x = 0), when you want to show the number of items in shopping cart*@
-@*@{ int x = 0;}        Uncomment this line and comment the above line (x = 1), when there is no item in shopping cart*@
-
-@if (x == 1)
-{
-    <span class="shoppingCartHeading">Shopping Cart</span>
-    <button type="button" class="shoppingCartLogo btn btn-primary" href="#"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart">@x</span></button>
-}
-else
-{
-    <span class="shoppingCartHeading">Shopping Cart</span>
-    <button type="button" class="shoppingCartLogo btn btn-primary" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></button>
-}
-
+<!-- HEADER END-->
+<br />
+<!-- GAP BETWEEN HEADER & BODY -->
 
 <body>
     <div>
@@ -101,4 +93,3 @@ else
 </body>
 
 </html>
-
