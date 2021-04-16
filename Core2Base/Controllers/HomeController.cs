@@ -29,11 +29,14 @@ namespace Core2Base.Controllers
             ViewData["Products"] = ProductList;
             return View();
         }
-
+        
         //Search Results method and page
         public IActionResult SearchResults(string searchTerm)
         {
-
+            if (searchTerm != null)
+            {
+                searchTerm = searchTerm.Trim();
+            }
             List<Product> foundProducts = ProductData.SearchProducts(searchTerm);
 
             ViewData["foundProducts"] = foundProducts;

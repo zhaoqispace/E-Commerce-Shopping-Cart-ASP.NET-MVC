@@ -34,6 +34,11 @@ $(".quantity").on("keyup", function () {
         alert("Sorry, The purchase limit for each product is 99.");
         $(this).val(99);
     }
+
+    if (/^[0-9]*$/.test($(".quantity").val()) == false) {
+        alert("Sorry, no special characters or alphabets are allowed in quantity field.");
+        $(this).val(1);
+    }
 });
 
 var currentItems = 0;
@@ -43,5 +48,12 @@ $(document).ready(function () {
         currentItems++;
         $(".qtyInCart").text(currentItems);
     });
-
 });
+
+$('.search-button').click(function () {
+    if ($.trim($('.searchbar').val()) == '' && ($('.searchbar').val()) != '')
+        alert('Input is blank. Please fill in your search parameters');
+});
+
+
+

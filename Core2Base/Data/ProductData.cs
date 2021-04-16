@@ -45,12 +45,14 @@ namespace Core2Base.Data
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                string sql = @"Select * FROM Product where ProductName like @ProductName";
-
+                string sql = @"Select * FROM Product where ProductName like @ProductName OR Price like @Price OR ProductDesc like @ProductDesc";
+                
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@ProductName", '%' + searchTerm + '%');
+                cmd.Parameters.AddWithValue("@Price", '%' + searchTerm + '%');
+                cmd.Parameters.AddWithValue("@ProductDesc", '%' + searchTerm + '%');
                 SqlDataReader reader = cmd.ExecuteReader();
-
+                
                 while (reader.Read())
                 {
                     Product product = new Product()
