@@ -25,12 +25,14 @@ namespace Core2Base.Controllers
         }
         public IActionResult Index()
         {
+            /*
             if (Request.Cookies["sessionID"] == null)
             {
                 Response.Cookies.Append("sessionID", session.SessionID);
             }
+            */
             HttpContext.Session.SetString("sessionid", session.SessionID);
-            ViewData["userinsession"] = TempData["userinsession"];
+            
             // this ViewData key-value pair is to pass data from Controller to View
             List<Product> ProductList = ProductData.GetProductInfo();
             ViewData["Products"] = ProductList;
@@ -160,5 +162,8 @@ namespace Core2Base.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
+
     }
 }

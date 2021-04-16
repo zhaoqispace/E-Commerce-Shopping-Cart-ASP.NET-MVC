@@ -56,4 +56,48 @@ $('.search-button').click(function () {
 });
 
 
+window.onload = function () {
+    let elemList = document.getElementsByClassName("add-to-cart");
+
+    for (let i = 0; i < elemList.length; i++) {
+        elemList[i].addEventListener("click", onAdd);
+    }
+}
+
+function onAdd(event)
+{
+    let elem = event.currentTarget;
+    let elemId = elem.getAttribute("id");
+
+    addcartlogin(elemId);
+
+}
+
+function addcartlogin(elemId)
+{
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("Post", "/ShoppingCart/AddtoCart");
+    xhr.setRequestHeader("Content-Type", "application/json; charset=utf8");
+    xhr.onreadystatechange = function ()
+    {
+        if (this.readyState === XMLHttpRequest.DONE)
+        {
+            // check if HTTP operation is okay
+            if (this.status !== 200)
+                return;
+
+            let data = JSON.parse(this.responseText);
+
+            if (!data.success)
+                return;
+
+            let elem = document.getElementById(elemId);
+            if (!elem)
+                return;
+        }
+    }
+
+    xhr.send(JSON.stringify({productid: elemId}));
+}
 
