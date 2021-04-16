@@ -31,9 +31,11 @@ namespace Core2Base.Data
                         FirstName = (string)reader["FirstName"],
                         LastName = (string)reader["LastName"],
                         Email = (string)reader["Email"],
+                        DateOfBirth =(string)reader["DateOfBirth"],
                         Password = (string)reader["Password"],
                         Salutation = (string)reader["Salutation"],
                         Address = (string)reader["Address"],
+                        PostalCode = (string)reader["PostalCode"],
                         UserImg = (string)reader["UserImg"]
                     };
                 }

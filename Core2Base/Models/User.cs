@@ -17,21 +17,37 @@ namespace Core2Base.Models
         public string Gender { get; set; }
         public string Password { get; set; }
         public string Address { get; set; }
+        public string PostalCode { get; set; }
         public string UserImg { get; set; }
+        public string DateOfBirth { get; set; }
         public string Salutation { get; set; }
 
         public AccountType AccountType;
-    
+
         public int SaveDetails()
         {
             SqlConnection conn = new SqlConnection("Server=(local);Database=CA2db_Version3; Integrated Security=true");
-            string query = "INSERT INTO [User](FirstName, LastName, Email, Password, Gender, Salutation, Address) values ('" + FirstName + "','" + LastName + "','" + Email + "','" + Password + "','" + Gender + "','" + Salutation + "','" + Address + "')";
-            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlCommand checkUserEmail = new SqlCommand("SELECT * FROM [User] WHERE (email = '" + Email + "')", conn);
             conn.Open();
-            int i = cmd.ExecuteNonQuery();
-            conn.Close();
-            return i;
+            SqlDataReader reader = checkUserEmail.ExecuteReader();
+            if (reader.HasRows)
+            {
+                conn.Close();
+                return 0;
+            }
+            else
+            {
+                conn.Close();
 
+                string query = "INSERT INTO [User](FirstName, LastName, Email, Password, Gender, DateOfBirth, Salutation, Address, PostalCode) values ('" + FirstName + "','" + LastName + "','" + Email + "','" + Password + "','" + Gender + "','" + DateOfBirth + "','" + Salutation + "','" + Address + "','" + PostalCode + "')";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                conn.Open();
+                int i = cmd.ExecuteNonQuery();
+                conn.Close();
+              
+                return i;
+            }
+            
         }
 
     }
