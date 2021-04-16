@@ -16,7 +16,7 @@
 <br />
 <div class="loginSignupForm text-center bg-light">
     <main class="form-signin">
-        <form id="form" action="/home/Index" data-toggle="validator" role="form" method="POST">
+        <form id="form" action="/home/GetDetails" data-toggle="validator" role="form" method="post">
             <br />
             <h2> Register </h2>
             <p> Please fill in all particulars in this electronic form in order to create an account. All specified fields are mandatory.</p>
@@ -24,7 +24,7 @@
 
 
             <div class="form-floating">
-                <select class="form-control" aria-labelledby="salutations">
+                <select class="form-control" aria-labelledby="salutations" name="salutations">
                     <option>Mr.</option>
                     <option>Mrs.</option>
                     <option>Ms.</option>
@@ -35,18 +35,18 @@
             </div>
 
             <div class="form-floating">
-                <input type="text" class="form-control" id="firstname" placeholder="enter first name: " required>
+                <input type="text" class="form-control" name="firstname" id="firstname" placeholder="enter first name: " required>
                 <label for="firstname"><i class="fa fa-address-card"></i> First Name: </label>
             </div>
 
             <div class="form-floating">
-                <input type="text" class="form-control" id="lastname" placeholder="enter last name: " required>
+                <input type="text" class="form-control" name="lastname" id="lastname" placeholder="enter last name: " required>
                 <label for="lastname"><i class="fa fa-address-card"></i> Last Name: </label>
             </div>
 
             <div class="form-floating">
 
-                <select class="form-control" aria-labelledby="gender">
+                <select class="form-control" aria-labelledby="gender" name="gender">
                     <option>Male</option>
                     <option>Female</option>
                     <option>Others</option>
@@ -57,7 +57,7 @@
             </div>
 
             <div class="form-floating">
-                <input type="email" class="form-control" id="email" placeholder="enter email: e.g. name@example.com etc." required>
+                <input type="email" class="form-control" name="email" id="email" placeholder="enter email: e.g. name@example.com etc." required>
                 <label for="email"><i class="fa fa-envelope"></i> Email address</label>
             </div>
 
@@ -92,7 +92,9 @@
 
             <p>By creating an account, you agree to our <a href="#">Terms & Privacy Policy.</a>.</p>
 
-            <button type="submit" class="w-100 btn btn-lg btn-primary">Sign Up.</button>
+            <button type="submit" class="w-100 btn btn-lg btn-primary">Sign Up</button>
+            <button type="reset" class="w-100 btn btn-lg btn-primary">Reset</button>
+
 
             <div class="container signin">
                 <p class="registerOrLogin">Already have an account? <a href="/Home/Login">Sign in</a>.</p>
@@ -109,6 +111,8 @@
 
 
         </form>
+
+        <h2 style="font-style:italic; color:deeppink">@ViewData["Result"]</h2>
 
     </main>
 </div>

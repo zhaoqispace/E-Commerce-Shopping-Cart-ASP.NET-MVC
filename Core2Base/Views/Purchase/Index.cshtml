@@ -8,9 +8,12 @@
 }
 
 @{
-    var Products = (List<Product>)ViewData["Products"];
+    var PurchaseHistory = (List<PurchaseHistory>)ViewData["PurchaseHistory"];
 }
-
+@section Scripts
+{
+    <script src="/lib/font-awesome/js/purchaseDate.js"></script>
+}
 
 <h3 class="pageHeader">My Purchases</h3>
 
@@ -27,31 +30,31 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var product in Products)
+        @foreach (var purchase in PurchaseHistory)
         {
             <tr>
                 <td><img src="~/productimages/counterstrike.jpg" alt="CounterStrike Logo" height="150" width="150"></td>
-                <td>@product.Name</td>
-                <td>@product.Description</td>
-                <td>3</td>
-                <td>@product.UnitPrice</td>
-                <td><select name="purchaseDate" id="purchaseDate">
-                    @for(var i = 0; i < 1; i++)
-                    {
-                        @foreach (var date in Products) {
-                        <option value="29 April 2021">
-                            @date.Name
-                        </option>
-                        }                 
-                    }
-                </select>
-                </td>
+                <td style="display:none"id="product"class="product">@purchase.ProductID</td>
+                <td>@purchase.ProductName</td>
+                <td>@purchase.ProductDescription</td>
+                <td>@purchase.Quantity</td>
+                <td>@purchase.Price</td>
                 <td>
-                    <select name="activationCodes" id="activationCodes">
-                        <option value="5-12312313131231231">5-123123131312312312-8wiqwoeiqjeo</option>
-                        <option value="5-12312313131231231">5-123123131312312312-8wiieuiwuo</option>
-                        <option value="5-12312313131321123">5-12312313131321123iwuo</option>
-                        <option value="1231233211231321123">6-1231233211231321123iwu</option>
+                    <select name="date" id="date" class="date_option">
+                        @foreach (var item in purchase.DateOfPurchase)
+                        {
+                            <option value=@item>@item</option>
+                        }
+                    </select>
+                </td>
+
+                <td>
+                    <select name="status" id="status" class="activation_status">
+                        @foreach (var status in purchase.ActivationStatus)
+                        {
+                            <option value=@status>@status</option>
+                        }
+
                     </select>
                 </td>
             </tr>
