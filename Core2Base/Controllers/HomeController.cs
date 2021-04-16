@@ -118,9 +118,12 @@ namespace Core2Base.Controllers
                 LastName = HttpContext.Request.Form["lastname"].ToString(),
                 Gender = HttpContext.Request.Form["gender"].ToString(),
                 Email = HttpContext.Request.Form["email"].ToString(),
+                DateOfBirth = HttpContext.Request.Form["DOB"].ToString(),
                 Password = HttpContext.Request.Form["password"].ToString(),
                 Salutation = HttpContext.Request.Form["salutations"].ToString(),
-                Address = HttpContext.Request.Form["address"].ToString()
+                Address = HttpContext.Request.Form["address"].ToString(),
+                PostalCode = HttpContext.Request.Form["postalcode"].ToString()
+
             };
 
             int result = model.SaveDetails();
