@@ -1,4 +1,7 @@
-﻿@{ var foundProducts = (List<Product>)ViewData["foundProducts"]; }
+﻿@{ 
+    var foundProducts = (List<Product>)ViewData["foundProducts"];
+    Layout = "_Layout_SearchResults";
+ }
 
 @if (foundProducts.Count > 0)
 {
