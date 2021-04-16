@@ -13,7 +13,9 @@
         padding: 10px;
     }
 </style>
+
 <br />
+
 <div class="loginSignupForm text-center bg-light">
     <main class="form-signin">
         <form id="form" action="/home/GetDetails" data-toggle="validator" role="form" method="post">
@@ -64,7 +66,7 @@
             <div class="form-floating">
                 <input type="password" class="form-control" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*\W+)(?=.*[A-Z]).{8,}"
                        placeholder="password: " title="Your password must consist of at least a digit, one lower case letter,
-                       one upper case letter, and at least a length of 8 characters" required>
+                       one upper case letter, one special character and at least a length of 8 characters" required>
 
                 <label for="floatingInput"><i class="fa fa-key"></i> Password</label>
             </div>
