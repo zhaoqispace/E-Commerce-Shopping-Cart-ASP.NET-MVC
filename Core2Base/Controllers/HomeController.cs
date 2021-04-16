@@ -123,8 +123,6 @@ namespace Core2Base.Controllers
 
                 if (user != null && BC.Verify(password, user.Password))
                 {
-                    TempData["userinsession"] = user.Email;
-                    HttpContext.Session.SetString("email", email);
                     HttpContext.Session.SetString("UserID", Convert.ToString(user.UserId));
                     HttpContext.Session.SetString("firstname", user.FirstName);
                     return RedirectToAction("Index", "Home");
@@ -165,6 +163,7 @@ namespace Core2Base.Controllers
                 LastName = HttpContext.Request.Form["lastname"].ToString(),
                 Gender = HttpContext.Request.Form["gender"].ToString(),
                 Email = HttpContext.Request.Form["email"].ToString(),
+                Password = BC.HashPassword(HttpContext.Request.Form["password"].ToString()),
                 DateOfBirth = HttpContext.Request.Form["DOB"].ToString(),
                 Password = HttpContext.Request.Form["password"].ToString(),
                 Salutation = HttpContext.Request.Form["salutations"].ToString(),
