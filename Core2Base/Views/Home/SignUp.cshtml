@@ -62,7 +62,7 @@
             </div>
 
             <div class="form-floating">
-                <input type="password" class="form-control" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*\W+)(?=.*[A-Z]).{8,}"
+                <input type="password" class="form-control" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*\W+)(?=.*[A-Z]).{8,}"
                        placeholder="password: " title="Your password must consist of at least a digit, one lower case letter,
                        one upper case letter, and at least a length of 8 characters" required>
 
@@ -77,13 +77,13 @@
             </div>
 
             <div class="form-floating">
-                <input type="date" id="birthday" class="form-control" min="1910-01-01" max="2003-12-31" required>
+                <input type="date" name="DOB" id="birthday" class="form-control" min="1910-01-01" max="2003-12-31" required>
                 <label for="birthday"><i class="fa fa-birthday-cake"></i> Enter Birthdate: </label>
 
             </div>
 
             <div class="form-floating">
-                <input type="text" class="form-control" id="address" placeholder="enter address: " required>
+                <input type="text" class="form-control" name="address" id="address" placeholder="enter address: " required>
                 <label for="address"><i class="fa fa-address-book"></i> Enter Address: </label>
             </div>
 
