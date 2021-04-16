@@ -139,7 +139,7 @@ namespace Core2Base.Controllers
             }
             else
             {
-                ViewData["Result"] = "Something Went Wrong";
+                ViewData["Result"] = "Sorry this email is already registered";
             }
             return View("SignUp");
         }
