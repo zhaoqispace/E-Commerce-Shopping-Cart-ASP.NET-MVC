@@ -14,6 +14,22 @@
     }
 </style>
 
+<script>
+    function passwordValid(ev) {
+        ev.preventDefault
+        var Password1 = document.getElementById("password").value
+        var Password2 = document.getElementById("reenterpassword").value
+
+        //using strict validation (!==) and returning window.alert if passwords do not match//
+
+        if(Password1 !== Password2) {
+        window.alert("The password and re-entered password are not an exact match!")
+    }
+
+
+    }
+</script>
+
 <br />
 
 <div class="loginSignupForm text-center bg-light">
