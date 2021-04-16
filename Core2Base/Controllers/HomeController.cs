@@ -24,7 +24,7 @@ namespace Core2Base.Controllers
         public IActionResult Index()
         {
             List<Product> ProductList = ProductData.GetProductInfo();
-            ViewData["userinsession"] = TempData["userinsession"];
+            ViewData["firstname"] = HttpContext.Session.GetString("firstname");
             // this ViewData key-value pair is to pass data from Controller to View
             ViewData["Products"] = ProductList;
             return View();
@@ -83,9 +83,8 @@ namespace Core2Base.Controllers
 
                 if (user != null && BC.Verify(password, user.Password))
                 {
-                    TempData["userinsession"] = user.Email;
-                    HttpContext.Session.SetString("email", email);
                     HttpContext.Session.SetString("UserID", Convert.ToString(user.UserId));
+                    HttpContext.Session.SetString("firstname", user.FirstName);
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -118,7 +117,7 @@ namespace Core2Base.Controllers
                 LastName = HttpContext.Request.Form["lastname"].ToString(),
                 Gender = HttpContext.Request.Form["gender"].ToString(),
                 Email = HttpContext.Request.Form["email"].ToString(),
-                Password = HttpContext.Request.Form["password"].ToString(),
+                Password = BC.HashPassword(HttpContext.Request.Form["password"].ToString()),
                 Salutation = HttpContext.Request.Form["salutations"].ToString(),
                 Address = HttpContext.Request.Form["address"].ToString()
             };
