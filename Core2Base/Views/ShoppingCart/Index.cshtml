@@ -4,7 +4,8 @@
 }
 
 @{
-    var Products = (List<Product>)ViewData["Products"];
+    var cartitems = (List<CartDetail>)ViewData["usercart"];
+    double totalprice = 0;
 }
 
 <h3 class="pageHeader">Shopping Cart</h3>
@@ -22,20 +23,23 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var product in Products)
+            @foreach (var cartitem in cartitems)
             {
-                <tr>
-                    <td><img src="~/productimages/dota2_2.jpg" alt="Dota2 Logo" height="150" width="150"></td>
-                    <td>@product.Name</td>
-                    <td>@product.Description</td>
-                    <td>
-                        <button type="button" class="minusButton">-</button><input class="quantity" type="text" onkeypress="return event.charCode >= 48" value="1"><button type="button" class="plusButton">+</button> @*Need to change 1 to a quantity field when .cs file is ready*@
-                        <br />
-                        <button type="button" class="removeAllButton">Remove From Cart</button>
-                    </td>
-                    <td>@product.UnitPrice</td>
-                    <td>@(product.UnitPrice * 2)</td>    @*Need to change 2 to a quantity field when .cs file is ready*@
-                </tr>
+                {
+                    totalprice = totalprice + cartitem.UnitPrice * cartitem.qty;
+                    <tr>
+                        <td><img src="cartitem.ProductImg" alt="Dota2 Logo" height="150" width="150"></td>
+                        <td>@cartitem.ProductName</td>
+                        <td>@cartitem.ProductDesc</td>
+                        <td>
+                            <button type="button" class="minusButton">-</button><input class="quantity" type="text" onkeypress="return event.charCode >= 48" value=@cartitem.qty><button type="button" class="plusButton">+</button> @*Need to change 1 to a quantity field when .cs file is ready*@
+                            <br />
+                            <button type="button" class="removeAllButton">Remove From Cart</button>
+                        </td>
+                        <td>@cartitem.UnitPrice</td>
+                        <td>@(cartitem.UnitPrice * cartitem.qty)</td>    @*Need to change 2 to a quantity field when .cs file is ready*@
+                    </tr>
+                }
             }
             <tr>
                 <td></td>
@@ -43,7 +47,7 @@
                 <td></td>
                 <td></td>
                 <td><b>Total:</b></td>
-                <td class="totalPrice">$295</td>
+                <td class="totalPrice">$@totalprice</td>
             </tr>
         </tbody>
     </table>

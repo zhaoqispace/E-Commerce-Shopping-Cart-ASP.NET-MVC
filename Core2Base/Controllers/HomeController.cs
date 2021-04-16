@@ -21,11 +21,10 @@ namespace Core2Base.Controllers
         {
             _logger = logger;
         }
-
         public IActionResult Index()
         {
             List<Product> ProductList = ProductData.GetProductInfo();
-
+            ViewData["userinsession"] = TempData["userinsession"];
             // this ViewData key-value pair is to pass data from Controller to View
             ViewData["Products"] = ProductList;
             return View();
@@ -81,7 +80,9 @@ namespace Core2Base.Controllers
 
                 if (user != null && BC.Verify(password, user.Password))
                 {
+                    TempData["userinsession"] = user.Email;
                     HttpContext.Session.SetString("email", email);
+                    HttpContext.Session.SetString("UserID", Convert.ToString(user.UserId));
                     return RedirectToAction("Index", "Home");
                 }
                 else
