@@ -101,9 +101,35 @@ namespace Core2Base.Controllers
         }
 
         // SignUp function with email and password
-        public IActionResult SignUp(string email, string password)
+        public IActionResult SignUp()
         {
                 return View();
+        }
+
+        [HttpPost]
+        public IActionResult GetDetails()
+        {
+            User model = new User
+            {
+                FirstName = HttpContext.Request.Form["firstname"].ToString(),
+                LastName = HttpContext.Request.Form["lastname"].ToString(),
+                Gender = HttpContext.Request.Form["gender"].ToString(),
+                Email = HttpContext.Request.Form["email"].ToString(),
+                Password = HttpContext.Request.Form["password"].ToString(),
+                Salutation = HttpContext.Request.Form["salutations"].ToString(),
+                Address = HttpContext.Request.Form["address"].ToString()
+            };
+
+            int result = model.SaveDetails();
+            if (result > 0)
+            {
+                ViewData["Result"] = "Thank you! You have successfully signed in :)";
+            }
+            else
+            {
+                ViewData["Result"] = "Something Went Wrong";
+            }
+            return View("SignUp");
         }
 
         // showing the about us
