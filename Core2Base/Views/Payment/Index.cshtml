@@ -6,6 +6,7 @@
     Layout = "/Views/Shared/_PaymentPageLayout.cshtml";
 }
 
+<!-- styling elements for the Payment Index Page -->
 <style>
 
     html {
@@ -20,9 +21,6 @@
         margin-bottom: 170px;
     }
 
-    footer {
-        bottom: 0px;
-    }
 
     * {
         box-sizing: border-box;
@@ -36,24 +34,13 @@
         margin: 0-10px;
     }
 
-    div.container {
-        background-color: #cfcccc85;
-        padding: 20px;
-        border: 1px solid lightgrey;
-        border-radius: 3px;
-        height: 450px;
-        width: 500px;
-        margin-left: 180px;
-    }
-
     div.container-lg {
         background-color: #cfcccc85;
         padding: 20px;
         border: 1px solid lightgrey;
         border-radius: 3px;
-        height: 450px;
-        width: 700px;
-        margin-right: 122px;
+        height: 500px;
+        width: 2000px;
     }
 
     input[type="text"] {
@@ -88,25 +75,23 @@
         display: block;
     }
 
-        #divleft {
-            width:40%;
-            float:left;
+    /*making the payment page responsive*/
+    @@media screen and (max-width:850px){
+        .row, div.container-lg, input[type="text"], input[type="tel"], .col-25, .col-50, .col-75,
+        label{
+            width: 100%;
+            margin-top:0;
         }
-
-    #divright {
-        width: 60%;
-        float: left;
     }
- 
+
 </style>
 
 <body>
     <form id="form" action="/Payment/Success" method="POST">
 
-        
-        <div id="divleft">
+        <div class="container-lg">
             <div class="row">
-                <div class="container">
+                <div class="col-50">
                     <h5><b>Payment</b></h5>
                     <h6>We accept the following credit cards:</h6>
                     <div class="icon-container">
@@ -132,79 +117,77 @@
                     </p>
                     <div class="row">
                         <div class="col-25">
-                                <label for="expmonth">Exp Month</label>
-                                <p>
-                                    <input type="text" id="expmonth" name="expmonth" placeholder="January" required>
-                                </p>
-                            </div>
+                            <label for="expmonth">Exp Month</label>
+                            <p>
+                                <input type="text" id="expmonth" name="expmonth" placeholder="January" required>
+                            </p>
+                        </div>
 
-                            <div class="col-25">
-                                <label for="expyear">Exp Year</label>
-                                <p>
-                                    <input type="text" id="expyear" name="expyear" placeholder="2023" required>
-                                </p>
-                            </div>
-                            <div class="col-25">
-                                <label for="cvv">CVV</label>
-                                <p>
-                                    <input type="text" id="cvv" name="cvv" placeholder="219" required>
-                                </p>
-                            </div>
+                        <div class="col-25">
+                            <label for="expyear">Exp Year</label>
+                            <p>
+                                <input type="text" id="expyear" name="expyear" placeholder="2023" required>
+                            </p>
+                        </div>
+                        <div class="col-25">
+                            <label for="cvv">CVV</label>
+                            <p>
+                                <input type="text" id="cvv" name="cvv" placeholder="219" required>
+                            </p>
+
+
                         </div>
                     </div>
                 </div>
+
+                <div class="col-50">
+                    <h5><b>Billing Information</b></h5>
+                    <label for="firstname">First Name</label>
+                    <p>
+                        <input type="text" id="firstname" name="firstname" placeholder="John/Jane" required>
+                    </p>
+                    <label for="lastname">Last Name</label>
+                    <p>
+                        <input type="text" id="lastname" name="lastname" placeholder="Doe" required>
+                    </p>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="contact">Contact Number</label>
+                            <p>
+                                <input type="tel" id="contact" name="address" placeholder="+16467980487" required>
+                            </p>
+                        </div>
+                        <div class="col-75">
+                            <label for="address">Address</label>
+                            <p>
+                                <input type="text" id="address" name="address" placeholder="Canberra Street 32" required>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="country">Country</label>
+                            <p>
+                                <input type="text" id="country" name="country" placeholder="United States" required>
+                            </p>
+                        </div>
+                        <div class="col-25">
+                            <label for="zip">Zip Code</label>
+                            <input type="text" id="zip" name="zip" placeholder="11102" required>
+                        </div>
+                        <div class="col-25">
+                            <label for="state">State</label>
+                            <input type="text" id="state" name="state" placeholder="New York" required>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            
-        <div class="row">
-            <div class="divright">
-                <div class="container-lg">
-                    <div class="col-50">
-                        <h5><b>Billing Information</b></h5>
-                        <label for="firstname">First Name</label>
-                        <p>
-                            <input type="text" id="firstname" name="firstname" placeholder="John/Jane" required>
-                        </p>
-                        <label for="lastname">Last Name</label>
-                        <p>
-                            <input type="text" id="lastname" name="lastname" placeholder="Doe" required>
-                        </p>
-                        <div class="row">
-                            <div class="col-25">
-                                <label for="contact">Contact Number</label>
-                                <p>
-                                    <input type="tel" id="contact" name="address" placeholder="+16467980487" required>
-                                </p>
-                            </div>
-                                <div class="col-75">
-                                    <label for="address">Address</label>
-                                    <p>
-                                        <input type="text" id="address" name="address" placeholder="Canberra Street 32" required>
-                                    </p>
-                                </div>
-                            </div>
-
-                                <div class="row">
-                                    <div class="col-25">
-                                        <label for="country">Country</label>
-                                        <p>
-                                            <input type="text" id="country" name="country" placeholder="United States" required>
-                                        </p>
-                                    </div>
-                                    <div class="col-25">
-                                        <label for="zip">Zip Code</label>
-                                        <input type="text" id="zip" name="zip" placeholder="11102" required>
-                                    </div>
-                                    <div class="col-25">
-                                        <label for="state">State</label>
-                                        <input type="text" id="state" name="state" placeholder="New York" required>
-                                    </div>
-                                </div>
-
-                     </div>
-                 </div>
-             </div>
         </div>
 
+        <br />
+        <br />
         <hr>
 
         <p align="right" style="margin-right:3.8em;"><a>Grand Total: $10000</a></p>
