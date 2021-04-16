@@ -9,7 +9,7 @@ namespace Core2Base.Data
 {
     public class PurchaseHistoryData : Data
     {
-        public static List<PurchaseHistory> GetPurchaseHistory()
+        public static List<PurchaseHistory> GetPurchaseHistory(string userID)
         {
             //declare purchaseList
             List<PurchaseHistory> purchaseHistories = new List<PurchaseHistory>();
@@ -22,9 +22,10 @@ namespace Core2Base.Data
             {
                 sqlConn.Open();
                 //query for product
-                string sql = @"Select distinct(p.ProductName),p.ProductID,p.ProductDesc, p.Price  from Product p, OrderDetails od , [dbo].[Order] o where p.ProductID=od.ProductID and od.OrderID=o.OrderID";
+                string sql = @"Select distinct(p.ProductName),p.ProductID,p.ProductDesc, p.Price  from Product p, OrderDetails od , [dbo].[Order] o where p.ProductID=od.ProductID and od.OrderID=o.OrderID and o.UserID =@UserID";
 
                 cmd = new SqlCommand(sql, sqlConn);
+                cmd.Parameters.AddWithValue("@UserID", userID);
                 reader = cmd.ExecuteReader();
 
                 while (reader.Read())
@@ -38,7 +39,7 @@ namespace Core2Base.Data
                     using (SqlConnection conn2 = new SqlConnection(connectionString))
                     {
                         //getting purchase date and activation status
-                        string orderSql = "Select CONVERT(varchar(10),o.DateOfPurchase,101) as DateOfPurchase, od.ActivationStatus,p.Price from Product p, OrderDetails od , [dbo].[Order] o where p.ProductID=od.ProductID and od.OrderID=o.OrderID and p.ProductID=@ProductID";
+                        string orderSql = "Select CONVERT(varchar(10),o.DateOfPurchase,101) as DateOfPurchase, od.ActivationStatus,p.Price from Product p, OrderDetails od , [dbo].[Order] o where p.ProductID=od.ProductID and od.OrderID=o.OrderID and p.ProductID=@ProductID and o.UserID=@UserID";
                         using (SqlCommand cmd_order = new SqlCommand(orderSql, conn2))
                         {
                             SqlParameter param = new SqlParameter();
@@ -47,6 +48,9 @@ namespace Core2Base.Data
 
                             // add new parameter to command object
                             cmd_order.Parameters.Add(param);
+
+                            cmd_order.Parameters.AddWithValue("@UserID", userID);
+
                             //open connection
                             conn2.Open();
                             using (SqlDataReader dr_order = cmd_order.ExecuteReader())
@@ -85,7 +89,7 @@ namespace Core2Base.Data
             }
         }
 
-        public static string GetDateAndActivation(string date, string productID)
+        public static string GetDateAndActivation(string date, string productID, string userID)
         {
             SqlConnection sqlConn = null;
             SqlCommand cmd;
@@ -94,7 +98,7 @@ namespace Core2Base.Data
             using (sqlConn = new SqlConnection(connectionString))
             {
                 //query for date and activation
-                string sql = @"select * from OrderDetails od, [dbo].[Order] o where o.OrderID=od.OrderID and o.DateOfPurchase=@Date and od.ProductID=@ProductID";
+                string sql = @"select * from OrderDetails od, [dbo].[Order] o where o.OrderID=od.OrderID and o.DateOfPurchase=@Date and od.ProductID=@ProductID and o.UserID=@UserID";
 
                 cmd = new SqlCommand(sql, sqlConn);
 
@@ -109,6 +113,8 @@ namespace Core2Base.Data
                 param2.ParameterName = "@ProductID";
                 param2.Value = productID;
                 cmd.Parameters.Add(param2);
+
+                cmd.Parameters.AddWithValue("@UserID", userID);
 
                 sqlConn.Open();
                 reader = cmd.ExecuteReader();
