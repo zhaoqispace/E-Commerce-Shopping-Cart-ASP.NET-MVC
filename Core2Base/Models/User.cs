@@ -17,7 +17,9 @@ namespace Core2Base.Models
         public string Gender { get; set; }
         public string Password { get; set; }
         public string Address { get; set; }
+        public string PostalCode { get; set; }
         public string UserImg { get; set; }
+        public string DateOfBirth { get; set; }
         public string Salutation { get; set; }
 
         public AccountType AccountType;
@@ -37,7 +39,7 @@ namespace Core2Base.Models
             {
                 conn.Close();
 
-                string query = "INSERT INTO [User](FirstName, LastName, Email, Password, Gender, Salutation, Address) values ('" + FirstName + "','" + LastName + "','" + Email + "','" + Password + "','" + Gender + "','" + Salutation + "','" + Address + "')";
+                string query = "INSERT INTO [User](FirstName, LastName, Email, Password, Gender, DateOfBirth, Salutation, Address, PostalCode) values ('" + FirstName + "','" + LastName + "','" + Email + "','" + Password + "','" + Gender + "','" + DateOfBirth + "','" + Salutation + "','" + Address + "','" + PostalCode + "')";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 conn.Open();
                 int i = cmd.ExecuteNonQuery();
