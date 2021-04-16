@@ -121,31 +121,33 @@
                     </p>
                     <label for="ccname">Name on Card</label>
                     <p>
-                        <input type="text" id="ccname" name="cardname" placeholder="John/Jane Doe">
+                        <input type="text" id="ccname" name="cardname" placeholder="John/Jane Doe" required>
                     </p>
 
                     <label for="ccnumber">Credit Card Number</label>
                     <p>
-                        <input type="text" id="ccnumber" name="cardnumber" placeholder="1111-2222-3333-4444">
+                        <input type="tel" id="ccnumber" inputmode="numeric" pattern="[0-9\s]{16,20}" autocomplete="cc-number"
+                               name="cardnumber" placeholder="xxxx-xxxx-xxxx-xxxx"
+                               required>
                     </p>
                     <div class="row">
                         <div class="col-25">
                                 <label for="expmonth">Exp Month</label>
                                 <p>
-                                    <input type="text" id="expmonth" name="expmonth" placeholder="January">
+                                    <input type="text" id="expmonth" name="expmonth" placeholder="January" required>
                                 </p>
                             </div>
 
                             <div class="col-25">
                                 <label for="expyear">Exp Year</label>
                                 <p>
-                                    <input type="text" id="expyear" name="expyear" placeholder="2023">
+                                    <input type="text" id="expyear" name="expyear" placeholder="2023" required>
                                 </p>
                             </div>
                             <div class="col-25">
                                 <label for="cvv">CVV</label>
                                 <p>
-                                    <input type="text" id="cvv" name="cvv" placeholder="219">
+                                    <input type="text" id="cvv" name="cvv" placeholder="219" required>
                                 </p>
                             </div>
                         </div>
@@ -160,23 +162,23 @@
                         <h5><b>Billing Information</b></h5>
                         <label for="firstname">First Name</label>
                         <p>
-                            <input type="text" id="firstname" name="firstname" placeholder="John/Jane">
+                            <input type="text" id="firstname" name="firstname" placeholder="John/Jane" required>
                         </p>
                         <label for="lastname">Last Name</label>
                         <p>
-                            <input type="text" id="lastname" name="lastname" placeholder="Doe">
+                            <input type="text" id="lastname" name="lastname" placeholder="Doe" required>
                         </p>
                         <div class="row">
                             <div class="col-25">
                                 <label for="contact">Contact Number</label>
                                 <p>
-                                    <input type="tel" id="contact" name="address" placeholder="+16467980487">
+                                    <input type="tel" id="contact" name="address" placeholder="+16467980487" required>
                                 </p>
                             </div>
                                 <div class="col-75">
                                     <label for="address">Address</label>
                                     <p>
-                                        <input type="text" id="address" name="address" placeholder="Canberra Street 32">
+                                        <input type="text" id="address" name="address" placeholder="Canberra Street 32" required>
                                     </p>
                                 </div>
                             </div>
@@ -185,38 +187,33 @@
                                     <div class="col-25">
                                         <label for="country">Country</label>
                                         <p>
-                                            <input type="text" id="country" name="country" placeholder="United States">
+                                            <input type="text" id="country" name="country" placeholder="United States" required>
                                         </p>
                                     </div>
                                     <div class="col-25">
                                         <label for="zip">Zip Code</label>
-                                        <input type="text" id="zip" name="zip" placeholder="11102">
+                                        <input type="text" id="zip" name="zip" placeholder="11102" required>
                                     </div>
                                     <div class="col-25">
                                         <label for="state">State</label>
-                                        <input type="text" id="state" name="state" placeholder="New York">
+                                        <input type="text" id="state" name="state" placeholder="New York" required>
                                     </div>
                                 </div>
 
-                            </div>
-                        </div>
-                    </div>
+                     </div>
+                 </div>
+             </div>
         </div>
 
         <hr>
 
         <p align="right" style="margin-right:3.8em;"><a>Grand Total: $10000</a></p>
 
-        <p align="right" style="margin-right:2.5em;"><button type="submit" class="btn-primary" href="/Home/Login">Proceed to Purchase</button></p>
+        <p align="right" style="margin-right:2.5em;"><button type="submit" class="btn-primary">Proceed to Purchase</button></p>
     </form>
 </body>
 
-<footer class="border-top footer text-muted bg-light">
-    <div class="footer_container">
-        &copy; 2021 - ProGamer Computing
-        <a class="contactUs" href="/">Contact Us</a>
-    </div>
-</footer>
+
 
 
 

@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewData["Title"] = "Success";
+}
+
+@{
+    Layout = "/Views/Shared/_PaymentPageLayout.cshtml";
+}
+
+<style>
+    img{
+        display: block;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+
+    div.container {
+        background-color: white;
+        padding: 20px;
+        border: 1px solid lightgrey;
+        border-radius: 3px;
+        height: 500px;
+        width: 500px;
+        margin-left: 180px;
+        text-align:center;
+    }
+
+</style>
+
+
+
+<div class="container" style="width:800px; margin:0 auto">
+    <p><h4>Your payment has been approved and your purchase is <b>successful</b></h4></p>
+    <img src="~/defaultimages/green tick render.jpg" width="200" height="200">
+    <h5>Transaction Completed!</h5>
+    <h6> Your product should arrive at your doorstep within 7 working days</h6>
+    <h6> Thank you for shopping with ProGamer Computingⓒ! </h6>
+    <a class="w-90 btn btn-lg btn-primary" href="/Home/Index">
+        Click  here to return to Home Page
+    </a>
+    <a class="w-90 btn btn-lg btn-primary" href="/Purchase/Index">
+        Click here to view your Purchases History
+    </a>
+</div>
+
+
