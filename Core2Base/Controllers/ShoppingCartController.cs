@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Core2Base.Models;
 using Core2Base.Data;
+using Microsoft.AspNetCore.Http;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -17,8 +18,14 @@ namespace Core2Base.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            List<Product> ProductList = ProductData.GetProductInfo();
-            ViewData["Products"] = ProductList;
+            string UserID = HttpContext.Session.GetString("UserID");
+            if(UserID != null)
+            {
+                List<CartDetail> usercart = CartData.GetCartInfo(UserID);
+                ViewData["usercart"] = usercart;
+            }
+            //List<Product> ProductList = ProductData.GetProductInfo();
+            //ViewData["Products"] = ProductList;
             return View();
         }
 

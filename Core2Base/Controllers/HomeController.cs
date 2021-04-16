@@ -21,11 +21,10 @@ namespace Core2Base.Controllers
         {
             _logger = logger;
         }
-
         public IActionResult Index()
         {
             List<Product> ProductList = ProductData.GetProductInfo();
-
+            ViewData["userinsession"] = TempData["userinsession"];
             // this ViewData key-value pair is to pass data from Controller to View
             ViewData["Products"] = ProductList;
             return View();
@@ -84,7 +83,9 @@ namespace Core2Base.Controllers
 
                 if (user != null && BC.Verify(password, user.Password))
                 {
+                    TempData["userinsession"] = user.Email;
                     HttpContext.Session.SetString("email", email);
+                    HttpContext.Session.SetString("UserID", Convert.ToString(user.UserId));
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -103,9 +104,35 @@ namespace Core2Base.Controllers
         }
 
         // SignUp function with email and password
-        public IActionResult SignUp(string email, string password)
+        public IActionResult SignUp()
         {
                 return View();
+        }
+
+        [HttpPost]
+        public IActionResult GetDetails()
+        {
+            User model = new User
+            {
+                FirstName = HttpContext.Request.Form["firstname"].ToString(),
+                LastName = HttpContext.Request.Form["lastname"].ToString(),
+                Gender = HttpContext.Request.Form["gender"].ToString(),
+                Email = HttpContext.Request.Form["email"].ToString(),
+                Password = HttpContext.Request.Form["password"].ToString(),
+                Salutation = HttpContext.Request.Form["salutations"].ToString(),
+                Address = HttpContext.Request.Form["address"].ToString()
+            };
+
+            int result = model.SaveDetails();
+            if (result > 0)
+            {
+                ViewData["Result"] = "Thank you! You have successfully signed in :)";
+            }
+            else
+            {
+                ViewData["Result"] = "Something Went Wrong";
+            }
+            return View("SignUp");
         }
 
         // showing the about us
