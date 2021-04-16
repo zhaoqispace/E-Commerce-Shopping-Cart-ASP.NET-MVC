@@ -16,6 +16,13 @@ namespace Core2Base.Controllers
             return View();
         }
 
+        // Payment authorization upon Success
+        public IActionResult Success()
+        {
+            return View();
+        }
+
+
         // retrieving payment history
         public IActionResult ViewHistory()
         {
