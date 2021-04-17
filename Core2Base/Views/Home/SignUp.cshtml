@@ -7,28 +7,20 @@
 }
 
 <style>
-    #err_msg {
+    #passwordValidation {
         color: red;
         font-weight: bold;
         padding: 10px;
     }
+
+    i.fa-eye {
+        cursor: pointer;
+    }
+
+    i.fa-key {
+        cursor: pointer;
+    }
 </style>
-
-<script>
-    function passwordValid(ev) {
-        ev.preventDefault
-        var Password1 = document.getElementById("password").value
-        var Password2 = document.getElementById("reenterpassword").value
-
-        //using strict validation (!==) and returning window.alert if passwords do not match//
-
-        if(Password1 !== Password2) {
-        window.alert("The password and re-entered password are not an exact match!")
-    }
-
-
-    }
-</script>
 
 <br />
 
@@ -63,7 +55,6 @@
             </div>
 
             <div class="form-floating">
-
                 <select class="form-control" aria-labelledby="gender" name="gender">
                     <option>Male</option>
                     <option>Female</option>
@@ -79,19 +70,22 @@
                 <label for="email"><i class="fa fa-envelope"></i> Email address</label>
             </div>
 
+
             <div class="form-floating">
+
                 <input type="password" class="form-control" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*\W+)(?=.*[A-Z]).{8,}"
                        placeholder="password: " title="Your password must consist of at least a digit, one lower case letter,
                        one upper case letter, one special character and at least a length of 8 characters" required>
+                <label for="password"><i class="fa fa-key"></i> Password (Toggle 'eye' icon to set visibility on and off:) </label>
+                <a align="right"><i class="fa fa-eye" id="togglePassword"></i></a>
 
-                <label for="floatingInput"><i class="fa fa-key"></i> Password</label>
             </div>
 
             <div class="form-floating">
-                <input type="password" class="form-control" id="reenterpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*\W+)(?=.*[A-Z]).{8,}"
+                <input type="password" class="form-control" name="re-enterpassword" id="reenterpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*\W+)(?=.*[A-Z]).{8,}"
                        placeholder="re-enter password: " required>
-                <label for="re-enter password"><i class="fa fa-key"></i> Re-Enter Password</label>
-
+                <label for="re-enter password"><i class="fa fa-eye"></i> Re-Enter Password (Press 'key' icon to set visibility on:) </label>
+                <i class="fa fa-key" id="togglePassword2"></i>
             </div>
 
             <div class="form-floating">
@@ -123,17 +117,11 @@
                 <p class="registerOrLogin">Already have an account? <a href="/Home/Login">Sign in</a>.</p>
             </div>
 
-            <table>
-                <tr>
-                    <td colspan="2" align="center">
-                        <span id="err_msg">@ViewData["errmsg"]</span>
-                    </td>
-                </tr>
-
-            </table>
-
-
         </form>
+
+        <h2 colspan="2" align="center">
+            <span id="passwordValidation">@ViewData["passwordValidation"]</span>
+        </h2>
 
         <h2 style="font-style:italic; color:deeppink">@ViewData["Result"]</h2>
 
