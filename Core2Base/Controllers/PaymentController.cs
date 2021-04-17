@@ -40,5 +40,12 @@ namespace Core2Base.Controllers
             return View();
         }
 
+        // retrieving alternative page, which is catered for returning users
+
+        public IActionResult Alternate()
+        {
+            return View();
+        }
+
     }
 }
