@@ -71,7 +71,7 @@ namespace Core2Base.Data
                     //adding data to purchaseHistory model
                     PurchaseHistory product = new PurchaseHistory()
                     {
-                        ProductID = (System.Guid)reader["ProductID"],
+                        ProductID = Convert.ToString(reader["ProductID"]),
                         ProductName = (string)reader["ProductName"],
                         ProductDescription = (string)reader["ProductDesc"],
                         ActivationStatus = activationStatus,

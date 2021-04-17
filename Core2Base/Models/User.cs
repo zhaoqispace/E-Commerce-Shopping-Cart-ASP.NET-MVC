@@ -10,7 +10,7 @@ namespace Core2Base.Models
     public class User
     {
       
-        public Guid UserId { get;set; }
+        public string UserId { get;set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
@@ -19,7 +19,7 @@ namespace Core2Base.Models
         public string Address { get; set; }
         public string PostalCode { get; set; }
         public string UserImg { get; set; }
-        public string DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
         public string Salutation { get; set; }
 
         public AccountType AccountType;

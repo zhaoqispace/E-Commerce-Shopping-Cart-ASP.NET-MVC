@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Core2Base.Utility;
 
 namespace Core2Base
 {
@@ -25,6 +26,9 @@ namespace Core2Base
         {
             services.AddControllersWithViews();
             services.AddSession();
+            services.AddSingleton(_ => {
+                return Sessionhelp.InitSession();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -72,8 +72,8 @@
 @model IEnumerable<Core2Base.Models.Product>
     <!-- The following codes are to show the Shopping Cart Button-->
 <!-- The href link is the source of the cart icon, then no need to hard code the icon from img tag-->
-@*@{ var qtyInCart = 0;}*@    @*Uncomment this line and comment the next line (x = 0), when you want to show the number of items in shopping cart*@
-@{ var qtyInCart = 1;}        @*Uncomment this line and comment the above line (x = 1), when there is no item in shopping cart*@
+@{ var qtyInCart = 0;}    @*Uncomment this line and comment the next line (x = 0), when you want to show the number of items in shopping cart*@
+@*@{ var qtyInCart = 1;}*@        @*Uncomment this line and comment the above line (x = 1), when there is no item in shopping cart*@
 
 @if (qtyInCart == 1)
 {
@@ -84,7 +84,7 @@
 else
 {
     <span class="shoppingCartHeading">Shopping Cart</span>
-    <button type="button" class="shoppingCartLogo btn btn-primary" href="#"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart"></span></button>
+    <button type="button" class="shoppingCartLogo btn btn-primary" onclick ="location.href='/shoppingcart'"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart">@ViewData["numberofcartitems"]</span></button>
 }
 
 
