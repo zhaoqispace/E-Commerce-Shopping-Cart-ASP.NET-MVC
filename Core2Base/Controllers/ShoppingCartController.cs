@@ -19,7 +19,7 @@ namespace Core2Base.Controllers
     public class ShoppingCartController : Controller
     {
         // GET: /<controller>/
-        public IActionResult Index(int? page)
+        public IActionResult Index()
         {
             string UserID = HttpContext.Session.GetString("UserID");
             if (UserID != null)
@@ -27,12 +27,7 @@ namespace Core2Base.Controllers
                 List<CartDetail> usercart = CartData.GetCartInfo(UserID);
                 ViewData["usercart"] = usercart;
                 ViewData["numberofcartitems"]= CartData.NumberOfCartItems(UserID);
-
-                var pageNumber = page ?? 1; // if no page was specified in the querystring, default to the first page (1)
-                var onePageOfProducts = usercart.ToPagedList(pageNumber, 3); // will only contain 25 products max because of the pageSize
-
-                ViewBag.OnePageOfProducts = onePageOfProducts;
-
+                ViewData["firstname"] = HttpContext.Session.GetString("firstname");
                 return View();
             }
             else
