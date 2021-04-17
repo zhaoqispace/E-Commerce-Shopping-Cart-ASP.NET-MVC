@@ -151,3 +151,35 @@ function subtractcartlogin(elem1Id) {
     xhr.send(JSON.stringify({ productid: elem1Id }));
 }
 
+const togglePassword = document.querySelector('#togglePassword');
+const password = document.querySelector('#password');
+
+togglePassword.addEventListener('click', function (e) {
+    //toggle the type of attribute
+
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password'
+    password.setAttribute('type', type);
+
+
+    //toggling eye slash icon
+
+    this.classList.toggle("fa-eye-slash")
+});
+
+const togglePassword2 = document.querySelector('#togglePassword2');
+const password2 = document.querySelector('#reenterpassword');
+
+togglePassword2.addEventListener('click', function (e) {
+    //toggle the type of attribute
+
+    const type = password2.getAttribute('type') === 'password' ? 'text' : 'reenterpassword'
+    password2.setAttribute('type', type);
+
+
+    //toggling eye dropper icon
+
+    this.classList.toggle("fa-eye-dropper")
+});
+
+
+
