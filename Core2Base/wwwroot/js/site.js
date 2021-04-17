@@ -182,6 +182,13 @@ function addcartlogin(elemId)
             $("#shoppingCartTable").load(" #shoppingCartTable > *", function () {
                 let elemList = document.getElementsByName("add-to-cart");
                 let elemList1 = document.getElementsByName("subtract-from-cart");
+            let elem1 = document.getElementById(elem1Id);
+            if (!elem1)
+                return;
+
+            $("#shoppingCartTable").load(" #shoppingCartTable > *", function () {
+                let elemList = document.getElementsByName("add-to-cart");
+                let elemList1 = document.getElementsByName("subtract-from-cart");
 
                 for (let i = 0; i < elemList.length; i++) {
                     elemList[i].addEventListener("click", onAdd);

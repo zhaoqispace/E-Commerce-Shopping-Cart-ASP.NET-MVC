@@ -41,7 +41,6 @@ namespace Core2Base.Controllers
             HttpContext.Session.SetString("sessionid", session.SessionID);
             // this ViewData key-value pair is to pass data from Controller to View
             ViewData["Products"] = ProductList;
-            //ViewData["qtyInCart"] =
             if (HttpContext.Session.GetString("UserID")!= null)
             {
                 ViewData["numberofcartitems"] = CartData.NumberOfCartItems(HttpContext.Session.GetString("UserID"));
