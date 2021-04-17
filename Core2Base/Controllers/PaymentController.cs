@@ -29,6 +29,8 @@ namespace Core2Base.Controllers
             if (UserID != null)
             {
                 int i = PaymentData.InsertCardInfo(cardNumber, UserID);
+                PaymentData.InsertOrderDetails(UserID);
+                PaymentData.DeleteOrderFromCart(UserID);
             }
             return View();
         }
