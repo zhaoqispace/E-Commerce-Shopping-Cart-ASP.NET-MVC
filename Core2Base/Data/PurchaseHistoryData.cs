@@ -22,7 +22,7 @@ namespace Core2Base.Data
             {
                 sqlConn.Open();
                 //query for product
-                string sql = @"Select distinct(p.ProductName),p.ProductID,p.ProductDesc, p.Price  from Product p, OrderDetails od , [dbo].[Order] o where p.ProductID=od.ProductID and od.OrderID=o.OrderID and o.UserID =@UserID";
+                string sql = @"Select distinct(p.ProductName),p.ProductID,p.ProductDesc, p.Price,p.ProductImg  from Product p, OrderDetails od , [dbo].[Order] o where p.ProductID=od.ProductID and od.OrderID=o.OrderID and o.UserID =@UserID";
 
                 cmd = new SqlCommand(sql, sqlConn);
                 cmd.Parameters.AddWithValue("@UserID", userID);
@@ -71,6 +71,7 @@ namespace Core2Base.Data
                     //adding data to purchaseHistory model
                     PurchaseHistory product = new PurchaseHistory()
                     {
+                        Image = reader["ProductImg"].ToString(),
                         ProductID = Convert.ToString(reader["ProductID"]),
                         ProductName = (string)reader["ProductName"],
                         ProductDescription = (string)reader["ProductDesc"],
