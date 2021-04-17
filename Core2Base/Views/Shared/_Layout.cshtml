@@ -80,12 +80,12 @@
 @{ var qtyInCart = 0;}    @*Uncomment this line and comment the next line (x = 0), when you want to show the number of items in shopping cart*@
 @*@{ var qtyInCart = 1;}*@        @*Uncomment this line and comment the above line (x = 1), when there is no item in shopping cart*@
 
-@if (qtyIncart == 0)
+@*@if (qtyIncart == 0)
 {
     <span class="shoppingCartHeading">Shopping Cart &nbsp</span>
 
     <button type="button" class="shoppingCartLogo btn btn-primary" onclick ="location.href='/shoppingcart'"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart">0</span></button>
-}
+}*@
 else
 {
     <span class="shoppingCartHeading">Shopping Cart</span>
