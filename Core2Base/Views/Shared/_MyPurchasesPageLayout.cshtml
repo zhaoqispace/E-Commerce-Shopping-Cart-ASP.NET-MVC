@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var firstname = (string)ViewData["firstname"];
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -46,12 +49,6 @@
                 </form>
 
 
-                <!-- NO LOGIN END TEXT-->
-                <div class="ml-auto">
-                    <a href="/Home/Login/" type="button" class="btn btn-outline-light me-2">Login</a>
-                    <a href="/Home/SignUp/" type="button" class="btn btn-primary">Sign-up</a>
-                </div>
-                <!--END OF NO LOGIN END TEXT MENU -->
 
             </div>
         </div>
@@ -62,12 +59,13 @@
 <br />
 <!-- GAP BETWEEN HEADER & BODY -->
 
-<div class="welcomeBar">
-    <p>Hello, <b>Mickey Mouse</b></p>
-    <a href="/ShoppingCart/Index">View Your Shopping Cart</a>
-    <p>|</p>
-    <a href="/Home/Logout">Logout</a>
-</div>
+    <div class="welcomeBar">
+        <p>Hello, <b>@firstname</b></p>
+        <a href="/ShoppingCart/Index">View Your Shopping Cart</a>
+        <p>|</p>
+        <a href="/Home/Logout">Logout</a>
+    </div>
+
 
 <body>
     <div>
