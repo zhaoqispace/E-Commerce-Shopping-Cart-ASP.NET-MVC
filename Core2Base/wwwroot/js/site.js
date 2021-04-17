@@ -61,7 +61,9 @@ window.onload = function () {
 
     for (let i = 0; i < elemList.length; i++) {
         elemList[i].addEventListener("click", onAdd);
-        elemList1[i].addEventListener("click", onSubtract);
+    }
+    for (let j = 0; j < elemList1.length; j++) {
+        elemList1[j].addEventListener("click", onSubtract);
     }
 }
 
@@ -93,11 +95,13 @@ function addcartlogin(elemId) {
                 return;
             $("#shoppingCartTable").load(" #shoppingCartTable > *", function () {
                    let elemList = document.getElementsByName("add-to-cart");
-                    let elemList1 = document.getElementsByName("subtract-from-cart");
+                   let elemList1 = document.getElementsByName("subtract-from-cart");
 
-                    for (let i = 0; i < elemList.length; i++) {
-                        elemList[i].addEventListener("click", onAdd);
-                        elemList1[i].addEventListener("click", onSubtract);
+                for (let i = 0; i < elemList.length; i++) {
+                    elemList[i].addEventListener("click", onAdd);
+                }
+                for (let j = 0; j < elemList1.length; j++) {
+                    elemList1[j].addEventListener("click", onSubtract);
                 }
             });
             return;
@@ -138,10 +142,11 @@ function subtractcartlogin(elem1Id) {
             $("#shoppingCartTable").load(" #shoppingCartTable > *", function () {
                 let elemList = document.getElementsByName("add-to-cart");
                 let elemList1 = document.getElementsByName("subtract-from-cart");
-
                 for (let i = 0; i < elemList.length; i++) {
                     elemList[i].addEventListener("click", onAdd);
-                    elemList1[i].addEventListener("click", onSubtract);
+                }
+                for (let j = 0; j < elemList1.length; j++) {
+                    elemList1[j].addEventListener("click", onSubtract);
                 }
             });
             return;
