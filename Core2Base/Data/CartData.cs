@@ -293,8 +293,12 @@ namespace Core2Base.Data
                 {
                     sucess = Mergecart(cartData.ProductId, cartData.qty, UserID);
                     if (sucess == 0) break;
+                    sucess = RemoveProductFromCartTemp(SessionID, cartData.ProductId);
+                    if (sucess == 0) break;
                 }
             }
+
+
             return sucess;
         }
 

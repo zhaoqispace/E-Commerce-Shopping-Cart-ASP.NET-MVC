@@ -141,6 +141,7 @@ namespace Core2Base.Controllers
                 {
                     HttpContext.Session.SetString("UserID", Convert.ToString(user.UserId));
                     HttpContext.Session.SetString("firstname", user.FirstName);
+                    int sucess = CartData.MergeTempCartAndDelete(HttpContext.Session.GetString("UserID"), HttpContext.Session.GetString("sessionid"));
                     return RedirectToAction("Index", "Home");
 
                     
