@@ -36,9 +36,9 @@
                         <td>@cartitem.ProductName</td>
                         <td>@cartitem.ProductDesc</td>
                         <td>
-                            <button type="button" name="subtract-from-cart" class="minusButton" id="@cartitem.ProductId">-</button><input class="quantity" type="text" onkeypress="return event.charCode >= 48" value=@cartitem.qty><button type="button" name="add-to-cart" class="plusButton" id="@cartitem.ProductId">+</button>
+                            <button type="button" name="subtract-from-cart" class="minusButton" id="@cartitem.ProductId">-</button><input class="quantity" name="edit-cart-quantity" type="text" onkeypress="return event.charCode >= 48" value=@cartitem.qty id="@cartitem.ProductId"><button type="button" name="add-to-cart" class="plusButton" id="@cartitem.ProductId">+</button>
                             <br />
-                            <button type="button" class="removeAllButton">Remove From Cart</button>
+                            <button type="button" name ="remove-from-cart"class="removeAllButton" id="@cartitem.ProductId">Remove From Cart</button>
                         </td>
                         <td>@cartitem.UnitPrice</td>
                         <td>@string.Format("{0:C}", (cartitem.UnitPrice * cartitem.qty))</td>
