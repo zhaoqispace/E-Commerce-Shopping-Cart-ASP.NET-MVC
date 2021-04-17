@@ -7,12 +7,7 @@
 }
 
 <style>
-    #passwordValidation {
-        color: red;
-        font-weight: bold;
-        padding: 10px;
-    }
-
+   
     i.fa-eye {
         cursor: pointer;
     }
@@ -21,6 +16,23 @@
         cursor: pointer;
     }
 </style>
+<script>
+
+    document.querySelector('.button').onclick = function () {
+        var password = document.querySelector('.password').value,
+            reenterpassword = document.querySelector('.reenterpassword').value;
+
+        if (password != reenterpassword) {
+            alert("Sorry. Password and Re-entered passwords do not return a match");
+            return false;
+        }
+        else if (password == reenterpassword) {
+            alert("Password and Re-entered password matches!")
+        }
+        return true;
+
+    }
+</script>
 
 <br />
 
@@ -119,9 +131,6 @@
 
         </form>
 
-        <h2 colspan="2" align="center">
-            <span id="passwordValidation">@ViewData["passwordValidation"]</span>
-        </h2>
 
         <h2 style="font-style:italic; color:deeppink">@ViewData["Result"]</h2>
 
