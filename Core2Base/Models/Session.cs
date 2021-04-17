@@ -5,15 +5,15 @@ using System.Threading.Tasks;
 
 namespace Core2Base.Models
 {
-    public class session
+    public class Session
     {
 
-        public string SessionID;
+        public string SessionID { set; get; }
 
-        public string UserID;
+        public string UserID { set; get; }
 
-        public string LoginTime;
+        public string LoginTime { set; get; }
 
-        public string LogoffTime;
+        public string LogoffTime { set; get; }
     }
 }

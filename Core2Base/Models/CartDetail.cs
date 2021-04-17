@@ -8,8 +8,8 @@ namespace Core2Base.Models
 {
     public class CartDetail
     {
-        public int CartId { get; set; }
-        public Guid ProductId { get; set; }
+        public string CartId { get; set; }
+        public string ProductId { get; set; }
         public int qty { get; set; }
         public string ProductName { get; set; }
         public string ProductDesc { get; set; }

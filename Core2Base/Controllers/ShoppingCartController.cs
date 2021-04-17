@@ -19,20 +19,46 @@ namespace Core2Base.Controllers
         public IActionResult Index()
         {
             string UserID = HttpContext.Session.GetString("UserID");
-            if(UserID != null)
+            if (UserID != null)
             {
                 List<CartDetail> usercart = CartData.GetCartInfo(UserID);
                 ViewData["usercart"] = usercart;
             }
+            else
+            {
+                //List<CartDetail> usercart = 
+
+            }
+
             //List<Product> ProductList = ProductData.GetProductInfo();
             //ViewData["Products"] = ProductList;
             return View();
         }
 
         // Adding product to shopping cart
-        public IActionResult AddProductToCart()
+        [HttpPost]
+        public JsonResult AddToCart([FromBody] CartDetail productid)
         {
-            return View();
+
+            string UserID = HttpContext.Session.GetString("UserID");
+
+            if (UserID != null)
+            {
+                //add to cart in DB for logged in user
+                //List<CartDetail> usercart = CartData.GetCartInfo(UserID);
+
+                int success = CartData.AddProductToCart(UserID, productid.ProductId);
+
+                return Json(new { success = true });
+            }
+            else
+            {
+
+
+
+            }
+            return Json(new { success = true });
+
         }
     }
 }

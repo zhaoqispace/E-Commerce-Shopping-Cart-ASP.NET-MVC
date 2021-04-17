@@ -14,19 +14,30 @@ namespace Core2Base.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly Session session;
         private readonly ILogger<HomeController> _logger;
         //combine product controller with home controller
         //test commit
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, Session session)
         {
             _logger = logger;
+            this.session = session;
         }
         public IActionResult Index()
         {
-            List<Product> ProductList = ProductData.GetProductInfo();
-            ViewData["userinsession"] = TempData["userinsession"];
+            /*
+            if (Request.Cookies["sessionID"] == null)
+            {
+                Response.Cookies.Append("sessionID", session.SessionID);
+            }
+            */
+            HttpContext.Session.SetString("sessionid", session.SessionID);
+            
+            //List<Product> ProductList = ProductData.GetProductInfo();
+            //ViewData["userinsession"] = TempData["userinsession"];
 
             // this ViewData key-value pair is to pass data from Controller to View
+            List<Product> ProductList = ProductData.GetProductInfo();
             ViewData["Products"] = ProductList;
             ViewData["firstname"] = HttpContext.Session.GetString("firstname");
             //ViewData["qtyInCart"] =
@@ -192,5 +203,8 @@ namespace Core2Base.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
+
     }
 }
