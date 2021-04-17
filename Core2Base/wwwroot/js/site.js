@@ -40,45 +40,6 @@ $(document).on("keyup", ".quantity", function (e) {
     }
 });
 
-
-//$('.minusButton').click(function Minus() {
-//    numberInCart = $(this).next();
-//    let counter = 1;
-//    if (numberInCart.val() > 1 && numberInCart.val() != 0) {
-//        numberInCart.val(parseInt(numberInCart.val(), 10) - counter);
-//    }
-//});
-
-//$('.plusButton').click(function Add() {
-//    numberInCart = $(this).prev();
-//    let counter = 1;  
-//    if (numberInCart.val() < 99) {
-//        numberInCart.val(parseInt(numberInCart.val(), 10) + counter);
-//    }
-//    if (numberInCart.val() >= 99) {
-//        numberInCart.val(parseInt(numberInCart.val(), 10) + 0);
-//        alert("Sorry, The purchase limit for each product is 99.");
-//    }
-//});
-  
-//$(".quantity").on("keyup", function () {
-
-//    if ($(this).val() < 1 && $(this).val() != ' ') {
-//        alert("Sorry, the minimum purchase quantity is 1. Please click the Remove All button to remove product from your cart.");
-//        $(this).val(1);
-//    }
-
-//    if ($(this).val() > 99) {
-//        alert("Sorry, The purchase limit for each product is 99.");
-//        $(this).val(99);
-//    }
-
-//    if (/^[0-9]*$/.test($(".quantity").val()) == false) {
-//        alert("Sorry, no special characters or alphabets are allowed in quantity field.");
-//        $(this).val(1);
-//    }
-//});
-
 //var currentItems = 0;
 //$(document).ready(function () {
 
@@ -96,12 +57,20 @@ $('.search-button').click(function () {
 window.onload = function () {
     let elemList = document.getElementsByName("add-to-cart");
     let elemList1 = document.getElementsByName("subtract-from-cart");
+    let elemList2 = document.getElementsByName("remove-from-cart");
+    let elemList3 = document.getElementsByName("edit-cart-quantity");
 
     for (let i = 0; i < elemList.length; i++) {
         elemList[i].addEventListener("click", onAdd);
     }
     for (let j = 0; j < elemList1.length; j++) {
         elemList1[j].addEventListener("click", onSubtract);
+    }
+    for (let k = 0; k < elemList2.length; k++) {
+        elemList2[k].addEventListener("click", onRemove)
+    }
+    for (let l = 0; l < elemList3.length; l++) {
+        elemList3[l].addEventListener("change", onEdit)
     }
 }
 
@@ -131,15 +100,24 @@ function addcartlogin(elemId) {
             let elem = document.getElementById(elemId);
             if (!elem)
                 return;
+            $("#shoppingcartnumber").load(" #shoppingcartnumber > *");
             $("#shoppingCartTable").load(" #shoppingCartTable > *", function () {
-                   let elemList = document.getElementsByName("add-to-cart");
-                   let elemList1 = document.getElementsByName("subtract-from-cart");
+                let elemList = document.getElementsByName("add-to-cart");
+                let elemList1 = document.getElementsByName("subtract-from-cart");
+                let elemList2 = document.getElementsByName("remove-from-cart");
+                let elemList3 = document.getElementsByName("edit-cart-quantity");
 
                 for (let i = 0; i < elemList.length; i++) {
                     elemList[i].addEventListener("click", onAdd);
                 }
                 for (let j = 0; j < elemList1.length; j++) {
                     elemList1[j].addEventListener("click", onSubtract);
+                }
+                for (let k = 0; k < elemList2.length; k++) {
+                    elemList2[k].addEventListener("click", onRemove)
+                }
+                for (let l = 0; l < elemList3.length; l++) {
+                    elemList3[l].addEventListener("change", onEdit)
                 }
             });
             return;
@@ -160,7 +138,7 @@ function onSubtract(event) {
 function subtractcartlogin(elem1Id) {
     let xhr = new XMLHttpRequest();
 
-    xhr.open("Post", "/ShoppingCart/SubtractProductFromCart");
+    xhr.open("Post", "/ShoppingCart/SubtractFromCart");
     xhr.setRequestHeader("Content-Type", "application/json; charset=utf8");
     xhr.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE) {
@@ -176,15 +154,24 @@ function subtractcartlogin(elem1Id) {
             let elem1 = document.getElementById(elem1Id);
             if (!elem1)
                 return;
-
+            $("#shoppingcartnumber").load(" #shoppingcartnumber > *");
             $("#shoppingCartTable").load(" #shoppingCartTable > *", function () {
                 let elemList = document.getElementsByName("add-to-cart");
                 let elemList1 = document.getElementsByName("subtract-from-cart");
+                let elemList2 = document.getElementsByName("remove-from-cart");
+                let elemList3 = document.getElementsByName("edit-cart-quantity");
+
                 for (let i = 0; i < elemList.length; i++) {
                     elemList[i].addEventListener("click", onAdd);
                 }
                 for (let j = 0; j < elemList1.length; j++) {
                     elemList1[j].addEventListener("click", onSubtract);
+                }
+                for (let k = 0; k < elemList2.length; k++) {
+                    elemList2[k].addEventListener("click", onRemove)
+                }
+                for (let l = 0; l < elemList3.length; l++) {
+                    elemList3[l].addEventListener("change", onEdit)
                 }
             });
             return;
@@ -193,6 +180,110 @@ function subtractcartlogin(elem1Id) {
 
     xhr.send(JSON.stringify({ productid: elem1Id }));
 }
+
+function onRemove(event) {
+    let elem = event.currentTarget;
+    let elemId = elem.getAttribute("id");
+
+    removecartlogin(elemId);
+}
+
+function removecartlogin(elem2Id) {
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("Post", "/ShoppingCart/RemoveFromCart");
+    xhr.setRequestHeader("Content-Type", "application/json; charset=utf8");
+    xhr.onreadystatechange = function () {
+        if (this.readyState === XMLHttpRequest.DONE) {
+            // check if HTTP operation is okay
+            if (this.status !== 200)
+                return;
+
+            let data = JSON.parse(this.responseText);
+
+            if (!data.success)
+                return;
+
+            let elem2 = document.getElementById(elem2Id);
+            if (!elem2)
+                return;
+            $("#shoppingcartnumber").load(" #shoppingcartnumber > *");
+            $("#shoppingCartTable").load(" #shoppingCartTable > *", function () {
+                let elemList = document.getElementsByName("add-to-cart");
+                let elemList1 = document.getElementsByName("subtract-from-cart");
+                let elemList2 = document.getElementsByName("remove-from-cart");
+                let elemList3 = document.getElementsByName("edit-cart-quantity");
+
+                for (let i = 0; i < elemList.length; i++) {
+                    elemList[i].addEventListener("click", onAdd);
+                }
+                for (let j = 0; j < elemList1.length; j++) {
+                    elemList1[j].addEventListener("click", onSubtract);
+                }
+                for (let k = 0; k < elemList2.length; k++) {
+                    elemList2[k].addEventListener("click", onRemove)
+                }
+                for (let l = 0; l < elemList3.length; l++) {
+                    elemList3[l].addEventListener("change", onEdit)
+                }
+            });
+            return;
+        }
+    }
+
+    xhr.send(JSON.stringify({ productid: elem2Id }));
+}
+
+
+function onEdit(elem3Id, e) {
+    let xhr = new XMLHttpRequest();
+    let userinput = e.target.value;
+    xhr.open("Post", "/ShoppingCart/EditQuantity");
+    xhr.setRequestHeader("Content-Type", "application/json; charset=utf8");
+    xhr.onreadystatechange = function () {
+        if (this.readyState === XMLHttpRequest.DONE) {
+            // check if HTTP operation is okay
+            if (this.status !== 200)
+                return;
+
+            let data = JSON.parse(this.responseText);
+
+            if (!data.success)
+                return;
+
+            let elem3 = document.getElementById(elem3Id);
+            if (!elem3)
+                return;
+            $("#shoppingcartnumber").load(" #shoppingcartnumber > *");
+            $("#shoppingCartTable").load(" #shoppingCartTable > *", function () {
+                let elemList = document.getElementsByName("add-to-cart");
+                let elemList1 = document.getElementsByName("subtract-from-cart");
+                let elemList2 = document.getElementsByName("remove-from-cart");
+                let elemList3 = document.getElementsByName("edit-cart-quantity");
+
+                for (let i = 0; i < elemList.length; i++) {
+                    elemList[i].addEventListener("click", onAdd);
+                }
+                for (let j = 0; j < elemList1.length; j++) {
+                    elemList1[j].addEventListener("click", onSubtract);
+                }
+                for (let k = 0; k < elemList2.length; k++) {
+                    elemList2[k].addEventListener("click", onRemove)
+                }
+                for (let l = 0; l < elemList3.length; l++) {
+                    elemList3[l].addEventListener("change", onEdit)
+                }
+            });
+            return;
+        }
+    }
+    let datatosend = {
+        productid: elem3Id,
+        quantity: parseInt(userinput)
+    };
+    xhr.send(JSON.stringify({ datatosend }));
+}
+
 
 const togglePassword = document.querySelector('#togglePassword');
 const password = document.querySelector('#password');
@@ -223,6 +314,3 @@ togglePassword2.addEventListener('click', function (e) {
 
     this.classList.toggle("fa-eye-dropper")
 });
-
-
-
