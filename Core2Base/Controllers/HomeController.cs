@@ -42,7 +42,6 @@ namespace Core2Base.Controllers
             List<Product> ProductList = ProductData.GetProductInfo();
             ViewData["firstname"] = HttpContext.Session.GetString("firstname");
             HttpContext.Session.SetString("sessionid", session.SessionID);
-            // this ViewData key-value pair is to pass data from Controller to View
             ViewData["Products"] = ProductList;
 
             var pageNumber = page ?? 1; // if no page was specified in the querystring, default to the first page (1)
@@ -52,7 +51,7 @@ namespace Core2Base.Controllers
 
             if (HttpContext.Session.GetString("UserID")!= null)
             {
-                ViewData["numberofcartitems"] = CartData.NumberOfCartItems(HttpContext.Session.GetString("UserID"));
+                ViewData["qtyInCart"] = CartData.NumberOfCartItems(HttpContext.Session.GetString("UserID"));
             }
             return View();
         }
@@ -60,6 +59,7 @@ namespace Core2Base.Controllers
         //Search Results method and page
         public IActionResult SearchResults(string searchTerm, int? page)
         {
+            ViewData["qtyInCart"] = CartData.NumberOfCartItems(HttpContext.Session.GetString("UserID"));
             if (searchTerm != null)
             {
                 //Remove all leading and trailing white-spaces

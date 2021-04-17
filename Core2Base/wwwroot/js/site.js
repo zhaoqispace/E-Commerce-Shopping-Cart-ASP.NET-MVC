@@ -93,7 +93,8 @@ function addcartlogin(elemId) {
             let elem = document.getElementById(elemId);
             if (!elem)
                 return;
-            $("#shoppingCartTable").load(" #shoppingCartTable > *", function () {
+             $("#shoppingcartnumber").load (" #shoppingcartnumber > *");
+             $("#shoppingCartTable").load(" #shoppingCartTable > *", function () {
                    let elemList = document.getElementsByName("add-to-cart");
                    let elemList1 = document.getElementsByName("subtract-from-cart");
 
@@ -122,7 +123,7 @@ function onSubtract(event) {
 function subtractcartlogin(elem1Id) {
     let xhr = new XMLHttpRequest();
 
-    xhr.open("Post", "/ShoppingCart/SubtractProductFromCart");
+    xhr.open("Post", "/ShoppingCart/SubtractFromCart");
     xhr.setRequestHeader("Content-Type", "application/json; charset=utf8");
     xhr.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE) {
@@ -138,7 +139,7 @@ function subtractcartlogin(elem1Id) {
             let elem1 = document.getElementById(elem1Id);
             if (!elem1)
                 return;
-
+            $("#shoppingcartnumber").load(" #shoppingcartnumber > *");
             $("#shoppingCartTable").load(" #shoppingCartTable > *", function () {
                 let elemList = document.getElementsByName("add-to-cart");
                 let elemList1 = document.getElementsByName("subtract-from-cart");

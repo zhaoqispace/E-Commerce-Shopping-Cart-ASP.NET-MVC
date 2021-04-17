@@ -39,6 +39,5 @@ namespace Core2Base.Controllers
         {
             return View();
         }
-
     }
 }

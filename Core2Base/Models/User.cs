@@ -26,7 +26,7 @@ namespace Core2Base.Models
 
         public int SaveDetails()
         {
-            SqlConnection conn = new SqlConnection("Server=(local);Database=CA2db_Version5; Integrated Security=true");
+            SqlConnection conn = new SqlConnection("Server=(local);Database=CA2db_Version6; Integrated Security=true");
             SqlCommand checkUserEmail = new SqlCommand("SELECT * FROM [User] WHERE (email = '" + Email + "')", conn);
             conn.Open();
             SqlDataReader reader = checkUserEmail.ExecuteReader();
@@ -44,10 +44,9 @@ namespace Core2Base.Models
                 conn.Open();
                 int i = cmd.ExecuteNonQuery();
                 conn.Close();
-              
+
                 return i;
             }
-            
         }
 
     }
