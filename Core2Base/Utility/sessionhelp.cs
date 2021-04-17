@@ -11,10 +11,10 @@ namespace Core2Base.Utility
     {
 
         public static Session InitSession()
-            {
+        {
             Session session = new Session();
             session.SessionID = System.Guid.NewGuid().ToString();
             return session;
-            }
-    } 
+        }
+    }
 }

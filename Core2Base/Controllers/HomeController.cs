@@ -36,11 +36,15 @@ namespace Core2Base.Controllers
             //List<Product> ProductList = ProductData.GetProductInfo();
             //ViewData["userinsession"] = TempData["userinsession"];
 
-            // this ViewData key-value pair is to pass data from Controller to View
             List<Product> ProductList = ProductData.GetProductInfo();
-            ViewData["Products"] = ProductList;
             ViewData["firstname"] = HttpContext.Session.GetString("firstname");
-            //ViewData["qtyInCart"] =
+            HttpContext.Session.SetString("sessionid", session.SessionID);
+            // this ViewData key-value pair is to pass data from Controller to View
+            ViewData["Products"] = ProductList;
+            if (HttpContext.Session.GetString("UserID")!= null)
+            {
+                ViewData["numberofcartitems"] = CartData.NumberOfCartItems(HttpContext.Session.GetString("UserID"));
+            }
             return View();
         }
         
@@ -123,8 +127,6 @@ namespace Core2Base.Controllers
 
                 if (user != null && BC.Verify(password, user.Password))
                 {
-                    TempData["userinsession"] = user.Email;
-                    HttpContext.Session.SetString("email", email);
                     HttpContext.Session.SetString("UserID", Convert.ToString(user.UserId));
                     HttpContext.Session.SetString("firstname", user.FirstName);
                     return RedirectToAction("Index", "Home");
@@ -165,8 +167,8 @@ namespace Core2Base.Controllers
                 LastName = HttpContext.Request.Form["lastname"].ToString(),
                 Gender = HttpContext.Request.Form["gender"].ToString(),
                 Email = HttpContext.Request.Form["email"].ToString(),
-                DateOfBirth = HttpContext.Request.Form["DOB"].ToString(),
-                Password = HttpContext.Request.Form["password"].ToString(),
+                Password = BC.HashPassword(HttpContext.Request.Form["password"].ToString()),
+                DateOfBirth = Convert.ToDateTime(HttpContext.Request.Form["DOB"]),
                 Salutation = HttpContext.Request.Form["salutations"].ToString(),
                 Address = HttpContext.Request.Form["address"].ToString(),
                 PostalCode = HttpContext.Request.Form["postalcode"].ToString()
