@@ -8,6 +8,9 @@ using Microsoft.Extensions.Logging;
 using Core2Base.Models;
 using Core2Base.Data;
 using Microsoft.AspNetCore.Http;
+using X.PagedList.Mvc.Core;
+using X.PagedList;
+
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -16,7 +19,7 @@ namespace Core2Base.Controllers
     public class ShoppingCartController : Controller
     {
         // GET: /<controller>/
-        public IActionResult Index()
+        public IActionResult Index(int? page)
         {
             string UserID = HttpContext.Session.GetString("UserID");
             if (UserID != null)
@@ -24,6 +27,12 @@ namespace Core2Base.Controllers
                 List<CartDetail> usercart = CartData.GetCartInfo(UserID);
                 ViewData["usercart"] = usercart;
                 ViewData["numberofcartitems"]= CartData.NumberOfCartItems(UserID);
+
+                var pageNumber = page ?? 1; // if no page was specified in the querystring, default to the first page (1)
+                var onePageOfProducts = usercart.ToPagedList(pageNumber, 3); // will only contain 25 products max because of the pageSize
+
+                ViewBag.OnePageOfProducts = onePageOfProducts;
+
                 return View();
             }
             else

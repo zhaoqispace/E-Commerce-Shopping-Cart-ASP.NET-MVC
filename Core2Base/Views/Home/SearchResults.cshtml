@@ -1,19 +1,24 @@
-﻿@{ 
+﻿@{
     var foundProducts = (List<Product>)ViewData["foundProducts"];
+    ViewData["Title"] = "Search Results";
     Layout = "_Layout_SearchResults";
- }
+}
+
+@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+
 
 @if (foundProducts.Count > 0)
 {
     <div class="container d-flex flex-wrap">
 
-        @foreach (var product in foundProducts)
+        @foreach (var product in ViewBag.OnePageOfProducts)
         {
-            <div class="card">
+            <div class="card d-flex flex-column">
                 <img src="@product.Image" class="card-img-top" alt="@product.Name &nbsp @product.Description" width="150" height="200">
-                <div class="card-body d-grid">
+                <div class="card-body d-flex flex-column">
                     <h5 class="card-title" name="product">@product.Name</h5>
-                    <h5 class="card-title">@Html.DisplayFor(p => product.UnitPrice)</h5>
+                    <h5 class="card-title">@String.Format("{0:c}", product.UnitPrice)</h5>
                     <p class="card-text">@product.Description</p>
                     <button type="button" class=" mt-auto col-6 btn btn-primary add-to-cart">Add to Cart</button>
                 </div>
@@ -23,6 +28,9 @@
 
 @if (foundProducts.Count == 0)
 {
-    <h4 class="d-flex justify-content-center mt-5">Sorry, Your search returned no results. Please try again.</h4>
+    <h4 class="d-flex justify-content-center mt-5 text-red">Sorry, Your search returned no results. Please try again.</h4>
 }
 
+<div style="display: flex; width: 30%; flex:auto; justify-content: flex-end;">
+    @Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts, page => Url.Action("Index", new { page }))
+</div>

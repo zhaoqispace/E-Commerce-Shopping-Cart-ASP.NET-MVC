@@ -9,6 +9,9 @@ using Core2Base.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Http;
+using X.PagedList.Mvc.Core;
+using X.PagedList;
+
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -17,7 +20,7 @@ namespace Core2Base.Controllers
     public class PurchaseController : Controller
     {
         // GET: /<controller>/
-        public IActionResult Index()
+        public IActionResult Index(int? page)
         {
             //getting purchase history
             string UserID = HttpContext.Session.GetString("UserID");
@@ -25,6 +28,12 @@ namespace Core2Base.Controllers
             {
                 List<PurchaseHistory> purchaseHistoryList = PurchaseHistoryData.GetPurchaseHistory(UserID);
                 ViewData["PurchaseHistory"] = purchaseHistoryList;
+
+                var pageNumber = page ?? 1; // if no page was specified in the querystring, default to the first page (1)
+                var onePageOfProducts = purchaseHistoryList.ToPagedList(pageNumber, 3); // will only contain 25 products max because of the pageSize
+
+                ViewBag.OnePageOfProducts = onePageOfProducts;
+
             }
 
             return View();
