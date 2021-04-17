@@ -14,19 +14,26 @@ namespace Core2Base.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly Session session;
         private readonly ILogger<HomeController> _logger;
         //combine product controller with home controller
         //test commit
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, Session session)
         {
             _logger = logger;
+            this.session = session;
         }
         public IActionResult Index()
         {
             List<Product> ProductList = ProductData.GetProductInfo();
             ViewData["firstname"] = HttpContext.Session.GetString("firstname");
+            HttpContext.Session.SetString("sessionid", session.SessionID);
             // this ViewData key-value pair is to pass data from Controller to View
             ViewData["Products"] = ProductList;
+            if (HttpContext.Session.GetString("UserID")!= null)
+            {
+                ViewData["numberofcartitems"] = CartData.NumberOfCartItems(HttpContext.Session.GetString("UserID"));
+            }
             return View();
         }
         
@@ -118,8 +125,7 @@ namespace Core2Base.Controllers
                 Gender = HttpContext.Request.Form["gender"].ToString(),
                 Email = HttpContext.Request.Form["email"].ToString(),
                 Password = BC.HashPassword(HttpContext.Request.Form["password"].ToString()),
-                DateOfBirth = HttpContext.Request.Form["DOB"].ToString(),
-                Password = HttpContext.Request.Form["password"].ToString(),
+                DateOfBirth = Convert.ToDateTime(HttpContext.Request.Form["DOB"]),
                 Salutation = HttpContext.Request.Form["salutations"].ToString(),
                 Address = HttpContext.Request.Form["address"].ToString(),
                 PostalCode = HttpContext.Request.Form["postalcode"].ToString()

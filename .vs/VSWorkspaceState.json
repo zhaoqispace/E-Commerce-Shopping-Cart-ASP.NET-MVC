@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Core2Base",
+    "\\Core2Base\\Controllers"
   ],
+  "SelectedNode": "\\Core2Base\\Controllers\\HomeController.cs",
   "PreviewInSolutionExplorer": false
 }

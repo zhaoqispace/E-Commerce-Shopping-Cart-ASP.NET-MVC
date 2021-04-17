@@ -27,11 +27,11 @@ namespace Core2Base.Data
                 {
                     user = new User()
                     {
-                        UserId = (Guid)(reader["UserId"]),
+                        UserId = Convert.ToString(reader["UserId"]),
                         FirstName = (string)reader["FirstName"],
                         LastName = (string)reader["LastName"],
                         Email = (string)reader["Email"],
-                        DateOfBirth =(string)reader["DateOfBirth"],
+                        DateOfBirth =(DateTime)reader["DateOfBirth"],
                         Password = (string)reader["Password"],
                         Salutation = (string)reader["Salutation"],
                         Address = (string)reader["Address"],

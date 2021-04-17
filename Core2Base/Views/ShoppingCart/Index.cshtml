@@ -10,7 +10,8 @@
 
 <h3 class="pageHeader">Shopping Cart</h3>
 
-<div class="shoppingCartTable">
+<div class="shoppingCartTable" , id="shoppingCartTable">
+    <script>AddListeners();</script>
     <table class="table">
         <thead class="thead-light">
             <tr>
@@ -28,16 +29,16 @@
                 {
                     totalprice = totalprice + cartitem.UnitPrice * cartitem.qty;
                     <tr>
-                        <td><img src="cartitem.ProductImg" alt="Dota2 Logo" height="150" width="150"></td>
+                        <td><img src="@cartitem.ProductImg" alt="Dota2 Logo" height="150" width="150"></td>
                         <td>@cartitem.ProductName</td>
                         <td>@cartitem.ProductDesc</td>
                         <td>
-                            <button type="button" class="minusButton">-</button><input class="quantity" type="text" onkeypress="return event.charCode >= 48" value=@cartitem.qty><button type="button" class="plusButton">+</button> @*Need to change 1 to a quantity field when .cs file is ready*@
+                            <button type="button" name="subtract-from-cart" class="minusButton" id="@cartitem.ProductId">-</button><input class="quantity" type="text" onkeypress="return event.charCode >= 48" value=@cartitem.qty><button type="button" name="add-to-cart" class="plusButton" id="@cartitem.ProductId">+</button>
                             <br />
                             <button type="button" class="removeAllButton">Remove From Cart</button>
                         </td>
                         <td>@cartitem.UnitPrice</td>
-                        <td>@(cartitem.UnitPrice * cartitem.qty)</td>
+                        <td>@string.Format("{0:C}", (cartitem.UnitPrice * cartitem.qty))</td>
                     </tr>
                 }
             }
@@ -47,7 +48,7 @@
                 <td></td>
                 <td></td>
                 <td><b>Total:</b></td>
-                <td class="totalPrice">$@totalprice</td>
+                <td class="totalPrice">@string.Format("{0:C}", totalprice)</td>
             </tr>
         </tbody>
     </table>
