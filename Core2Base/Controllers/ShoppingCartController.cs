@@ -23,6 +23,8 @@ namespace Core2Base.Controllers
             {
                 List<CartDetail> usercart = CartData.GetCartInfo(UserID);
                 ViewData["usercart"] = usercart;
+                ViewData["numberofcartitems"]= CartData.NumberOfCartItems(UserID);
+                return View();
             }
             else
             {
@@ -39,7 +41,6 @@ namespace Core2Base.Controllers
         [HttpPost]
         public JsonResult AddToCart([FromBody] CartDetail productid)
         {
-
             string UserID = HttpContext.Session.GetString("UserID");
 
             if (UserID != null)
@@ -58,7 +59,28 @@ namespace Core2Base.Controllers
 
             }
             return Json(new { success = true });
+        }
+        [HttpPost]
+        public JsonResult SubtractProductFromCart([FromBody] CartDetail productid)
+        {
+            string UserID = HttpContext.Session.GetString("UserID");
 
+            if (UserID != null)
+            {
+                //add to cart in DB for logged in user
+                //List<CartDetail> usercart = CartData.GetCartInfo(UserID);
+
+                int success = CartData.SubtractProductFromCart(UserID, productid.ProductId);
+
+                return Json(new { success = true });
+            }
+            else
+            {
+
+
+
+            }
+            return Json(new { success = true });
         }
     }
 }

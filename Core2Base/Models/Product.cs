@@ -8,7 +8,7 @@ namespace Core2Base.Models
 {
     public class Product
     {
-        public Guid Id { get; set; } // better to use string type
+        public string Id { get; set; } // better to use string type
         public string Name { get; set; }
         public string Description { get; set; }
         public string Category { get; set; }
