@@ -33,22 +33,53 @@ namespace Core2Base.Controllers
             */
             HttpContext.Session.SetString("sessionid", session.SessionID);
             
+            //List<Product> ProductList = ProductData.GetProductInfo();
+            //ViewData["userinsession"] = TempData["userinsession"];
+
             // this ViewData key-value pair is to pass data from Controller to View
             List<Product> ProductList = ProductData.GetProductInfo();
             ViewData["Products"] = ProductList;
+            ViewData["firstname"] = HttpContext.Session.GetString("firstname");
+            //ViewData["qtyInCart"] =
             return View();
         }
         
         //Search Results method and page
         public IActionResult SearchResults(string searchTerm)
         {
+          
+
+
             if (searchTerm != null)
             {
+                //Remove all leading and trailing white-spaces
                 searchTerm = searchTerm.Trim();
+
+                // to enable searchTerm with "$"
+                if (searchTerm.StartsWith('$'))
+                {
+                    searchTerm = (searchTerm as string).Trim('$');
+                }
+
+                // to enable searchTerm with 
+                if (searchTerm.Contains("."))
+                {
+                    //Remove all trailing zeros
+                    searchTerm = searchTerm.TrimEnd('0');
+
+                    //If all we are left with is a decimal point,then remove it
+                    if (searchTerm.EndsWith("."))
+                        searchTerm = searchTerm.TrimEnd('.');
+                }
+
+          
             }
+
+            
             List<Product> foundProducts = ProductData.SearchProducts(searchTerm);
 
             ViewData["foundProducts"] = foundProducts;
+            ViewData["firstname"] = HttpContext.Session.GetString("firstname");
             return View(foundProducts);
         }
 
@@ -95,7 +126,10 @@ namespace Core2Base.Controllers
                     TempData["userinsession"] = user.Email;
                     HttpContext.Session.SetString("email", email);
                     HttpContext.Session.SetString("UserID", Convert.ToString(user.UserId));
+                    HttpContext.Session.SetString("firstname", user.FirstName);
                     return RedirectToAction("Index", "Home");
+
+                    
                 }
                 else
                 {
@@ -103,6 +137,10 @@ namespace Core2Base.Controllers
                     return View();
                 }
             }
+
+            
+
+
             return View();
         }
 
@@ -127,9 +165,12 @@ namespace Core2Base.Controllers
                 LastName = HttpContext.Request.Form["lastname"].ToString(),
                 Gender = HttpContext.Request.Form["gender"].ToString(),
                 Email = HttpContext.Request.Form["email"].ToString(),
+                DateOfBirth = HttpContext.Request.Form["DOB"].ToString(),
                 Password = HttpContext.Request.Form["password"].ToString(),
                 Salutation = HttpContext.Request.Form["salutations"].ToString(),
-                Address = HttpContext.Request.Form["address"].ToString()
+                Address = HttpContext.Request.Form["address"].ToString(),
+                PostalCode = HttpContext.Request.Form["postalcode"].ToString()
+
             };
 
             int result = model.SaveDetails();
