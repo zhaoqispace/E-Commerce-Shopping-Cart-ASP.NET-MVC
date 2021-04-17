@@ -1,0 +1,292 @@
+﻿@{
+    ViewData["Title"] = "Alternate";
+}
+
+@{
+    Layout = "/Views/Shared/_PaymentPageLayout.cshtml";
+}
+
+<!-- styling elements for the Payment Alternative Page -->
+<style>
+
+    html {
+        position: relative;
+        min-height: 100%;
+    }
+
+    body {
+        font-family: Arial;
+        font-size: 17px;
+        padding: 8px;
+        margin-bottom: 170px;
+    }
+
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .row {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin: 0-10px;
+    }
+
+    div.container-lg {
+        background-color: #cfcccc85;
+        padding: 20px;
+        border: 1px solid lightgrey;
+        border-radius: 3px;
+        height: 500px;
+        width: 2000px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 5px;
+        border: 2px solid lightgrey;
+    }
+
+    input[type="tel"] {
+        width: 100%;
+        padding: 5px;
+        border: 2px solid lightgrey;
+    }
+
+    .col-25 {
+        -ms-flex: 25%;
+        flex: 25%
+    }
+
+    .col-50 {
+        -ms-flex: 50%;
+        flex: 50%
+    }
+
+    .col-75 {
+        -ms-flex: 75%;
+        flex: 75%
+    }
+
+    label {
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    /*making the payment page responsive*/
+    @@media only screen and (max-width:1300px) and (min-width:0px) {
+        .row, div.container-lg, input[type="text"], input[type="tel"], .col-25, .col-50, .col-75,
+        label {
+            width: 100%;
+            margin-top: 0;
+        }
+    }
+</style>
+
+<body>
+    <form id="form" action="/Payment/Success" method="POST">
+
+        <div class="container-lg">
+            <div class="row">
+                <div class="col-50">
+                    <h5><b>Welcome back, [First Name]</b></h5>
+                    <h6>Based on your previous transaction, here are your credit card details:</h6>
+                    <h5><b>Payment</b></h5>
+                    <p>
+
+                    </p>
+                    <label for="ccname">Name on Card</label>
+                    <p>
+                        <input type="text" id="ccname" autocomplete="cardname" name="cardname">
+                    </p>
+
+                    <label for="ccnumber">Credit Card Number</label>
+                    <p>
+                        <input type="tel" id="ccnumber" autocomplete="cc-number" name="cardnumber">
+                    </p>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="expmonth">Exp Month</label>
+                            <p>
+                                <input type="text" id="expmonth" name="expmonth">
+                            </p>
+                        </div>
+
+                        <div class="col-25">
+                            <label for="expyear">Exp Year</label>
+                            <p>
+                                <input type="text" id="expyear" name="expyear">
+                            </p>
+                        </div>
+                        <div class="col-25">
+                            <label for="cvv">CVV</label>
+                            <p>
+                                <input type="text" id="cvv" name="cvv" required>
+                            </p>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-50">
+                    <h5><b>Billing Information</b></h5>
+                    <label for="firstname">First Name</label>
+                    <p>
+                        <input type="text" id="firstname" name="firstname">
+                    </p>
+                    <label for="lastname">Last Name</label>
+                    <p>
+                        <input type="text" id="lastname" name="lastname">
+                    </p>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="contact">Contact Number</label>
+                            <p>
+                                <input type="tel" id="contact" name="address">
+                            </p>
+                        </div>
+                        <div class="col-75">
+                            <label for="address">Address</label>
+                            <p>
+                                <input type="text" id="address" name="address">
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="country">Country</label>
+                            <p>
+                                <input type="text" id="country" name="country">
+                            </p>
+                        </div>
+                        <div class="col-25">
+                            <label for="zip">Zip Code</label>
+                            <input type="text" id="zip" name="zip" placeholder="11102">
+                        </div>
+                        <div class="col-25">
+                            <label for="state">State</label>
+                            <input type="text" id="state" name="state" placeholder="New York">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container-lg">
+            <div class="row">
+                <div class="col-50">
+                    <h5><b>Alternatively, you can choose another credit card to process your payment. </b></h5>
+                    <h5><b>Payment</b></h5>
+                    <h6>Please be reminded that we accept the following credit cards:</h6>
+                    <div class="icon-container">
+                        <i class="fab fa-cc-visa fa-2x" style="color:midnightblue;"></i>
+                        <i class="fab fa-cc-mastercard fa-2x" style="color:red;"></i>
+                        <i class="fab fa-cc-amex fa-2x" style="color:dodgerblue;"></i>
+                        <i class="fab fa-cc-jcb fa-2x" style="color:black;"></i>
+                        <i class="fab fa-cc-paypal fa-2x" style="color:lightskyblue;"></i>
+                    </div>
+                    <p>
+
+                    </p>
+                    <label for="ccname">Name on Card</label>
+                    <p>
+                        <input type="text" id="ccname" name="cardname" placeholder="John/Jane Doe" required>
+                    </p>
+
+                    <label for="ccnumber">Credit Card Number</label>
+                    <p>
+                        <input type="tel" id="ccnumber" inputmode="numeric" pattern="[0-9\s]{16,20}" autocomplete="cc-number"
+                               name="cardnumber" placeholder="xxxx-xxxx-xxxx-xxxx"
+                               required>
+                    </p>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="expmonth">Exp Month</label>
+                            <p>
+                                <input type="text" id="expmonth" name="expmonth" placeholder="January" required>
+                            </p>
+                        </div>
+
+                        <div class="col-25">
+                            <label for="expyear">Exp Year</label>
+                            <p>
+                                <input type="text" id="expyear" name="expyear" required>
+                            </p>
+                        </div>
+                        <div class="col-25">
+                            <label for="cvv">CVV</label>
+                            <p>
+                                <input type="text" id="cvv" name="cvv" required>
+                            </p>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-50">
+                    <h5><b>Billing Information</b></h5>
+                    <label for="firstname">First Name</label>
+                    <p>
+                        <input type="text" id="firstname" name="firstname" placeholder="John/Jane" required>
+                    </p>
+                    <label for="lastname">Last Name</label>
+                    <p>
+                        <input type="text" id="lastname" name="lastname" placeholder="Doe" required>
+                    </p>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="contact">Contact Number</label>
+                            <p>
+                                <input type="tel" id="contact" name="address" placeholder="+16467980487" required>
+                            </p>
+                        </div>
+                        <div class="col-75">
+                            <label for="address">Address</label>
+                            <p>
+                                <input type="text" id="address" name="address" placeholder="Canberra Street 32" required>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="country">Country</label>
+                            <p>
+                                <input type="text" id="country" name="country" placeholder="United States" required>
+                            </p>
+                        </div>
+                        <div class="col-25">
+                            <label for="zip">Zip Code</label>
+                            <input type="text" id="zip" name="zip" placeholder="11102" required>
+                        </div>
+                        <div class="col-25">
+                            <label for="state">State</label>
+                            <input type="text" id="state" name="state" placeholder="New York" required>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <br />
+        <hr>
+
+
+        <p align="right" style="margin-right:3.8em;"><a>Grand Total: $10000</a></p>
+
+        <p align="right" style="margin-right:2.5em;"><button type="submit" class="btn-primary">Proceed to Purchase</button></p>
+    </form>
+</body>
+
+
+
+
+

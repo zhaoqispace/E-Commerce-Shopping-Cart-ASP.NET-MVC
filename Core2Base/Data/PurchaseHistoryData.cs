@@ -39,7 +39,7 @@ namespace Core2Base.Data
                     using (SqlConnection conn2 = new SqlConnection(connectionString))
                     {
                         //getting purchase date and activation status
-                        string orderSql = "Select CONVERT(varchar(10),o.DateOfPurchase,101) as DateOfPurchase, od.ActivationStatus,p.Price from Product p, OrderDetails od , [dbo].[Order] o where p.ProductID=od.ProductID and od.OrderID=o.OrderID and p.ProductID=@ProductID and o.UserID=@UserID";
+                        string orderSql = "Select CONVERT(varchar(10),o.DateOfPurchase,101) as DateOfPurchase, od.ActivationCode,p.Price from Product p, OrderDetails od , [dbo].[Order] o where p.ProductID=od.ProductID and od.OrderID=o.OrderID and p.ProductID=@ProductID and o.UserID=@UserID";
                         using (SqlCommand cmd_order = new SqlCommand(orderSql, conn2))
                         {
                             SqlParameter param = new SqlParameter();
@@ -60,7 +60,7 @@ namespace Core2Base.Data
                                     //adding object into list
                                     Debug.WriteLine(dr_order["DateOfPurchase"].ToString());
                                     dateOfPurchase.Add(dr_order["DateOfPurchase"].ToString());
-                                    activationStatus.Add(dr_order["ActivationStatus"].ToString());
+                                    activationStatus.Add(dr_order["ActivationCode"].ToString());
                                     count += 1;
                                 }
                             }
@@ -121,7 +121,7 @@ namespace Core2Base.Data
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    activationCode = reader["ActivationStatus"].ToString();
+                    activationCode = reader["ActivationCode"].ToString();
                 }
             }
 

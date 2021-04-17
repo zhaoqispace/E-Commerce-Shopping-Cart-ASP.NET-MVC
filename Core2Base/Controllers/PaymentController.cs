@@ -29,6 +29,8 @@ namespace Core2Base.Controllers
             if (UserID != null)
             {
                 int i = PaymentData.InsertCardInfo(cardNumber, UserID);
+                PaymentData.InsertOrderDetails(UserID);
+                PaymentData.DeleteOrderFromCart(UserID);
             }
             return View();
         }
@@ -36,6 +38,13 @@ namespace Core2Base.Controllers
 
         // retrieving payment history
         public IActionResult ViewHistory()
+        {
+            return View();
+        }
+
+        // retrieving alternative page, which is catered for returning users
+
+        public IActionResult Alternate()
         {
             return View();
         }
