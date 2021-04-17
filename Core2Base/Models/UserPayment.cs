@@ -10,8 +10,6 @@ namespace Core2Base.Models
 
         public string CreditCardNum;
 
-        public string AddressID;
-
         public string UserID;
 
     }
