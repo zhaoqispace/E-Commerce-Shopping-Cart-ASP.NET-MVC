@@ -277,6 +277,59 @@ namespace Core2Base.Data
             }
             return numberofitems;
         }
+
+
+        //Misc/Merge/Delete Date
+        public static int MergeTempCartAndDelete(string UserID, string SessionID)
+        {
+            int sucess = 0;
+            List<CartDetail> TempCartItems = new List<CartDetail>();
+            //List<CartDetail> UserCartItems = new List<CartDetail>();
+            TempCartItems = GetCartInfoTemp(SessionID);
+            //UserCartItems = GetCartInfo(UserID);
+            if (TempCartItems != null)
+            {
+                foreach (CartDetail cartData in TempCartItems)
+                {
+                    sucess = Mergecart(cartData.ProductId, cartData.qty, UserID);
+                    if (sucess == 0) break;
+                }
+            }
+            return sucess;
+        }
+
+        public static int Mergecart(string productid, int qty, string userid)
+        {
+            int sucess = 0;
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                var cart = GetCartInfo(userid);
+                var iter = from cartitem in cart where cartitem.ProductId == productid select cartitem;
+                if (iter.Any() == false)
+                {
+                    // add count for new row
+                    string sqladdrow = @"INSERT INTO CartDetails (UserId,ProductID,Qty) Values(@UserID, @ProductID, @qty)";
+                    SqlCommand cmd = new SqlCommand(sqladdrow, conn);
+                    cmd.Parameters.AddWithValue("ProductID", productid);
+                    cmd.Parameters.AddWithValue("UserID", userid);
+                    cmd.Parameters.AddWithValue("qty", qty);
+                    sucess = cmd.ExecuteNonQuery();
+                    return sucess;
+                }
+                else
+                {
+                    // +1 to table
+                    string sqladd1 = @"UPDATE CartDetails SET Qty = Qty + @qty WHERE (ProductID = @ProductID AND UserID = @UserID)";
+                    SqlCommand cmd = new SqlCommand(sqladd1, conn);
+                    cmd.Parameters.AddWithValue("ProductID", productid);
+                    cmd.Parameters.AddWithValue("UserID", userid);
+                    cmd.Parameters.AddWithValue("qty", qty);
+                    sucess = cmd.ExecuteNonQuery();
+                    return sucess;
+                }
+            }
+        }
     }
 }
 
