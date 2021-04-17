@@ -26,6 +26,13 @@ namespace Core2Base.Controllers
             {
                 List<CartDetail> usercart = CartData.GetCartInfo(UserID);
                 ViewData["usercart"] = usercart;
+                ViewData["qtyInCart"]= CartData.NumberOfCartItems(UserID);
+
+                var pageNumber = page ?? 1; // if no page was specified in the querystring, default to the first page (1)
+                var onePageOfProducts = usercart.ToPagedList(pageNumber, 3); // will only contain 25 products max because of the pageSize
+
+                ViewBag.OnePageOfProducts = onePageOfProducts;
+
                 ViewData["numberofcartitems"]= CartData.NumberOfCartItems(UserID);
                 ViewData["firstname"] = HttpContext.Session.GetString("firstname");
                 return View();
@@ -40,21 +47,38 @@ namespace Core2Base.Controllers
             //ViewData["Products"] = ProductList;
             return View();
         }
-
+        //public void RefreshShoppingCartNumber()
+        //{
+        //    string UserID = HttpContext.Session.GetString("UserID");
+        //    ViewData["qtyInCart"] = CartData.NumberOfCartItems(UserID);
+        //}
         // Adding product to shopping cart
         [HttpPost]
         public JsonResult AddToCart([FromBody] CartDetail productid)
         {
             string UserID = HttpContext.Session.GetString("UserID");
+            List<CartDetail> cartinfo = new List<CartDetail>();
 
             if (UserID != null)
             {
-                //add to cart in DB for logged in user
-                //List<CartDetail> usercart = CartData.GetCartInfo(UserID);
+                cartinfo = CartData.GetCartInfo(UserID);
+                var iter = from cartitem in cartinfo where cartitem.ProductId == productid.ProductId select cartitem;
+                foreach (var productincart in iter)
+                {
+                    if (productincart.qty >= 99)
+                    {
+                        return Json(new { success = false });
+                    }
+                    else
+                    {
+                        //add to cart in DB for logged in user
+                        //List<CartDetail> usercart = CartData.GetCartInfo(UserID);
 
-                int success = CartData.AddProductToCart(UserID, productid.ProductId);
+                        int success = CartData.AddProductToCart(UserID, productid.ProductId);
 
-                return Json(new { success = true });
+                        return Json(new { success = true });
+                    }
+                }
             }
             else
             {
@@ -65,24 +89,32 @@ namespace Core2Base.Controllers
             return Json(new { success = true });
         }
         [HttpPost]
-        public JsonResult SubtractProductFromCart([FromBody] CartDetail productid)
+        public JsonResult SubtractFromCart([FromBody] CartDetail productid)
         {
             string UserID = HttpContext.Session.GetString("UserID");
+            List<CartDetail> cartinfo = new List<CartDetail>();
 
             if (UserID != null)
             {
-                //add to cart in DB for logged in user
-                //List<CartDetail> usercart = CartData.GetCartInfo(UserID);
-
-                int success = CartData.SubtractProductFromCart(UserID, productid.ProductId);
-
-                return Json(new { success = true });
+                cartinfo = CartData.GetCartInfo(UserID);
+                var iter = from cartitem in cartinfo where cartitem.ProductId == productid.ProductId select cartitem;
+                foreach (var productincart in iter)
+                {
+                    if (productincart.qty <= 1)
+                    {
+                        return Json(new { success = false });
+                    }
+                    else
+                    {
+                        int success = CartData.SubtractProductFromCart(UserID, productid.ProductId);
+                        return Json(new { success = true });
+                    }
+                }
             }
             else
             {
-
-
-
+                int success = CartData.SubtractProductFromCart(UserID, productid.ProductId);
+                return Json(new { success = true });
             }
             return Json(new { success = true });
         }
