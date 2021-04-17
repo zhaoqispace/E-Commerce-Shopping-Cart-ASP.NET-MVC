@@ -1,4 +1,4 @@
-﻿@{
+﻿@{ 
     var firstname = (string)ViewData["firstname"];
     //var qtyIncart = (int)ViewData["qtyInCart"];
 }
@@ -52,10 +52,19 @@
 
 
                 <!-- NO LOGIN END TEXT-->
-                <div class="ml-auto">
-                    <a href="/Home/Login/" type="button" class="btn btn-outline-light me-2">Login</a>
-                    <a href="/Home/SignUp/" type="button" class="btn btn-primary">Sign-up</a>
-                </div>
+                @if (firstname == "" || firstname == null)
+                {
+                    <div class="ml-auto">
+                        <a href="/Home/Login/" type="button" class="btn btn-outline-light me-2">Login</a>
+                        <a href="/Home/SignUp/" type="button" class="btn btn-primary">Sign-up</a>
+                    </div>
+                }
+                else
+                { }
+
+
+
+
                 <!--END OF NO LOGIN END TEXT MENU -->
 
             </div>
@@ -67,28 +76,38 @@
 <br />
 <!-- GAP BETWEEN HEADER & BODY -->
 
-<div class="welcomeBar">
-    <p>Hello, <b>Mickey Mouse</b></p>
-    <a href="">Continue Shopping</a>
-    <p>|</p>
-    <a href="/Home/Logout">Logout</a>
-</div>
+@if (firstname == "" || firstname == null)
+{
+
+}
+else
+{
+    <div class="welcomeBar">
+        <p>Hello, <b>@firstname</b></p>
+        <a href="Purchase/Index">My Purchases</a>
+        <p>|</p>
+        <a href="/Home/Logout">Logout</a>
+    </div>
+}
+
 
 @model IEnumerable<Core2Base.Models.Product>
+
+<!-- The following codes are to show the Shopping Cart Button-->
 
 @{ int qtyIncart = 0;}
 
 @if (qtyIncart == 0)
-{
-    <span class="shoppingCartHeading">Shopping Cart &nbsp</span>
+    {
+        <span class="shoppingCartHeading">Shopping Cart &nbsp</span>
 
-    <button type="button" class="shoppingCartLogo btn btn-primary" href="#"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart"></span></button>
-}
-else
-{
+        <button type="button" class="shoppingCartLogo btn btn-primary" href="#"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart"></span></button>
+    }
+    else
+    {
     <span class="shoppingCartHeading">Shopping Cart &nbsp</span>
-    <button type="button" class="shoppingCartLogo btn btn-primary" href="#"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart">@qtyIncart</span></button>
-}
+        <button type="button" class="shoppingCartLogo btn btn-primary" href="#"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart">@qtyIncart</span></button>
+    }
 
 
 

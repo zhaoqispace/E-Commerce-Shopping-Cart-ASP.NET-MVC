@@ -1,4 +1,4 @@
-﻿@{
+﻿@{ 
     var firstname = (string)ViewData["firstname"];
     //var qtyIncart = (int)ViewData["qtyInCart"];
 }
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-
+    
 </head>
 
 <!-- HEADER START -->
@@ -51,11 +51,21 @@
                 </form>
 
 
+
                 <!-- NO LOGIN END TEXT-->
-                <div class="ml-auto">
-                    <a href="/Home/Login/" type="button" class="btn btn-outline-light me-2">Login</a>
-                    <a href="/Home/SignUp/" type="button" class="btn btn-primary">Sign-up</a>
-                </div>
+
+                @if (firstname == "" || firstname == null)
+                {
+                    <div class="ml-auto">
+                        <a href="/Home/Login/" type="button" class="btn btn-outline-light me-2">Login</a>
+                        <a href="/Home/SignUp/" type="button" class="btn btn-primary">Sign-up</a>
+                    </div>
+                }
+                else
+                {
+
+                }
+
                 <!--END OF NO LOGIN END TEXT MENU -->
 
             </div>
@@ -67,18 +77,27 @@
 <br />
 <!-- GAP BETWEEN HEADER & BODY -->
 
+@if (firstname == "" || firstname == null)
+{
+
+}
+else
+{
 <div class="welcomeBar">
-    <p>Hello, <b>Mickey Mouse</b></p>
-    <a href="">Continue Shopping</a>
+    <p>Hello, <b>@firstname</b></p>
+    <a href="Home/Index">Continue Shopping</a>
     <p>|</p>
     <a href="/Home/Logout">Logout</a>
 </div>
+}
+
 
 @model IEnumerable<Core2Base.Models.Product>
 
-@{ int qtyIncart = 0;}
 
-@if (qtyIncart == 0)
+    <!-- The following codes are to show the Shopping Cart Button-->
+
+@*@if (qtyIncart == 0)
 {
     <span class="shoppingCartHeading">Shopping Cart &nbsp</span>
 
@@ -86,9 +105,9 @@
 }
 else
 {
-    <span class="shoppingCartHeading">Shopping Cart &nbsp</span>
+<span class="shoppingCartHeading">Shopping Cart &nbsp</span>
     <button type="button" class="shoppingCartLogo btn btn-primary" href="#"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart">@qtyIncart</span></button>
-}
+}*@
 
 
 
