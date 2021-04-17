@@ -35,7 +35,7 @@ namespace Core2Base.Controllers
                 ViewBag.OnePageOfProducts = onePageOfProducts;
 
             }
-
+            ViewData["firstname"] = HttpContext.Session.GetString("firstname");
             return View();
         }
 
