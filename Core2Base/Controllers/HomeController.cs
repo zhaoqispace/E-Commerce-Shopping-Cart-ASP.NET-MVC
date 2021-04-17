@@ -9,6 +9,9 @@ using Core2Base.Models;
 using Core2Base.Data;
 using BC = BCrypt.Net.BCrypt;
 using Microsoft.AspNetCore.Http;
+using X.PagedList.Mvc.Core;
+using X.PagedList;
+
 
 namespace Core2Base.Controllers
 {
@@ -23,7 +26,7 @@ namespace Core2Base.Controllers
             _logger = logger;
             this.session = session;
         }
-        public IActionResult Index()
+        public IActionResult Index(int? page)
         {
             /*
             if (Request.Cookies["sessionID"] == null)
@@ -41,6 +44,12 @@ namespace Core2Base.Controllers
             HttpContext.Session.SetString("sessionid", session.SessionID);
             // this ViewData key-value pair is to pass data from Controller to View
             ViewData["Products"] = ProductList;
+
+            var pageNumber = page ?? 1; // if no page was specified in the querystring, default to the first page (1)
+            var onePageOfProducts = ProductList.ToPagedList(pageNumber, 3); // will only contain 25 products max because of the pageSize
+
+            ViewBag.OnePageOfProducts = onePageOfProducts;
+
             if (HttpContext.Session.GetString("UserID")!= null)
             {
                 ViewData["numberofcartitems"] = CartData.NumberOfCartItems(HttpContext.Session.GetString("UserID"));
@@ -49,11 +58,8 @@ namespace Core2Base.Controllers
         }
         
         //Search Results method and page
-        public IActionResult SearchResults(string searchTerm)
+        public IActionResult SearchResults(string searchTerm, int? page)
         {
-          
-
-
             if (searchTerm != null)
             {
                 //Remove all leading and trailing white-spaces
@@ -84,6 +90,12 @@ namespace Core2Base.Controllers
 
             ViewData["foundProducts"] = foundProducts;
             ViewData["firstname"] = HttpContext.Session.GetString("firstname");
+
+            var pageNumber = page ?? 1; // if no page was specified in the querystring, default to the first page (1)
+            var onePageOfProducts = foundProducts.ToPagedList(pageNumber, 3); // will only contain 25 products max because of the pageSize
+
+            ViewBag.OnePageOfProducts = onePageOfProducts;
+
             return View(foundProducts);
         }
 

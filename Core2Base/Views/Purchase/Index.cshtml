@@ -15,6 +15,9 @@
     <script src="/lib/font-awesome/js/purchaseDate.js"></script>
 }
 
+@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+
 <h3 class="pageHeader">My Purchases</h3>
 
 <table class="table">
@@ -30,8 +33,9 @@
         </tr>
     </thead>
     <tbody>
-        @if(PurchaseHistory!=null){
-            @foreach (var purchase in PurchaseHistory)
+        @if (PurchaseHistory != null)
+        {
+            @foreach (var purchase in ViewBag.OnePageOfProducts)
             {
                 <tr>
                     <td><img src="~/productimages/counterstrike.jpg" alt="CounterStrike Logo" height="150" width="150"></td>
@@ -60,6 +64,9 @@
                     </td>
                 </tr>
             }
+            <div style="display: flex; width: 30%; flex:auto; justify-content: flex-end;">
+                @Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts, page => Url.Action("Index", new { page }))
+            </div>
         }
 
     </tbody>
