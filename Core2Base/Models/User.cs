@@ -19,14 +19,14 @@ namespace Core2Base.Models
         public string Address { get; set; }
         public string PostalCode { get; set; }
         public string UserImg { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public string DateOfBirth { get; set; }
         public string Salutation { get; set; }
 
         public AccountType AccountType;
 
         public int SaveDetails()
         {
-            SqlConnection conn = new SqlConnection("Server=(local);Database=CA2db_Version3; Integrated Security=true");
+            SqlConnection conn = new SqlConnection("Server=(local);Database=CA2db_Version5; Integrated Security=true");
             SqlCommand checkUserEmail = new SqlCommand("SELECT * FROM [User] WHERE (email = '" + Email + "')", conn);
             conn.Open();
             SqlDataReader reader = checkUserEmail.ExecuteReader();

@@ -180,7 +180,7 @@ namespace Core2Base.Controllers
                 Gender = HttpContext.Request.Form["gender"].ToString(),
                 Email = HttpContext.Request.Form["email"].ToString(),
                 Password = BC.HashPassword(HttpContext.Request.Form["password"].ToString()),
-                DateOfBirth = Convert.ToDateTime(HttpContext.Request.Form["DOB"]),
+                DateOfBirth = Convert.ToString(HttpContext.Request.Form["DOB"]),
                 Salutation = HttpContext.Request.Form["salutations"].ToString(),
                 Address = HttpContext.Request.Form["address"].ToString(),
                 PostalCode = HttpContext.Request.Form["postalcode"].ToString()

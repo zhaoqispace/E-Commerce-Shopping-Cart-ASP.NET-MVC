@@ -31,7 +31,7 @@ namespace Core2Base.Data
                         FirstName = (string)reader["FirstName"],
                         LastName = (string)reader["LastName"],
                         Email = (string)reader["Email"],
-                        DateOfBirth =(DateTime)reader["DateOfBirth"],
+                        DateOfBirth =(Convert.ToString(reader["DateOfBirth"])),
                         Password = (string)reader["Password"],
                         Salutation = (string)reader["Salutation"],
                         Address = (string)reader["Address"],
