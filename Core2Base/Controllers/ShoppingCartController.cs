@@ -79,7 +79,7 @@ namespace Core2Base.Controllers
             return Json(new { success = true });
         }
         [HttpPost]
-        public JsonResult SubtractProductFromCart([FromBody] CartDetail productid, CartDetail user)
+        public JsonResult SubtractProductFromCart([FromBody] CartDetail productid)
         {
             string UserID = HttpContext.Session.GetString("UserID");
 
