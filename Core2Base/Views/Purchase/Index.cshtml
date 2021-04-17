@@ -38,7 +38,7 @@
             @foreach (var purchase in ViewBag.OnePageOfProducts)
             {
                 <tr>
-                    <td><img src="~/productimages/counterstrike.jpg" alt="CounterStrike Logo" height="150" width="150"></td>
+                    <td><img src="@purchase.Image" alt="CounterStrike Logo" height="150" width="150"></td>
                     <td style="display:none" id="product" class="product">@purchase.ProductID</td>
                     <td>@purchase.ProductName</td>
                     <td>@purchase.ProductDescription</td>

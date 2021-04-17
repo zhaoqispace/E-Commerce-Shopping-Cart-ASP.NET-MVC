@@ -8,6 +8,7 @@ namespace Core2Base.Models
 {
     public class PurchaseHistory
     {
+        public string Image { get; set; }
         public string ProductID { get; set; }
         public string ProductName { get; set; }
         public string ProductDescription { get; set; }
