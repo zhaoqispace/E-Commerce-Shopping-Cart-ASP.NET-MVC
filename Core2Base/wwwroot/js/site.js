@@ -9,7 +9,7 @@ $(document).on("click", ".plusButton", function (e) {
     if (numberInCart.val() < 99) {
         numberInCart.val(parseInt(numberInCart.val(), 10) + counter);
     }
-    if (numberInCart.val() >= 99) {
+    if (numberInCart.val() > 99) {
         numberInCart.val(parseInt(numberInCart.val(), 10) + 0);
         alert("Sorry, The purchase limit for each product is 99.");
     }
@@ -40,53 +40,6 @@ $(document).on("keyup", ".quantity", function (e) {
     }
 });
 
-
-//$('.minusButton').click(function Minus() {
-//    numberInCart = $(this).next();
-//    let counter = 1;
-//    if (numberInCart.val() > 1 && numberInCart.val() != 0) {
-//        numberInCart.val(parseInt(numberInCart.val(), 10) - counter);
-//    }
-//});
-
-//$('.plusButton').click(function Add() {
-//    numberInCart = $(this).prev();
-//    let counter = 1;  
-//    if (numberInCart.val() < 99) {
-//        numberInCart.val(parseInt(numberInCart.val(), 10) + counter);
-//    }
-//    if (numberInCart.val() >= 99) {
-//        numberInCart.val(parseInt(numberInCart.val(), 10) + 0);
-//        alert("Sorry, The purchase limit for each product is 99.");
-//    }
-//});
-  
-//$(".quantity").on("keyup", function () {
-
-//    if ($(this).val() < 1 && $(this).val() != ' ') {
-//        alert("Sorry, the minimum purchase quantity is 1. Please click the Remove All button to remove product from your cart.");
-//        $(this).val(1);
-//    }
-
-//    if ($(this).val() > 99) {
-//        alert("Sorry, The purchase limit for each product is 99.");
-//        $(this).val(99);
-//    }
-
-//    if (/^[0-9]*$/.test($(".quantity").val()) == false) {
-//        alert("Sorry, no special characters or alphabets are allowed in quantity field.");
-//        $(this).val(1);
-//    }
-//});
-
-//var currentItems = 0;
-//$(document).ready(function () {
-
-//    $(".add-to-cart").click(function () {
-//        currentItems++;
-//        $(".qtyInCart").text(currentItems);
-//    });
-//});
 
 $('.search-button').click(function () {
     if ($.trim($('.searchbar').val()) == '' && ($('.searchbar').val()) != '')
