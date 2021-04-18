@@ -4602,7 +4602,7 @@ textarea.form-control-lg {
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
-    width: 18rem;
+    width: 25rem;
 }
 
     .card > hr {
@@ -11730,6 +11730,7 @@ textarea.form-control-lg {
         background-clip: border-box;
         border: 1px solid rgba(0, 0, 0, 0.125);
         border-radius: 0.25rem;
+        width: 30rem;
     }
 
     .container {
@@ -11752,7 +11753,7 @@ textarea.form-control-lg {
         background-clip: border-box;
         border: 1px solid rgba(0, 0, 0, 0.125);
         border-radius: 0.25rem;
-        width: 14rem;
+        width: 18rem;
     }
 
         .card img {
@@ -11780,7 +11781,7 @@ textarea.form-control-lg {
         background-clip: border-box;
         border: 1px solid rgba(0, 0, 0, 0.125);
         border-radius: 0.25rem;
-        width: 14rem;
+        width: 18rem;
     }
 
     card img {
@@ -11809,6 +11810,7 @@ textarea.form-control-lg {
         background-clip: border-box;
         border: 1px solid rgba(0, 0, 0, 0.125);
         border-radius: 0.25rem;
+        width: 18rem;
     }
 
     .container {
@@ -11831,6 +11833,7 @@ textarea.form-control-lg {
         background-clip: border-box;
         border: 1px solid rgba(0, 0, 0, 0.125);
         border-radius: 0.25rem;
+        width: 18rem;
     }
 
     .container {

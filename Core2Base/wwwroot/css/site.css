@@ -112,9 +112,8 @@ body {
 }
 
 .shoppingCartTable {
-    width: 73%;
+    width: 100%;
     margin-top: 2%;
-    margin-left: 11%;
     margin-bottom: 1rem;
     color: #212529;
     vertical-align: top;
@@ -127,7 +126,7 @@ body {
 }
 
 .checkoutBtn {
-    margin-left: 71%;
+    margin-left: 83%;
 }
 
 .plusButton {
@@ -213,6 +212,7 @@ tr td:nth-child(6) {
     margin-right: auto;
     margin-left: auto;
     max-width: 900px;
+    margin-top: 50px;
 }
 
 .quantity {
@@ -594,7 +594,7 @@ tr td:nth-child(6) {
 
 
 body {
-    background: #eeeeee;
+    background: white;
     font-family: 'Varela Round', sans-serif;
 }
 
@@ -814,4 +814,32 @@ body {
 
 .margin-right14 {
     margin-right: 14px;
+}
+
+.introduction {
+    margin-left: 13%;
+    max-width: 80%;
+}
+
+.shoppingcartpage {
+    margin-top: 100px;
+    text-align: center;
+}
+
+td {
+    font-size: 14px;
+}
+
+.purchaseHistoryPage {
+    margin-top: 100px;
+    width: 85%;
+    margin-bottom: 1rem;
+    color: #212529;
+    vertical-align: top;
+    border-color: #dee2e6;
+    font-size: 18px;
+}
+
+.margin-top15{
+    margin-top: 100px;
 }

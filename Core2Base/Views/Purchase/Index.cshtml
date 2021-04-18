@@ -16,9 +16,7 @@
 @using X.PagedList.Mvc.Core;
 @using X.PagedList;
 
-<h3 class="pageHeader">My Purchases</h3>
-
-<table class="table">
+<table class="table purchaseHistoryPage">
     <thead class="thead-light">
         <tr>
             <th scope="col"></th>
@@ -62,9 +60,7 @@
                     </td>
                 </tr>
             }
-            <div style="display: flex; width: 30%; flex:auto; justify-content: flex-end;">
-                @Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts, page => Url.Action("Index", new { page }))
-            </div>
+            
         }
 
     </tbody>
