@@ -18,27 +18,33 @@
 </style>
 <script>
 
-    document.querySelector('.button').onclick = function () {
-        var password = document.querySelector('.password').value,
-            reenterpassword = document.querySelector('.reenterpassword').value;
+    window.onload = validatePassword;
+
+    function validatePassword() {
+
+
+        let password = document.getElementById("password");
+        var reenterpassword = document.getElementById("reenterpassword");
+
 
         if (password != reenterpassword) {
             alert("Sorry. Password and Re-entered passwords do not return a match");
             return false;
         }
-        else if (password == reenterpassword) {
-            alert("Password and Re-entered password matches!")
+        else {
+            return true;
         }
-        return true;
 
     }
+ 
 </script>
+
 
 <br />
 
 <div class="loginSignupForm text-center bg-light">
     <main class="form-signin">
-        <form id="form" action="/home/GetDetails" data-toggle="validator" role="form" method="post">
+        <form id="form" action="/home/GetDetails" data-toggle="validator" role="form" method="post" onsubmit="return validatePassword()">
             <br />
             <h2> Register </h2>
             <p> Please fill in all particulars in this electronic form in order to create an account. All specified fields are mandatory.</p>
@@ -94,7 +100,7 @@
             </div>
 
             <div class="form-floating">
-                <input type="password" class="form-control" name="re-enterpassword" id="reenterpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*\W+)(?=.*[A-Z]).{8,}"
+                <input type="password" class="form-control" name="reenterpassword" id="reenterpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*\W+)(?=.*[A-Z]).{8,}"
                        placeholder="re-enter password: " required>
                 <label for="re-enter password"><i class="fa fa-eye"></i> Re-Enter Password (Press 'key' icon to set visibility on:) </label>
                 <i class="fa fa-key" id="togglePassword2"></i>
