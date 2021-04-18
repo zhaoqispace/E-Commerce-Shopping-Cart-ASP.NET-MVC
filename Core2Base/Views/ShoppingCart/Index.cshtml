@@ -41,7 +41,7 @@
                             <br />
                             <button type="button" name ="remove-from-cart"class="removeAllButton" id="@cartitem.ProductId">Remove From Cart</button>
                         </td>
-                        <td>@cartitem.UnitPrice</td>
+                        <td>@string.Format("{0:C}", cartitem.UnitPrice)</td>
                         <td>@string.Format("{0:C}", (cartitem.UnitPrice * cartitem.qty))</td>
                     </tr>
                 }
