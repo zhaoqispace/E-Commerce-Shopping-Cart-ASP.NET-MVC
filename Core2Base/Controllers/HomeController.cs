@@ -53,13 +53,24 @@ namespace Core2Base.Controllers
             {
                 ViewData["qtyInCart"] = CartData.NumberOfCartItems(HttpContext.Session.GetString("UserID"));
             }
+            else
+            {
+                ViewData["qtyInCart"] = CartData.NumberOfCartItemsTemp(HttpContext.Session.GetString("sessionid"));
+            }
             return View();
         }
         
         //Search Results method and page
         public IActionResult SearchResults(string searchTerm, int? page)
         {
-            ViewData["qtyInCart"] = CartData.NumberOfCartItems(HttpContext.Session.GetString("UserID"));
+            if (HttpContext.Session.GetString("UserID") != null)
+            {
+                ViewData["qtyInCart"] = CartData.NumberOfCartItems(HttpContext.Session.GetString("UserID"));
+            }
+            else
+            {
+                ViewData["qtyInCart"] = CartData.NumberOfCartItemsTemp(HttpContext.Session.GetString("sessionid"));
+            }
             if (searchTerm != null)
             {
                 //Remove all leading and trailing white-spaces
