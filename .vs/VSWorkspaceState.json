@@ -1,10 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\Core2Base",
-    "\\Core2Base\\Views",
-    "\\Core2Base\\Views\\Home"
+    ""
   ],
-  "SelectedNode": "\\Core2Base\\Core2Base.csproj",
+  "SelectedNode": "\\Core2Base.sln",
   "PreviewInSolutionExplorer": false
 }

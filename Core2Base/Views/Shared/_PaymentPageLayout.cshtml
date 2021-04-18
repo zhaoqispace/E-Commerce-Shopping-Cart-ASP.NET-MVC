@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var firstname = (string)ViewData["firstname"];
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -43,7 +46,7 @@
                         <img src="~/defaultimages/magnifyingGlass.png">
                     </button>
                 </form>
-               
+
                 <!--END OF NO LOGIN END TEXT MENU -->
 
             </div>
@@ -54,7 +57,7 @@
 <br />
 <!-- GAP BETWEEN HEADER & BODY -->
 <div class="welcomeBar">
-    <p>Hello, <b>Mickey Mouse</b></p>
+    <p>Hello, <b>@firstname</b></p>
     <a href="/ShoppingCart/Index">View my Shopping Cart</a>
     <p>|</p>
     <a href="">Logout</a>
