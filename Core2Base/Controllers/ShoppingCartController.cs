@@ -86,5 +86,14 @@ namespace Core2Base.Controllers
             }
             return Json(new { success = true });
         }
+        public IActionResult Direct()
+        {
+            string UserID = HttpContext.Session.GetString("UserID");
+            if (UserID != null)
+            {
+                return RedirectToAction ("Index","Payment");
+            }
+            return RedirectToAction ("Login","Home");
+        }
     }
 }
