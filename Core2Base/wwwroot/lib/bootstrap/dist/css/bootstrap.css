@@ -3526,15 +3526,15 @@ textarea.form-control-lg {
         background-color: transparent;
     }
 
-.btn-outline-light {
-    color: #f8f9fa;
-    border-color: #f8f9fa;
+.btn-outline-light { 
+    color: #f8f9fa !important;
+    border-color: #f8f9fa !important;
 }
 
     .btn-outline-light:hover {
-        color: #000;
-        background-color: #f8f9fa;
-        border-color: #f8f9fa;
+        color: #000 !important;
+        background-color: #f8f9fa !important;
+        border-color: #f8f9fa !important;
     }
 
     .btn-check:focus + .btn-outline-light, .btn-outline-light:focus {

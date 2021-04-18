@@ -586,10 +586,6 @@ tr td:nth-child(6) {
         text-align: center;
         border: none;
     }
-
-    .carousel_margin {
-        margin-bottom: 35%;
-    }
 }
 
 .text-red {
@@ -848,6 +844,8 @@ td {
     margin-top: 100px;
 }
 
-.carousel_margin{
-    margin-bottom: 30%;
+.carousel_margin {
+    margin-bottom: 31%;
 }
+
+
