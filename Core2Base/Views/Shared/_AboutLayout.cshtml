@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var firstname = (string)ViewData["firstname"];
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -47,10 +50,20 @@
 
 
                 <!-- NO LOGIN END TEXT-->
-                <div class="ml-auto">
-                    <a href="/Home/Login/" type="button" class="btn btn-outline-light me-2">Login</a>
-                    <a href="/Home/SignUp/" type="button" class="btn btn-primary">Sign-up</a>
-                </div>
+
+                @if (firstname == "" || firstname == null)
+                {
+                    <div class="ml-auto">
+                        <a href="/Home/Login/" type="button" class="btn btn-outline-light me-2">Login</a>
+                        <a href="/Home/SignUp/" type="button" class="btn btn-primary">Sign-up</a>
+                    </div>
+                }
+                else
+                {
+                    <div class="ml-auto">
+                        <a href="/Home/Logout" type="button" class="btn btn-outline-light me-2">Logout</a>
+                    </div>
+                }
                 <!--END OF NO LOGIN END TEXT MENU -->
 
             </div>
