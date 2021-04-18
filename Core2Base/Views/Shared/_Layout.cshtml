@@ -1,6 +1,5 @@
 ﻿@{
     var firstname = (string)ViewData["firstname"];
-    //var qtyIncart = (int)ViewData["qtyInCart"];
 }
 
 <!DOCTYPE html>
@@ -30,7 +29,7 @@
             <a href="/Home/About/" class="nav-item nav-link"><i class="fa fa-users"></i><span>About Us</span></a>
             <form class="navbar-form form-inline" action="/Home/SearchResults" method="post">
                 <div class="input-group search-box">
-                    <input type="text" id="search" class="form-control" placeholder="Enter your search here...">
+                    <input type="text" id="search" name ="searchTerm" class="form-control" placeholder="Enter your search here...">
                     <button type="submit" value="Search" class="input-group-addon"><i class="material-icons">&#xE8B6;</i></button>
                 </div>
             </form>
@@ -45,12 +44,12 @@
 
                 @if (qtyIncart == 0)
                 {
-                    <button type="button" class="shoppingCartLogo margin-right14 btn btn-primary" href="#"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart"></span></button>
+                    <button type="button" id="shoppingcartnumber" class="shoppingCartLogo margin-right14 btn btn-primary" onclick="location.href='/shoppingcart'"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart">@ViewData["qtyIncart"]</span></button>
                 }
                 else
                 {
 
-                    <button type="button" class="shoppingCartLogo margin-right14 btn btn-primary" href="#"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart">@qtyIncart</span></button>
+                    <button type="button" id="shoppingcartnumber" class="shoppingCartLogo margin-right14 btn btn-primary" onclick="location.href='/shoppingcart'"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart">@ViewData["qtyIncart"]</span></button>
                 }
                 @if (firstname == "" || firstname == null)
                 {

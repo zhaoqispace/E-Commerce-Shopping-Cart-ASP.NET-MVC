@@ -23,7 +23,7 @@
             <h5 class="card-title" name="product">@product.Name</h5>
             <h5 class="card-title">@String.Format("{0:c}", product.UnitPrice)</h5>
             <p class="card-text font-size14">@product.Description</p>
-            <button type="button" class=" mt-auto col-6 btn btn-primary add-to-cart">Add to Cart</button>
+            <button type="button" id="@product.Id" class=" mt-auto col-6 btn btn-primary add-to-cart" name="add-to-cart" >Add to Cart</button>
         </div>
     </div>}
 </div>

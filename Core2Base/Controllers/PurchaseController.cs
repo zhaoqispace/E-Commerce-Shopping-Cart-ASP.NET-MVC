@@ -45,7 +45,7 @@ namespace Core2Base.Controllers
             string activationCode = "";
             Debug.WriteLine("Date", pDate.Date);
             Debug.WriteLine("ProductID", pDate.ProductID);
-            string newFormat = DateTime.ParseExact(pDate.Date, "dd/MM/yyyy", CultureInfo.InvariantCulture).ToString("yyyy-dd-MM", CultureInfo.InvariantCulture);
+            string newFormat = DateTime.ParseExact(pDate.Date, "MM/dd/yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
             Debug.WriteLine("New format", newFormat);
             string UserID = HttpContext.Session.GetString("UserID");
             if (UserID != null)

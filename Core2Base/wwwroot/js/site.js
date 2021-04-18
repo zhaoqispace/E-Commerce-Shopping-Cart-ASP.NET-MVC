@@ -31,17 +31,14 @@ $(document).on("click", ".minusButton", function (e) {
 $(document).on("keyup", ".quantity", function (e) {
     if ($(this).val() < 1 && $(this).val() != ' ') {
         alert("Sorry, the minimum purchase quantity is 1. Please click the Remove All button to remove product from your cart.");
-        $(this).val(1);
     }
 
     if ($(this).val() >= 99) {
         alert("Sorry, The purchase limit for each product is 99.");
-        $(this).val(99);
     }
 
     if (/^[0-9]*$/.test($(".quantity").val()) == false) {
         alert("Sorry, no special characters or alphabets are allowed in quantity field.");
-        $(this).val(1);
     }
 });
 
@@ -72,10 +69,10 @@ window.onload = function () {
         elemList1[j].addEventListener("click", onSubtract);
     }
     for (let k = 0; k < elemList2.length; k++) {
-        elemList2[k].addEventListener("click", onRemove)
+        elemList2[k].addEventListener("click", onRemove);
     }
     for (let l = 0; l < elemList3.length; l++) {
-        elemList3[l].addEventListener("change", onEdit)
+        elemList3[l].addEventListener("change", onEdit);
     }
 }
 
@@ -119,10 +116,10 @@ function addcartlogin(elemId) {
                     elemList1[j].addEventListener("click", onSubtract);
                 }
                 for (let k = 0; k < elemList2.length; k++) {
-                    elemList2[k].addEventListener("click", onRemove)
+                    elemList2[k].addEventListener("click", onRemove);
                 }
                 for (let l = 0; l < elemList3.length; l++) {
-                    elemList3[l].addEventListener("change", onEdit)
+                    elemList3[l].addEventListener("change", onEdit);
                 }
             });
             return;
@@ -159,13 +156,12 @@ function subtractcartlogin(elem1Id) {
             let elem1 = document.getElementById(elem1Id);
             if (!elem1)
                 return;
-            $("#shoppingcartnumber").load(" #shoppingcartnumber > *");
-            $("#shoppingCartTable").load(" #shoppingCartTable > *", function () {
+                $("#shoppingcartnumber").load(" #shoppingcartnumber > *");
+                $("#shoppingCartTable").load(" #shoppingCartTable > *", function () {
                 let elemList = document.getElementsByName("add-to-cart");
                 let elemList1 = document.getElementsByName("subtract-from-cart");
                 let elemList2 = document.getElementsByName("remove-from-cart");
                 let elemList3 = document.getElementsByName("edit-cart-quantity");
-
                 for (let i = 0; i < elemList.length; i++) {
                     elemList[i].addEventListener("click", onAdd);
                 }
@@ -173,10 +169,10 @@ function subtractcartlogin(elem1Id) {
                     elemList1[j].addEventListener("click", onSubtract);
                 }
                 for (let k = 0; k < elemList2.length; k++) {
-                    elemList2[k].addEventListener("click", onRemove)
+                    elemList2[k].addEventListener("click", onRemove);
                 }
                 for (let l = 0; l < elemList3.length; l++) {
-                    elemList3[l].addEventListener("change", onEdit)
+                    elemList3[l].addEventListener("change", onEdit);
                 }
             });
             return;
@@ -226,10 +222,10 @@ function removecartlogin(elem2Id) {
                     elemList1[j].addEventListener("click", onSubtract);
                 }
                 for (let k = 0; k < elemList2.length; k++) {
-                    elemList2[k].addEventListener("click", onRemove)
+                    elemList2[k].addEventListener("click", onRemove);
                 }
                 for (let l = 0; l < elemList3.length; l++) {
-                    elemList3[l].addEventListener("change", onEdit)
+                    elemList3[l].addEventListener("change", onEdit);
                 }
             });
             return;
