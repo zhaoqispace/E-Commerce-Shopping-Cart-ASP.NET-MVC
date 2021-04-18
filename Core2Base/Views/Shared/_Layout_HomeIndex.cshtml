@@ -1,4 +1,4 @@
-﻿@{ 
+﻿@{
     var firstname = (string)ViewData["firstname"];
     //var qtyIncart = (int)ViewData["qtyInCart"];
 }
@@ -20,8 +20,51 @@
 
 </head>
 
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <span class="navbar-brand">ProGamer Computing</span>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Collection of nav links, forms, and other content for toggling -->
+    <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+        <a href="#" class="nav-link active"><span>Home</span></a>
+        <a href="#" class="nav-link"><span>About Us</span></a>
+        <form class="navbar-form form-inline" action="/Home/SearchResults" method="post">
+            <div class="input-group search-box">
+                <input name="searchTerm" type="text" class="searchbar form-control" placeholder="Enter Your Search here...">
+                <button type="submit" value="Search" class="search-button"><i class="fa fa-search"></i></button>
+            </div>
+        </form>
+        <!-- NO LOGIN END TEXT-->
+
+
+        <div class="ml-auto">
+            @model IEnumerable<Core2Base.Models.Product>
+            @*The following codes are to show the Shopping Cart Button*@
+
+            @{ int qtyIncart = 0;}
+
+            @if (qtyIncart == 0)
+            {
+                <button type="button" class="shoppingCartLogo btn btn-primary" href="#"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart"></span></button>
+            }
+            else
+            {
+
+                <button type="button" class="shoppingCartLogo btn btn-primary" href="#"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart">@qtyIncart</span></button>
+            }
+            <a href="/Home/Login/" type="button" class="btn btn-outline-light me-2">Login</a>
+            <a href="/Home/SignUp/" type="button" class="btn btn-primary">Sign-up</a>
+        </div>
+        <!--END OF NO LOGIN END TEXT MENU -->
+    </div>
+</nav>
+</body>
+
+
 <!-- HEADER START -->
-<header class="p-3">
+<!--<header class="p-3">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
             <span class="navbar-brand">ProGamer Computing</span>
@@ -32,46 +75,35 @@
                 <ul class="navbar-nav me-navbar mb-2 mb-md-0">
                     <li class="nav-item">
                         <a class="nav-link active" href="/Home/">Home</a>
-                    </li>
+                    </li>-->
+<!-- ABOUT LINK -->
+<!--<li class="nav-item">
+        <a class="nav-link" href="/Home/About/">About</a>
+    </li>
+</ul>-->
+<!-- SEARCH BAR -->
+@*<form class="form-inline" action="/Home/SearchResults" method="post">
+        <input name="searchTerm" class="py-1 searchbar" type="text" required placeholder="Enter your search here...">
+        <button type="submit" value="Search" class="search-button">
+            <img src="~/defaultimages/magnifyingGlass.png">
+        </button>
+    </form>*@
 
-                    <!-- ABOUT LINK -->
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Home/About/">About</a>
-                    </li>
-                </ul>
-
-                <!-- SEARCH BAR -->
-
-                <form class="form-inline" action="/Home/SearchResults" method="post">
-                    <input name="searchTerm" class="py-1 searchbar" type="text" required placeholder="Enter your search here...">
-                    <button type="submit" value="Search" class="search-button">
-                        <img src="~/defaultimages/magnifyingGlass.png">
-                    </button>
-                </form>
-
-
-                <!-- NO LOGIN END TEXT-->
-                @if (firstname == "" || firstname == null)
-                {
-                    <div class="ml-auto">
-                        <a href="/Home/Login/" type="button" class="btn btn-outline-light me-2">Login</a>
-                        <a href="/Home/SignUp/" type="button" class="btn btn-primary">Sign-up</a>
-                    </div>
-                }
-                else
-                { }
-
-
-
-
-                <!--END OF NO LOGIN END TEXT MENU -->
-
-            </div>
+<!-- NO LOGIN END TEXT-->
+<!--@if (firstname == "" || firstname == null)
+{
+    <div class="ml-auto">
+        <a href="/Home/Login/" type="button" class="btn btn-outline-light me-2">Login</a>
+        <a href="/Home/SignUp/" type="button" class="btn btn-primary">Sign-up</a>
+    </div>
+}
+else
+{ }-->
+<!--END OF NO LOGIN END TEXT MENU -->
+<!--</div>
         </div>
     </nav>
-</header>
-
+</header>-->
 <!-- HEADER END-->
 <br />
 <!-- GAP BETWEEN HEADER & BODY -->
@@ -89,27 +121,6 @@ else
         <a href="/Home/Logout">Logout</a>
     </div>
 }
-
-
-@model IEnumerable<Core2Base.Models.Product>
-
-<!-- The following codes are to show the Shopping Cart Button-->
-
-@{ int qtyIncart = 0;}
-
-@if (qtyIncart == 0)
-    {
-        <span class="shoppingCartHeading">Shopping Cart &nbsp</span>
-
-        <button type="button" class="shoppingCartLogo btn btn-primary" href="#"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart"></span></button>
-    }
-    else
-    {
-    <span class="shoppingCartHeading">Shopping Cart &nbsp</span>
-        <button type="button" class="shoppingCartLogo btn btn-primary" href="#"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart">@qtyIncart</span></button>
-    }
-
-
 
 <body>
     <div>
@@ -136,4 +147,3 @@ else
 </body>
 
 </html>
-

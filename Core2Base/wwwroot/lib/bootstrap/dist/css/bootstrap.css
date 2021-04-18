@@ -6293,6 +6293,7 @@ textarea.form-control-lg {
     position: relative;
     width: 100%;
     overflow: hidden;
+    max-height: 400px;
 }
 
     .carousel-inner::after {
@@ -11440,13 +11441,13 @@ textarea.form-control-lg {
 
 /* Style the search box inside the navigation bar */
 .searchbar {
-    float: none;
+    /* float: none;
     padding: 6px;
     border: none;
     margin-top: 6px;
     margin-right: calc(1000px / 2.5);
     font-size: 18px;
-    width: calc(100% / 1.5);
+    width: calc(100% / 1.5);*/
 }
 
 .me-navbar {
@@ -11454,28 +11455,29 @@ textarea.form-control-lg {
 }
 
 .search-button img {
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
 }
 
 .search-button {
     background: transparent;
     border: none;
-    margin-left: -67%;
-    margin-top: 5px;
-    position: relative;
+    margin-left: -300px;
+    margin-top: 8px;
+    position: absolute;
     float: none;
+    display: inline-block;
 }
 
 @media only screen and (max-width: 998px) and (min-width: 900px) {
     .searchbar {
-        float: none;
+        /* float: none;
         padding: 6px;
         border: none;
         margin-top: 6px;
         margin-right: calc(1000px / 40);
         font-size: 10px;
-        width: calc(100% / 2);
+        width: calc(100% / 2);*/
     }
 
     .search-button {
@@ -11504,7 +11506,7 @@ textarea.form-control-lg {
 }
 
 @media only screen and (max-width: 1099px) and (min-width: 999px) {
-    .searchbar {
+    /*.searchbar {
         float: none;
         padding: 6px;
         border: none;
@@ -11512,7 +11514,7 @@ textarea.form-control-lg {
         margin-right: calc(1000px / 28);
         font-size: 11px;
         width: calc(100% / 1.48);
-    }
+    }*/
 
     .search-button {
         background: transparent;
@@ -11544,7 +11546,7 @@ textarea.form-control-lg {
 
 
 @media only screen and (max-width: 1200px) and (min-width: 1077px) {
-    .searchbar {
+    /*  .searchbar {
         float: none;
         padding: 6px;
         border: none;
@@ -11552,7 +11554,7 @@ textarea.form-control-lg {
         margin-right: calc(1000px / 17);
         font-size: 14px;
         width: calc(100% / 1.48);
-    }
+    }*/
 
     .search-button {
         background: transparent;
@@ -11577,7 +11579,7 @@ textarea.form-control-lg {
 }
 
 @media only screen and (max-width: 1300px) and (min-width: 1200px) {
-    .searchbar {
+    /* .searchbar {
         float: none;
         padding: 6px;
         border: none;
@@ -11586,7 +11588,7 @@ textarea.form-control-lg {
         font-size: 17px;
         width: calc(100% / 1.9);
     }
-
+*/
     .search-button {
         background: transparent;
         border: none;
@@ -11611,7 +11613,7 @@ textarea.form-control-lg {
 
 
 @media only screen and (max-width: 1401px) and (min-width: 1300px) {
-    .searchbar {
+    /*.searchbar {
         float: none;
         padding: 6px;
         border: none;
@@ -11619,7 +11621,7 @@ textarea.form-control-lg {
         margin-right: calc(1000px / 4);
         font-size: 18px;
         width: calc(100% / 1.9);
-    }
+    }*/
 
     .search-button {
         background: transparent;
@@ -11644,7 +11646,7 @@ textarea.form-control-lg {
 }
 
 @media only screen and (max-width: 1600px) and (min-width: 1401px) {
-    .searchbar {
+    /*.searchbar {
         float: none;
         padding: 6px;
         border: none;
@@ -11652,7 +11654,7 @@ textarea.form-control-lg {
         margin-right: calc(1000px / 2.8);
         font-size: 18px;
         width: calc(100% / 1.5);
-    }
+    }*/
 
     .search-button {
         background: transparent;
@@ -11841,4 +11843,4 @@ textarea.form-control-lg {
 }
 
 
-2/*# sourceMappingURL=bootstrap.css.map */
+/*# sourceMappingURL=bootstrap.css.map */

@@ -51,7 +51,6 @@
     <Content Remove="wwwroot\lib\font-awesome\webfonts\fa-solid-900.woff2" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="wwwroot\defaultimages\" />
     <Folder Include="Views\Product\" />
     <Folder Include="Views\Purchase\" />
     <Folder Include="Views\ShoppingCart\" />
@@ -63,7 +62,6 @@
     <Folder Include="wwwroot\lib\jquery-validation\" />
     <Folder Include="wwwroot\lib\jquery-validation-unobtrusive\" />
     <Folder Include="wwwroot\css\" />
-    <Folder Include="wwwroot\defaultimages\" />
     <Folder Include="wwwroot\js\" />
   </ItemGroup>
   <ItemGroup>
