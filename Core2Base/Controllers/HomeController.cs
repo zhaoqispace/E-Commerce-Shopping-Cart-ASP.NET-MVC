@@ -53,6 +53,10 @@ namespace Core2Base.Controllers
             {
                 ViewData["qtyInCart"] = CartData.NumberOfCartItems(HttpContext.Session.GetString("UserID"));
             }
+            else
+            {
+                ViewData["qtyInCart"] = CartData.NumberOfCartItemsTemp(HttpContext.Session.GetString("sessionid"));
+            }
             return View();
         }
         
