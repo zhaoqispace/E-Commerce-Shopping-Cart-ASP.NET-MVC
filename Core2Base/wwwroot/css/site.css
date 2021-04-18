@@ -927,7 +927,7 @@ td {
 }
 
 .purchaseHistoryPage {
-    margin-top: 100px;
+    margin: auto;
     width: 85%;
     margin-bottom: 1rem;
     color: #212529;
@@ -944,4 +944,8 @@ td {
     margin-bottom: 31%;
 }
 
+.purchaseHistoryTitle {
+    margin-top: 100px;
+    text-align: center;
+}
 
