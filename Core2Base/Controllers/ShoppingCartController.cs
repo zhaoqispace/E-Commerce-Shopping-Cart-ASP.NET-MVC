@@ -70,28 +70,26 @@ namespace Core2Base.Controllers
         {
             string UserID = HttpContext.Session.GetString("UserID");
             string sessionid = HttpContext.Session.GetString("sessionid");
-            List<CartDetail> cartinfo2 = new List<CartDetail>();
-
             if (UserID != null)
             {
                 //add to cart in DB for logged in user
                 //List<CartDetail> usercart = CartData.GetCartInfo(UserID);
+                int success = CartData.AddProductToCart(UserID, productid.ProductId);
+                return Json(new { success = true });
 
-                cartinfo2 = CartData.GetCartInfo(UserID);
-                var iter2 = from cartitem in cartinfo2 where cartitem.ProductId == productid.ProductId select cartitem;
-                foreach (var productincart2 in iter2)
-                {
-                    if (productincart2.qty >= 99)
-                    {
-                        return Json(new { success = false });
-                    }
-                    else
-                    {
-                        int success = CartData.AddProductToCart(UserID, productid.ProductId);
+                //cartinfo2 = CartData.GetCartInfo(UserID);
+                //var iter2 = from cartitem in cartinfo2 where cartitem.ProductId == productid.ProductId select cartitem;
+                //foreach (var productincart2 in iter2)
+                //{
+                //    if (productincart2.qty >= 99)
+                //    {
+                //        return Json(new { success = false });
+                //    }
+                //    else
+                //    {
 
-                        return Json(new { success = true });
-                    }
-                }
+                //    }
+                //}
             }
             else
 
