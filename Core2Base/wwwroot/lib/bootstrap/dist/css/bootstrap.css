@@ -6293,7 +6293,7 @@ textarea.form-control-lg {
     position: relative;
     width: 100%;
     overflow: hidden;
-    max-height: 400px;
+    max-height: 550px;
 }
 
     .carousel-inner::after {

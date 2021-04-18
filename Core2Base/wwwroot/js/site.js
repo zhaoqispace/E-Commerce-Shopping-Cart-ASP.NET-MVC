@@ -3,6 +3,10 @@
 
 // Write your JavaScript code.
 
+$('.carousel').carousel({
+    interval: 2000
+})
+
 $(document).on("click", ".plusButton", function (e) {
     numberInCart = $(this).prev();
     let counter = 1;
