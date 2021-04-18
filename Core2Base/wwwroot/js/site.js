@@ -3,6 +3,7 @@
 
 // Write your JavaScript code.
 
+
 $('.carousel').carousel({
     interval: 2000
 })

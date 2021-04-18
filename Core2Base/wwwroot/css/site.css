@@ -808,6 +808,10 @@ body {
 
 /* Bootstrap 4 text input with search icon */
 
-.centering {
-    
+.font-size14 {
+    font-size: 14px;
+}
+
+.margin-right14 {
+    margin-right: 14px;
 }
