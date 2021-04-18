@@ -40,17 +40,7 @@
 
             <div class="navbar-nav ml-auto">
                 @model IEnumerable<Core2Base.Models.Product>
-                @*The following codes are to show the Shopping Cart Button*@
 
-                @{ int qtyIncart = 0;}
-
-                @if (qtyIncart == 0)
-                {
-    <button type="button" id="shoppingcartnumber" class="shoppingCartLogo margin-right14 btn btn-primary" onclick="location.href='/shoppingcart'"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart">@ViewData["qtyIncart"]</span></button> }
-else
-{
-
-<button type="button" id="shoppingcartnumber" class="shoppingCartLogo margin-right14 btn btn-primary" onclick="location.href='/shoppingcart'"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart"> @ViewData["qtyIncart"]</span></button>}
                 @if (firstname == "" || firstname == null)
                 {
 
