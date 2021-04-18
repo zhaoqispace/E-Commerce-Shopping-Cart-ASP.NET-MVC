@@ -126,14 +126,7 @@ namespace Core2Base.Controllers
         // showing the about us
         public IActionResult About()
         {
-            if (HttpContext.Session.GetString("UserID") != null)
-            {
-                ViewData["qtyInCart"] = CartData.NumberOfCartItems(HttpContext.Session.GetString("UserID"));
-            }
-            else
-            {
-                ViewData["qtyInCart"] = CartData.NumberOfCartItemsTemp(HttpContext.Session.GetString("sessionid"));
-            }
+            ViewData["firstname"] = HttpContext.Session.GetString("firstname");
             return View();
         }
 

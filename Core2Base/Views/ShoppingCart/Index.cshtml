@@ -51,11 +51,23 @@
                 <td></td>
                 <td></td>
                 <td><b>Total:</b></td>
-                <td class="totalPrice">@string.Format("{0:C}", totalprice)</td>
+                <td id="total"class="totalPrice">@string.Format("{0:C}", totalprice)</td>
             </tr>
         </tbody>
     </table>
 </div>
 
-<input type="submit" value="Checkout" class="checkoutBtn btn btn-primary" onclick="location.href='@Url.Action("Direct","ShoppingCart")'"/>
+<input type="submit" id="myBtn"value="Checkout" class="checkoutBtn btn btn-primary"/>
+
+<script>
+    document.getElementById("myBtn").addEventListener("click", transferTotal);
+    function transferTotal() {
+        if (typeof (Storage) !== "undefined") {
+            // Store
+            localStorage.setItem("total", $("#total").html());
+            window.location.href = '/Payment/Index';
+        }
+    }
+   
+</script>
 

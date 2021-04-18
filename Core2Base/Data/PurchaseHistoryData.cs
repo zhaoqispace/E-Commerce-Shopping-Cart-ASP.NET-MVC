@@ -35,6 +35,7 @@ namespace Core2Base.Data
                     //declare list of activation and date
                     List<string> activationStatus = new List<string> { };
                     List<string> dateOfPurchase = new List<string> { };
+                    bool flag = false;
 
                     using (SqlConnection conn2 = new SqlConnection(connectionString))
                     {
@@ -59,8 +60,24 @@ namespace Core2Base.Data
                                 {
                                     //adding object into list
                                     Debug.WriteLine(dr_order["DateOfPurchase"].ToString());
-                                    dateOfPurchase.Add(dr_order["DateOfPurchase"].ToString());
-                                    activationStatus.Add(dr_order["ActivationCode"].ToString());
+                                    if (!dateOfPurchase.Contains(dr_order["DateOfPurchase"].ToString()))
+                                    {
+                                        dateOfPurchase.Add(dr_order["DateOfPurchase"].ToString());
+                                    }
+                                    if (flag == false)
+                                    {
+                                        activationStatus.Add(dr_order["ActivationCode"].ToString());
+                                        flag = true;
+                                    }
+                                    else if(dateOfPurchase[0].ToString()== dr_order["DateOfPurchase"].ToString())
+                                    {
+                                        activationStatus.Add(dr_order["ActivationCode"].ToString());
+                                    }
+                                    else
+                                    {
+                                        Debug.WriteLine("There is no list");
+                                    }
+                                    
                                     count += 1;
                                 }
                             }
@@ -90,12 +107,12 @@ namespace Core2Base.Data
             }
         }
 
-        public static string GetDateAndActivation(string date, string productID, string userID)
+        public static List<string> GetDateAndActivation(string date, string productID, string userID)
         {
             SqlConnection sqlConn = null;
             SqlCommand cmd;
             SqlDataReader reader;
-            string activationCode = "";
+            List<string> activationCode = new List<string> { };
             using (sqlConn = new SqlConnection(connectionString))
             {
                 //query for date and activation
@@ -121,7 +138,7 @@ namespace Core2Base.Data
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    activationCode = reader["ActivationCode"].ToString();
+                    activationCode.Add(reader["ActivationCode"].ToString());
                 }
             }
 

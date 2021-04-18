@@ -190,11 +190,21 @@
         <br />
         <hr>
 
-        <p align="right" style="margin-right:3.8em;"><a>Grand Total: $10000</a></p>
+        <p id="total" align="right" style="margin-right:3.8em;"></p>
 
         <p align="right" style="margin-right:2.5em;"><button type="submit" class="btn-primary margin-right14"> Proceed to Purchase</button></p>
     </form>
 </body>
+
+<script>
+    // Check browser support
+    if (typeof (Storage) !== "undefined") {
+        // Retrieve
+        document.getElementById("total").innerHTML = "Grand Total: "+ localStorage.getItem("total");
+    } else {
+        document.getElementById("result").innerHTML = "Browser does not support Web Storage.";
+    }
+</script>
 
 
 

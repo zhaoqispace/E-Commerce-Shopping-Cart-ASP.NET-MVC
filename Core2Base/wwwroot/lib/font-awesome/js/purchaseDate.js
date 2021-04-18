@@ -23,9 +23,15 @@ function sendDate(date, id, productID) {
             if (this.status == 200) {
                 let data = JSON.parse(this.responseText);
                 console.log("Status" + data.status);
-                console.log("Operation Status: " + data.success);
                 let activations = document.getElementsByClassName('activation_status');
-                $(activations[id]).val(data.status);
+                console.log("Operation Status: " + data.success);
+                $(activations[id]).empty();
+                for (var code in data.status) {
+                    console.log(data.status[code]);
+                    $(activations[id]).append(
+                        $('<option></option>').val(data.status[code]).html(data.status[code])
+                    );
+                }
             }
         }
     };
