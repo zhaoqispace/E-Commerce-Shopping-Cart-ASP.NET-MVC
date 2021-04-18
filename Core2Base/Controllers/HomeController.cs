@@ -115,6 +115,7 @@ namespace Core2Base.Controllers
         // showing the about us
         public IActionResult About()
         {
+            ViewData["firstname"] = HttpContext.Session.GetString("firstname");
             return View();
         }
 
