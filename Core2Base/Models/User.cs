@@ -52,10 +52,9 @@ namespace Core2Base.Models
                 conn.Open();
                 int i = cmd.ExecuteNonQuery();
                 conn.Close();
-              
+
                 return i;
             }
-            
         }
 
     }

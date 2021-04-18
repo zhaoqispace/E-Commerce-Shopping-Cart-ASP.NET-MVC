@@ -84,30 +84,30 @@ else
 {
     <div class="welcomeBar">
         <p>Hello, <b>@firstname</b></p>
-        <a href="Purchase/Index">My Purchases</a>
+        <a href="/Purchase/Index">My Purchases</a>
         <p>|</p>
         <a href="/Home/Logout">Logout</a>
     </div>
 }
 
 
-@model IEnumerable<Core2Base.Models.Product>
+@*<!--@model IEnumerable<Core2Base.Models.Product>-->
 
-<!-- The following codes are to show the Shopping Cart Button-->
+    <!-- The following codes are to show the Shopping Cart Button-->
 
-@{ int qtyIncart = 0;}
+    <!--@{ int qtyIncart = 0;}
 
-@if (qtyIncart == 0)
-    {
-        <span class="shoppingCartHeading">Shopping Cart &nbsp</span>
+    @if (qtyIncart == 0)
+        {
+            <span class="shoppingCartHeading">Shopping Cart &nbsp</span>
 
-        <button type="button" class="shoppingCartLogo btn btn-primary" href="#"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart"></span></button>
-    }
-    else
-    {
-    <span class="shoppingCartHeading">Shopping Cart &nbsp</span>
-        <button type="button" class="shoppingCartLogo btn btn-primary" href="#"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart">@qtyIncart</span></button>
-    }
+            <button type="button" class="shoppingCartLogo btn btn-primary" href="#"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart">@qtyIncart</span></button>
+        }
+        else
+        {-->
+*@
+<span class="shoppingCartHeading">Shopping Cart &nbsp</span>
+<button type="button" class="shoppingCartLogo btn btn-primary" id ="shoppingcartnumber" onclick ="location.href='/shoppingcart'"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart">@ViewData["qtyInCart"]</span></button>
 
 
 

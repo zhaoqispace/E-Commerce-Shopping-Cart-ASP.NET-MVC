@@ -1,6 +1,5 @@
 ﻿@{ 
     var firstname = (string)ViewData["firstname"];
-    //var qtyIncart = (int)ViewData["qtyInCart"];
 }
 
 <!DOCTYPE html>
@@ -17,7 +16,7 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-    
+
 </head>
 
 <!-- HEADER START -->
@@ -83,31 +82,31 @@
 }
 else
 {
-<div class="welcomeBar">
-    <p>Hello, <b>@firstname</b></p>
-    <a href="Home/Index">Continue Shopping</a>
-    <p>|</p>
-    <a href="/Home/Logout">Logout</a>
-</div>
+    <div class="welcomeBar">
+        <p>Hello, <b>@firstname</b></p>
+        <a href="Home/Index">Continue Shopping</a>
+        <p>|</p>
+        <a href="/Home/Logout">Logout</a>
+    </div>
 }
 
 
-@model IEnumerable<Core2Base.Models.Product>
+@*@model IEnumerable<Core2Base.Models.Product>
 
 
-    <!-- The following codes are to show the Shopping Cart Button-->
+         The following codes are to show the Shopping Cart Button
 
-@*@if (qtyIncart == 0)
-{
-    <span class="shoppingCartHeading">Shopping Cart &nbsp</span>
+    @if (qtyIncart == 0)
+    {
+        <span class="shoppingCartHeading">Shopping Cart &nbsp</span>
 
-    <button type="button" class="shoppingCartLogo btn btn-primary" href="#"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart"></span></button>
-}
-else
-{
+        <button type="button" class="shoppingCartLogo btn btn-primary" href="#"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart">@qtyIncart</span></button>
+    }
+    else
+    {*@
 <span class="shoppingCartHeading">Shopping Cart &nbsp</span>
-    <button type="button" class="shoppingCartLogo btn btn-primary" href="#"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart">@qtyIncart</span></button>
-}*@
+<button type="button" class="shoppingCartLogo btn btn-primary" id ="shoppingcartnumber" onclick ="location.href='/shoppingcart'"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart"> @ViewData["qtyInCart"]
+</span></button>
 
 
 
