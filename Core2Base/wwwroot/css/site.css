@@ -802,5 +802,12 @@ body {
     margin: 50px auto;
 }
 
+#more {
+    display: none;
+}
+
 /* Bootstrap 4 text input with search icon */
 
+.centering {
+    
+}
