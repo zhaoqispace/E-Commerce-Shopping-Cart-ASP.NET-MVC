@@ -168,6 +168,7 @@ body {
     }
 
 tr th:nth-child(2) {
+    
 }
 
 tr th:nth-child(3) {
@@ -217,7 +218,7 @@ tr td:nth-child(6) {
     color: black;
 }
 
-@media only screen and (max-width: 999px) and (min-width: 900px) {
+@media only screen and (max-width: 999px) and (min-width: 100px) {
     .shoppingCartLogo {
         margin-bottom: 7px;
         display: inline-flex;
@@ -259,6 +260,38 @@ tr td:nth-child(6) {
     .registerOrLogin {
         margin-right: 55%;
     }
+
+    .removeAllButton {
+        margin-top: 8px;
+        background-color: #FFFFF0;
+        height: 25px;
+        line-height: 11px;
+        font-size: 10px;
+    }
+
+    .plusButton {
+        margin-left: 8px;
+        background-color: #FFFFF0;
+        width: 20px;
+        height: 20px;
+        line-height: 5px;
+        padding: 5px;
+    }
+
+    .minusButton {
+        margin-right: 8px;
+        background-color: #FFFFF0;
+        width: 20px;
+        height: 20px;
+        line-height: 5px;
+        padding: 5px;
+    }
+
+    .carousel-caption {
+        margin-bottom: 35%;
+        position: sticky;
+    }
+
 }
 
 
@@ -312,6 +345,34 @@ tr td:nth-child(6) {
         text-align: center;
         border: none;
         color: black;
+    }
+
+    .removeAllButton {
+        margin-top: 8px;
+        background-color: #FFFFF0;
+        height: 25px;
+        line-height: 10px;
+        font-size: 10px;
+    }
+
+    .plusButton {
+        margin-left: 8px;
+        background-color: #FFFFF0;
+        width: 20px;
+        height: 20px;
+        line-height: 5px;
+        padding: 5px;
+        text-align: center;
+    }
+
+    .minusButton {
+        margin-right: 8px;
+        background-color: #FFFFF0;
+        width: 20px;
+        height: 20px;
+        line-height: 5px;
+        padding: 5px;
+        text-align: center;
     }
 }
 
@@ -367,6 +428,34 @@ tr td:nth-child(6) {
         border: none;
         color: black;
     }
+
+    .removeAllButton {
+        margin-top: 8px;
+        background-color: #FFFFF0;
+        height: 25px;
+        line-height: 5px;
+        font-size: 10px;
+    }
+
+    .plusButton {
+        margin-left: 8px;
+        background-color: #FFFFF0;
+        width: 20px;
+        height: 20px;
+        line-height: 5px;
+        padding: 5px;
+        text-align: center;
+    }
+
+    .minusButton {
+        margin-right: 8px;
+        background-color: #FFFFF0;
+        width: 20px;
+        height: 20px;
+        line-height: 5px;
+        padding: 5px;
+        text-align: center;
+    }
 }
 
 @media only screen and (max-width: 1300px) and (min-width: 1199px) {
@@ -418,6 +507,32 @@ tr td:nth-child(6) {
         text-align: center;
         border: none;
         color: black;
+    }
+
+    .removeAllButton {
+        margin-top: 8px;
+        background-color: #FFFFF0;
+        height: 25px;
+        line-height: 5px;
+        font-size: 10px;
+    }
+
+    .plusButton {
+        margin-left: 8px;
+        background-color: #FFFFF0;
+        width: 25px;
+        height: 25px;
+        line-height: 5px;
+        padding: 5px;
+    }
+
+    .minusButton {
+        margin-right: 8px;
+        background-color: #FFFFF0;
+        width: 25px;
+        height: 25px;
+        line-height: 5px;
+        padding: 5px;
     }
 }
 
@@ -472,6 +587,32 @@ tr td:nth-child(6) {
         text-align: center;
         border: none;
         color: black;
+    }
+
+    .removeAllButton {
+        margin-top: 8px;
+        background-color: #FFFFF0;
+        height: 25px;
+        line-height: 5px;
+        font-size: 10px;
+    }
+
+    .plusButton {
+        margin-left: 8px;
+        background-color: #FFFFF0;
+        width: 25px;
+        height: 25px;
+        line-height: 5px;
+        padding: 5px;
+    }
+
+    .minusButton {
+        margin-right: 8px;
+        background-color: #FFFFF0;
+        width: 25px;
+        height: 25px;
+        line-height: 5px;
+        padding: 5px;
     }
 }
 
@@ -531,6 +672,32 @@ tr td:nth-child(6) {
         border: none;
         color: black;
     }
+
+    .removeAllButton {
+        margin-top: 8px;
+        background-color: #FFFFF0;
+        height: 25px;
+        line-height: 5px;
+        font-size: 10px;
+    }
+
+    .plusButton {
+        margin-left: 8px;
+        background-color: #FFFFF0;
+        width: 25px;
+        height: 25px;
+        line-height: 5px;
+        padding: 5px;
+    }
+
+    .minusButton {
+        margin-right: 8px;
+        background-color: #FFFFF0;
+        width: 25px;
+        height: 25px;
+        line-height: 5px;
+        padding: 5px;
+    }
 }
 
 @media only screen and (max-width: 1600px) and (min-width: 1533px) {
@@ -581,6 +748,43 @@ tr td:nth-child(6) {
         text-align: center;
         border: none;
     }
+
+    .removeAllButton {
+        margin-top: 8px;
+        background-color: #FFFFF0;
+        height: 25px;
+        line-height: 5px;
+        font-size: 10px;
+    }
+
+    .plusButton {
+        margin-left: 8px;
+        background-color: #FFFFF0;
+        width: 25px;
+        height: 25px;
+        line-height: 5px;
+        padding: 5px;
+    }
+
+    .minusButton {
+        margin-right: 8px;
+        background-color: #FFFFF0;
+        width: 25px;
+        height: 25px;
+        line-height: 5px;
+        padding: 5px;
+    }
+}
+
+@media only screen and (max-width: 2400px){
+    .carousel-caption {
+        margin-bottom: 25%;
+    }
+}
+
+.carousel-caption {
+    margin-bottom: 25%;
+    position: sticky;
 }
 
 .text-red {
@@ -837,10 +1041,6 @@ td {
 
 .margin-top15{
     margin-top: 100px;
-}
-
-.carousel_margin {
-    margin-bottom: 31%;
 }
 
 .purchaseHistoryTitle {
