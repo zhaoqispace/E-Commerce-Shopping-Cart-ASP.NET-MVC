@@ -24,7 +24,7 @@ namespace Core2Base.Models
 
         public int SaveDetails()
         {
-            SqlConnection conn = new SqlConnection("Server=(local);Database=CA2db_Version7; Integrated Security=true");
+            SqlConnection conn = new SqlConnection("Server=(local);Database=CA2db_VersionFinal; Integrated Security=true");
             SqlCommand checkUserEmail = new SqlCommand("SELECT * FROM [User] WHERE (email = '" + Email + "')", conn);
             conn.Open();
             SqlDataReader reader = checkUserEmail.ExecuteReader();
