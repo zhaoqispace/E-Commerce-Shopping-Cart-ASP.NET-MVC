@@ -11,9 +11,6 @@ using Microsoft.AspNetCore.Http;
 using X.PagedList.Mvc.Core;
 using X.PagedList;
 
-
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace Core2Base.Controllers
 {
     public class ShoppingCartController : Controller
@@ -54,17 +51,9 @@ namespace Core2Base.Controllers
                 return View();
 
             }
-
-            //List<Product> ProductList = ProductData.GetProductInfo();
-            //ViewData["Products"] = ProductList;
             return View();
         }
-        //public void RefreshShoppingCartNumber()
-        //{
-        //    string UserID = HttpContext.Session.GetString("UserID");
-        //    ViewData["qtyInCart"] = CartData.NumberOfCartItems(UserID);
-        //}
-        // Adding product to shopping cart
+
         [HttpPost]
         public JsonResult AddToCart([FromBody] CartDetail productid)
         {
@@ -73,23 +62,8 @@ namespace Core2Base.Controllers
             if (UserID != null)
             {
                 //add to cart in DB for logged in user
-                //List<CartDetail> usercart = CartData.GetCartInfo(UserID);
                 int success = CartData.AddProductToCart(UserID, productid.ProductId);
                 return Json(new { success = true });
-
-                //cartinfo2 = CartData.GetCartInfo(UserID);
-                //var iter2 = from cartitem in cartinfo2 where cartitem.ProductId == productid.ProductId select cartitem;
-                //foreach (var productincart2 in iter2)
-                //{
-                //    if (productincart2.qty >= 99)
-                //    {
-                //        return Json(new { success = false });
-                //    }
-                //    else
-                //    {
-
-                //    }
-                //}
             }
             else
 

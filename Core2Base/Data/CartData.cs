@@ -92,20 +92,6 @@ namespace Core2Base.Data
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                //var cart = GetCartInfo(userid);
-                //var iter = from cartitem in cart where cartitem.ProductId == productid select cartitem;
-                //if (iter.Any() == false)
-                //{
-                //    // add count for new row
-                //    string sqlsubrow = @"INSERT INTO CartDetails (UserId,ProductID,Qty) Values(@UserID, @ProductID, 1)";
-                //    SqlCommand cmd = new SqlCommand(sqlsubrow, conn);
-                //    cmd.Parameters.AddWithValue("ProductID", productid);
-                //    cmd.Parameters.AddWithValue("UserID", userid);
-                //    sucess = cmd.ExecuteNonQuery();
-                //    return sucess;
-                //}
-                //else
-                //{
                 // delete row from table
                 string sqlremove = @"DELETE FROM CartDetails WHERE (ProductID = @ProductID AND UserID = @UserID)";
                 SqlCommand cmd = new SqlCommand(sqlremove, conn);
@@ -226,20 +212,6 @@ namespace Core2Base.Data
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                //var cart = GetCartInfo(userid);
-                //var iter = from cartitem in cart where cartitem.ProductId == productid select cartitem;
-                //if (iter.Any() == false)
-                //{
-                //    // add count for new row
-                //    string sqlsubrow = @"INSERT INTO CartDetails (UserId,ProductID,Qty) Values(@UserID, @ProductID, 1)";
-                //    SqlCommand cmd = new SqlCommand(sqlsubrow, conn);
-                //    cmd.Parameters.AddWithValue("ProductID", productid);
-                //    cmd.Parameters.AddWithValue("UserID", userid);
-                //    sucess = cmd.ExecuteNonQuery();
-                //    return sucess;
-                //}
-                //else
-                //{
                 // delete row from table
                 string sqlremove = @"DELETE FROM TempCartDetail WHERE (ProductID = @ProductID AND SessionID = @SessionID)";
                 SqlCommand cmd = new SqlCommand(sqlremove, conn);
@@ -284,9 +256,7 @@ namespace Core2Base.Data
         {
             int sucess = 0;
             List<CartDetail> TempCartItems = new List<CartDetail>();
-            //List<CartDetail> UserCartItems = new List<CartDetail>();
             TempCartItems = GetCartInfoTemp(SessionID);
-            //UserCartItems = GetCartInfo(UserID);
             if (TempCartItems != null)
             {
                 foreach (CartDetail cartData in TempCartItems)
@@ -297,7 +267,6 @@ namespace Core2Base.Data
                     if (sucess == 0) break;
                 }
             }
-
 
             return sucess;
         }

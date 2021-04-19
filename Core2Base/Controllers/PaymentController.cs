@@ -7,7 +7,6 @@ using Core2Base.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Core2Base.Controllers
 {
@@ -44,9 +43,5 @@ namespace Core2Base.Controllers
             ViewData["firstname"] = HttpContext.Session.GetString("firstname");
             return View();
         }
-
-        // retrieving alternative page, which is catered for returning users
-
-      
     }
 }

@@ -25,7 +25,6 @@
     <Content Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
     <Content Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" />
     <Content Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" />
-    <Content Remove="Views\Product\Index.cshtml" />
     <Content Remove="wwwroot\lib\font-awesome\js\all.js" />
     <Content Remove="wwwroot\lib\font-awesome\js\all.min.js" />
     <Content Remove="wwwroot\lib\font-awesome\js\brands.js" />
@@ -51,7 +50,6 @@
     <Content Remove="wwwroot\lib\font-awesome\webfonts\fa-solid-900.woff2" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Product\" />
     <Folder Include="Views\Purchase\" />
     <Folder Include="Views\ShoppingCart\" />
     <Folder Include="wwwroot\lib\font-awesome\" />
@@ -71,7 +69,6 @@
     <PackageReference Include="X.PagedList.Mvc.Core" Version="8.0.7" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Views\Product\Index.cshtml" />
     <None Include="wwwroot\lib\font-awesome\js\all.js" />
     <None Include="wwwroot\lib\font-awesome\js\all.min.js" />
     <None Include="wwwroot\lib\font-awesome\js\brands.js" />

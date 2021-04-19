@@ -20,7 +20,6 @@ namespace Core2Base.Controllers
         private readonly Session session;
         private readonly ILogger<HomeController> _logger;
         //combine product controller with home controller
-        //test commit
         public HomeController(ILogger<HomeController> logger, Session session)
         {
             _logger = logger;
@@ -28,17 +27,7 @@ namespace Core2Base.Controllers
         }
         public IActionResult Index(int? page)
         {
-            /*
-            if (Request.Cookies["sessionID"] == null)
-            {
-                Response.Cookies.Append("sessionID", session.SessionID);
-            }
-            */
             HttpContext.Session.SetString("sessionid", session.SessionID);
-            
-            //List<Product> ProductList = ProductData.GetProductInfo();
-            //ViewData["userinsession"] = TempData["userinsession"];
-
             List<Product> ProductList = ProductData.GetProductInfo();
             ViewData["firstname"] = HttpContext.Session.GetString("firstname");
             HttpContext.Session.SetString("sessionid", session.SessionID);
@@ -92,11 +81,8 @@ namespace Core2Base.Controllers
                     if (searchTerm.EndsWith("."))
                         searchTerm = searchTerm.TrimEnd('.');
                 }
-
-          
             }
 
-            
             List<Product> foundProducts = ProductData.SearchProducts(searchTerm);
 
             ViewData["foundProducts"] = foundProducts;
@@ -155,8 +141,6 @@ namespace Core2Base.Controllers
                     HttpContext.Session.SetString("firstname", user.FirstName);
                     int sucess = CartData.MergeTempCartAndDelete(HttpContext.Session.GetString("UserID"), HttpContext.Session.GetString("sessionid"));
                     return RedirectToAction("Index", "Home");
-
-                    
                 }
                 else
                 {
@@ -164,16 +148,6 @@ namespace Core2Base.Controllers
                     return View();
                 }
             }
-
-            
-
-
-            return View();
-        }
-
-        // forgot password
-        public IActionResult ForgotPassword(string email, string newPassword)
-        {
             return View();
         }
 
@@ -203,7 +177,7 @@ namespace Core2Base.Controllers
             int result = model.SaveDetails();
             if (result > 0)
             {
-                ViewData["Result"] = "Thank you! You have successfully signed in :)";
+                ViewData["Result"] = "Thank you! You have successfully signed Up :)";
             }
             else
             {

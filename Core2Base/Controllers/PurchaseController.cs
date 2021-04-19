@@ -12,9 +12,6 @@ using Microsoft.AspNetCore.Http;
 using X.PagedList.Mvc.Core;
 using X.PagedList;
 
-
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace Core2Base.Controllers
 {
     public class PurchaseController : Controller
