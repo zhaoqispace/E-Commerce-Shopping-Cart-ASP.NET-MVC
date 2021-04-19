@@ -10,85 +10,68 @@
     <title>@ViewData["Title"] - Team 2 CA Project</title>
     <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-
 </head>
 
-<!-- HEADER START -->
-<header class="p-3">
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <div class="container-fluid">
-            <span class="navbar-brand">ProGamer Computing</span>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav me-navbar mb-2 mb-md-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/Home/">Home</a>
-                    </li>
-
-                    <!-- ABOUT LINK -->
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Home/About/">About</a>
-                    </li>
-                </ul>
-
-                <!-- SEARCH BAR -->
-
-                <form class="form-inline" action="/Home/SearchResults" method="post">
-                    <input name="searchTerm" class="py-1 searchbar" type="text" required placeholder="Enter your search here...">
-                    <button type="submit" value="Search" class="search-button">
-                        <img src="~/defaultimages/magnifyingGlass.png">
-                    </button>
-                </form>
-
-
-                <!-- NO LOGIN END TEXT-->
-                <div class="ml-auto">
-                    <a href="/Home/Login/" type="button" class="btn btn-outline-light me-2">Login</a>
-                    <a href="/Home/SignUp/" type="button" class="btn btn-primary">Sign-up</a>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+        <span class="navbar-brand">ProGamer Computing</span>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Collection of nav links, forms, and other content for toggling -->
+        <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+            <a href="/Home/" class="nav-item nav-link active"><i class="fa fa-home"></i><span>Home</span></a>
+            <a href="/Home/About/" class="nav-item nav-link"><i class="fa fa-users"></i><span>About Us</span></a>
+            <form class="navbar-form form-inline" action="/Home/SearchResults" method="post">
+                <div class="input-group search-box">
+                    <input type="text" id="search" name ="searchTerm" class="form-control" placeholder="Enter your search here...">
+                    <button type="submit" value="Search" class="input-group-addon"><i class="material-icons">&#xE8B6;</i></button>
                 </div>
-                <!--END OF NO LOGIN END TEXT MENU -->
+            </form>
+            <!-- NO LOGIN END TEXT-->
 
+
+            <div class="navbar-nav ml-auto">
+                @model IEnumerable<Core2Base.Models.Product>
+                @*The following codes are to show the Shopping Cart Button*@
+
+                @{ int qtyIncart = 0;}
+
+                @if (qtyIncart == 0)
+                {
+                    <button type="button" id="shoppingcartnumber" class="shoppingCartLogo margin-right14 btn btn-primary" onclick="location.href='/shoppingcart'"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart">@ViewData["qtyIncart"]</span></button>
+                }
+                else
+                {
+
+                    <button type="button" id="shoppingcartnumber" class="shoppingCartLogo margin-right14 btn btn-primary" onclick="location.href='/shoppingcart'"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart">@ViewData["qtyIncart"]</span></button>
+                }
+                @if (firstname == "" || firstname == null)
+                {
+                    <a href="/Home/Login/" type="button" class="btn btn-outline-light me-2 margin-right14">Login</a>
+                    <a href="/Home/SignUp/" type="button" class="btn btn-primary">Sign-up</a>
+                }
+                else
+                {
+                    <div class="nav-item dropdown">
+                        <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"> Hello, @firstname</a>
+                        <div class="dropdown-menu">
+                            <a href="Purchase/Index" class="dropdown-item"><i class="fa fa-calendar-o"></i>My Purchases</a>
+                            <div class="divider dropdown-divider"></div>
+                            <a href="/Home/Logout" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a>
+                        </div>
+                    </div>
+                }
             </div>
+            <!--END OF NO LOGIN END TEXT MENU -->
         </div>
     </nav>
-</header>
-
-<!-- HEADER END-->
-<br />
-<!-- GAP BETWEEN HEADER & BODY -->
-
-<div class="welcomeBar">
-    <p>Hello, <b>Mickey Mouse</b></p>
-    <a href="/home">Continue Shopping</a>
-    <p>|</p>
-    <a href="/Home/Logout">Logout</a>
-</div>
-
-@*@model IEnumerable<Core2Base.Models.Product>
-     The following codes are to show the Shopping Cart Button
- The href link is the source of the cart icon, then no need to hard code the icon from img tag
-@{ var qtyInCart = 0;}    Uncomment this line and comment the next line (x = 0), when you want to show the number of items in shopping cart
-@{ var qtyInCart = 1;}        Uncomment this line and comment the above line (x = 1), when there is no item in shopping cart
-
-@if (qtyIncart == 0)
-{
-    <span class="shoppingCartHeading">Shopping Cart &nbsp</span>
-    <button type="button" class="shoppingCartLogo btn btn-primary" onclick ="location.href='/shoppingcart'"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart">@ViewData["qtyInCart"]</span></button>
-}
-else
-{*@
-    <span class="shoppingCartHeading">Shopping Cart</span>
-    <button type="button" id="shoppingcartnumber" class="shoppingCartLogo btn btn-primary" onclick="location.href='/shoppingcart'"><span class="glyphicon glyphicon-shopping-cart"></span><span class="qtyInCart">@ViewData["qtyInCart"]</span></button>
-
+</body>
 
 <body>
     <div>
@@ -101,12 +84,18 @@ else
     <footer class="border-top footer text-muted bg-light">
         <div class="footer_container">
             &copy; 2021 - ProGamer Computing
-            <a class="contactUs" href="mailto:ProGamer@gmail.com" align="center">Contact Us </a>
+            <a class="contactUs" href="mailto:ProGamer@gmail.com" align="center">Contact Us (Email)</a>
+            <a class="contactUs" style="margin-left: 50px; width: 100px; height: 100px;" href="https://wa.me/65162093">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                    <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+                </svg>&nbsp Click to Whatsapp Us
+            </a>
+        </div>
         </div>
     </footer>
     <!--END FOOTER-->
-
-
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
@@ -115,4 +104,3 @@ else
 </body>
 
 </html>
-

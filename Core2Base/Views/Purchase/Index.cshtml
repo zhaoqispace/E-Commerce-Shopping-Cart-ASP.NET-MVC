@@ -13,12 +13,9 @@
     <script src="/lib/font-awesome/js/purchaseDate.js"></script>
 }
 
-@using X.PagedList.Mvc.Core;
-@using X.PagedList;
+<h4 class="purchaseHistoryTitle">My Purchases</h4>
 
-<h3 class="pageHeader">My Purchases</h3>
-
-<table class="table">
+<table class="table purchaseHistoryPage">
     <thead class="thead-light">
         <tr>
             <th scope="col"></th>
@@ -39,7 +36,7 @@
                     <td><img src="@purchase.Image" alt="CounterStrike Logo" height="150" width="150"></td>
                     <td style="display:none" id="product" class="product">@purchase.ProductID</td>
                     <td>@purchase.ProductName</td>
-                    <td>@purchase.ProductDescription</td>
+                    <td style="text-align: left;">@purchase.ProductDescription</td>
                     <td>@purchase.Quantity</td>
                     <td>@purchase.Price</td>
                     <td>
@@ -62,9 +59,7 @@
                     </td>
                 </tr>
             }
-            <div style="display: flex; width: 30%; flex:auto; justify-content: flex-end;">
-                @Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts, page => Url.Action("Index", new { page }))
-            </div>
+            
         }
 
     </tbody>

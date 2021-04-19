@@ -10,29 +10,89 @@
 
 <!-- The following codes are to show the product list-->
 <!-- The ViewData["Products"] key-value pair is temporarily used to get data frm ProductController-->
+<!-- https://getbootstrap.com/docs/5.0/components/carousel/ -->
+
+<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators m-auto">
+        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
+    </ol>
+    <div class="carousel-inner" data-interval="10000">
+        <div class="carousel-item active">
+            <img src="~/defaultimages/dota2wallpaper.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h2>Dota 2</h2>
+                <h3 class="carousel_margin">Our BEST Selling Title.</h3>
+            </div>
+        </div>
+        <div class="carousel-item" data-interval="10000">
+            <img src="~/defaultimages/wowwallpaper.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h2>World of Warcraft</h2>
+                <h3 class="carousel_margin">Play this game, and you will be WOWed forever!</h3>
+            </div>
+        </div>
+        <div class="carousel-item" data-interval="10000">
+            <img src="~/defaultimages/r2d2.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h2>Red Dead Redemption 2</h2>
+                <h3 class="carousel_margin">Best RPG Ever. 100 Hours of Gameplay guaranteed</h3>
+            </div>
+        </div>
+        <div class="carousel-item" data-interval="10000">
+            <img src="~/defaultimages/mtga.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h2>Magic: The Gathering Arena</h2>
+                <h3 class="carousel_margin">Ever wanted to be a Wizard? This game lets you be one! What are you waiting for?</h3>
+            </div>
+        </div>
+        <div class="carousel-item" data-interval="10000">
+            <img src="~/defaultimages/3kingdoms.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h2>Three Kingdoms: Total War</h2>
+                <h3 class="carousel_margin">Here is your chance to control your Favourite 3 kingdoms Hero and conquer the Ancient Kingdoms</h3>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
 
 @{
     var Products = (List<Product>)ViewData["Products"];
 }
-<div class="container d-flex flex-wrap ">
+<div class="row justify-content-center">
 
     @foreach (var product in ViewBag.OnePageOfProducts)
     {
-        <div class="card d-flex flex-column">
-            <img src="@product.Image" class="card-img-top" alt="@product.Name &nbsp @product.Description" width="150" height="200">
+        <div class="col-lg-3 mb-2 m-3 d-flex flex-column d-lg-flex">
+            
+            <img src="@product.Image" class="card-img-top" alt="@product.Name &nbsp @product.Description" width="150" height="250">
 
             <div class="card-body d-flex flex-column">
                 <h5 class="card-title">@product.Name</h5>
                 <h5 class="card-title">@String.Format("{0:c}", product.UnitPrice)</h5>
-                <p class="card-text">@product.Description</p>
+                <p class="card-text font-size14">@product.Description</p>
                 <button id="@product.Id" type="button" class="mt-auto col-addCart btn btn-primary" name="add-to-cart">Add to Cart</button>
             </div>
         </div>
     }
 </div>
 
-<!-- output a paging control that lets the user navigation to the previous page, next page, etc -->
 
-<div style="display: flex; width: 30%; flex:auto; justify-content: flex-end;">
-    @Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts, page => Url.Action("Index", new { page }))
-</div>
+
+    <!-- output a paging control that lets the user navigation to the previous page, next page, etc -->
+
+    <div style="display: flex; width: 52%; flex:auto; justify-content: flex-end;">
+        @Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts, page => Url.Action("Index", new { page }))
+    </div>

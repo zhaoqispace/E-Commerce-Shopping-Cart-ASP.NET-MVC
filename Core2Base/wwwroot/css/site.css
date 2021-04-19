@@ -90,12 +90,10 @@ body {
 }
 
 .shoppingCartLogo {
-    margin-bottom: 7px;
     display: inline-flex;
     justify-content: right;
     flex-direction: row;
     flex: 1 1 auto;
-    margin-right: 200px;
 }
 
 .shoppingCartHeading {
@@ -114,9 +112,8 @@ body {
 }
 
 .shoppingCartTable {
-    width: 73%;
+    width: 100%;
     margin-top: 2%;
-    margin-left: 11%;
     margin-bottom: 1rem;
     color: #212529;
     vertical-align: top;
@@ -129,7 +126,7 @@ body {
 }
 
 .checkoutBtn {
-    margin-left: 71%;
+    margin-left: 83%;
 }
 
 .plusButton {
@@ -178,10 +175,8 @@ tr th:nth-child(3) {
     width: 20%;
 }
 
-tr th:nth-child(3) {
-}
-
 tr td:nth-child(3) {
+    width: 20%;
 }
 
 tr th:nth-child(4) {
@@ -215,6 +210,7 @@ tr td:nth-child(6) {
     margin-right: auto;
     margin-left: auto;
     max-width: 900px;
+    margin-top: 50px;
 }
 
 .quantity {
@@ -231,7 +227,6 @@ tr td:nth-child(6) {
         justify-content: right;
         flex-direction: row;
         flex: 1 1 auto;
-        margin-right: 10%;
     }
 
     .shoppingCartHeading {
@@ -267,6 +262,14 @@ tr td:nth-child(6) {
     .registerOrLogin {
         margin-right: 55%;
     }
+
+    tr th:nth-child(2) {
+        width: 10%;
+    }
+
+    tr th:nth-child(3) {
+        width: 10%;
+    }
 }
 
 
@@ -274,12 +277,11 @@ tr td:nth-child(6) {
 @media only screen and (max-width: 1099px) and (min-width: 999px) {
 
     .shoppingCartLogo {
-        margin-bottom: 7px;
+         margin-bottom: 7px;
         display: inline-flex;
         justify-content: right;
         flex-direction: row;
         flex: 1 1 auto;
-        margin-right: 10%;
     }
 
     .shoppingCartHeading {
@@ -322,6 +324,14 @@ tr td:nth-child(6) {
         border: none;
         color: black;
     }
+
+    tr th:nth-child(2) {
+        width: 10%;
+    }
+
+    tr th:nth-child(3) {
+        width: 10%;
+    }
 }
 
 
@@ -329,12 +339,11 @@ tr td:nth-child(6) {
 @media only screen and (max-width: 1199px) and (min-width: 1099px) {
 
     .shoppingCartLogo {
-        margin-bottom: 7px;
+         margin-bottom: 7px;
         display: inline-flex;
         justify-content: right;
         flex-direction: row;
         flex: 1 1 auto;
-        margin-right: 10%;
     }
 
     .shoppingCartHeading {
@@ -377,6 +386,13 @@ tr td:nth-child(6) {
         border: none;
         color: black;
     }
+    tr th:nth-child(2) {
+        width: 10%;
+    }
+
+    tr th:nth-child(3) {
+        width: 10%;
+    }
 }
 
 @media only screen and (max-width: 1300px) and (min-width: 1199px) {
@@ -387,7 +403,6 @@ tr td:nth-child(6) {
         justify-content: right;
         flex-direction: row;
         flex: 1 1 auto;
-        margin-right: 10%;
     }
 
     .shoppingCartHeading {
@@ -430,6 +445,14 @@ tr td:nth-child(6) {
         border: none;
         color: black;
     }
+
+    tr th:nth-child(2) {
+        width: 12%;
+    }
+
+    tr th:nth-child(3) {
+        width: 12%;
+    }
 }
 
 
@@ -437,12 +460,11 @@ tr td:nth-child(6) {
 @media only screen and (max-width: 1401px) and (min-width: 1300px) {
 
     .shoppingCartLogo {
-        margin-bottom: 7px;
+         margin-bottom: 7px;
         display: inline-flex;
         justify-content: right;
         flex-direction: row;
         flex: 1 1 auto;
-        margin-right: 10%;
     }
 
     .shoppingCartHeading {
@@ -485,18 +507,39 @@ tr td:nth-child(6) {
         border: none;
         color: black;
     }
+
+    tr th:nth-child(2) {
+        width: 18%;
+    }
+
+    tr th:nth-child(3) {
+        width: 18%;
+    }
+
+    tr td:nth-child(4) {
+        width: 12%;
+    }
+
+    tr th:nth-child(4) {
+        text-align: center;
+        width: 12%;
+    }
+
+    tr td:nth-child(4) {
+        text-align: center;
+        width: 12%;
+    }
 }
 
 
 @media only screen and (max-width: 1533px) and (min-width: 1401px) {
 
     .shoppingCartLogo {
-        margin-bottom: 7px;
+         margin-bottom: 7px;
         display: inline-flex;
         justify-content: right;
         flex-direction: row;
         flex: 1 1 auto;
-        margin-right: 10%;
     }
 
     .shoppingCartHeading {
@@ -544,6 +587,28 @@ tr td:nth-child(6) {
         border: none;
         color: black;
     }
+
+    tr th:nth-child(2) {
+        width: 18%;
+    }
+
+    tr th:nth-child(3) {
+        width: 18%;
+    }
+
+    tr td:nth-child(4) {
+        width: 12%;
+    }
+
+    tr th:nth-child(4) {
+        text-align: center;
+        width: 12%;
+    }
+
+    tr td:nth-child(4) {
+        text-align: center;
+        width: 12%;
+    }
 }
 
 @media only screen and (max-width: 1600px) and (min-width: 1533px) {
@@ -553,7 +618,6 @@ tr td:nth-child(6) {
         display: inline-flex;
         justify-content: right;
         flex-direction: row;
-        flex: 0 0 auto;
     }
 
     .shoppingCartHeading {
@@ -595,8 +659,293 @@ tr td:nth-child(6) {
         text-align: center;
         border: none;
     }
+
+    tr th:nth-child(2) {
+        width: 20%;
+    }
+
+    tr th:nth-child(3) {
+        width: 20%;
+    }
+
+    tr td:nth-child(4) {
+        width: 15%;
+    }
+
+    tr th:nth-child(4) {
+        text-align: center;
+        width: 15%;
+    }
+
+    tr td:nth-child(4) {
+        text-align: center;
+        width: 15%;
+    }
+
 }
 
 .text-red {
     color: red;
 }
+
+
+body {
+    background: white;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.navbar {
+    color: #fff;
+    padding: 5px 16px;
+    border-radius: 0;
+    border: none;
+    box-shadow: 0 0 4px rgba(0,0,0,.1);
+}
+
+    .navbar img {
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        margin-right: 10px;
+    }
+
+    .navbar .navbar-brand {
+        padding-left: 0;
+        padding-right: 50px;
+        font-size: 24px;
+    }
+
+        .navbar .navbar-brand:hover, .navbar .navbar-brand:focus {
+            color: #fff;
+        }
+
+        .navbar .navbar-brand i {
+            font-size: 25px;
+            margin-right: 5px;
+        }
+
+.search-box {
+    position: relative;
+}
+
+    .search-box input {
+        padding-right: 35px;
+        min-height: 38px;
+        border: none;
+        background: #faf7fd;
+        border-radius: 3px !important;
+    }
+
+        .search-box input:focus {
+            background: #fff;
+            box-shadow: none;
+        }
+
+    .search-box .input-group-addon {
+        min-width: 35px;
+        border: none;
+        background: transparent;
+        position: absolute;
+        right: 0;
+        z-index: 9;
+        padding: 10px 7px;
+        height: 100%;
+    }
+
+    .search-box i {
+        color: #a0a5b1;
+        font-size: 19px;
+    }
+
+.navbar .nav-item i {
+    font-size: 18px;
+}
+
+.navbar .nav-item span {
+    position: relative;
+    top: 3px;
+}
+
+.navbar .navbar-nav > a {
+    color: #efe5ff;
+    padding: 8px 15px;
+    font-size: 14px;
+}
+
+    .navbar .navbar-nav > a:hover, .navbar .navbar-nav > a:focus {
+        color: #fff;
+        text-shadow: 0 0 4px rgba(255,255,255,0.3);
+    }
+
+    .navbar .navbar-nav > a > i {
+        display: block;
+        text-align: center;
+    }
+
+.navbar .dropdown-item i {
+    font-size: 16px;
+    min-width: 22px;
+}
+
+.navbar .dropdown-item .material-icons {
+    font-size: 21px;
+    line-height: 16px;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+
+.navbar .nav-item.open > a, .navbar .nav-item.open > a:hover, .navbar .nav-item.open > a:focus {
+    color: #fff;
+    background: none !important;
+}
+
+.navbar .dropdown-menu {
+    border-radius: 1px;
+    border-color: #e5e5e5;
+    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+
+    .navbar .dropdown-menu a {
+        color: #777 !important;
+        padding: 8px 20px;
+        line-height: normal;
+        font-size: 15px;
+    }
+
+        .navbar .dropdown-menu a:hover, .navbar .dropdown-menu a:focus {
+            color: #333 !important;
+            background: transparent !important;
+        }
+
+.navbar .navbar-nav .active a, .navbar .navbar-nav .active a:hover, .navbar .navbar-nav .active a:focus {
+    color: #fff;
+    text-shadow: 0 0 4px rgba(255,255,255,0.2);
+    background: transparent !important;
+}
+
+.navbar .navbar-nav .user-action {
+    padding: 9px 15px;
+    font-size: 15px;
+}
+
+.navbar .navbar-toggle {
+    border-color: #fff;
+}
+
+    .navbar .navbar-toggle .icon-bar {
+        background: #fff;
+    }
+
+    .navbar .navbar-toggle:focus, .navbar .navbar-toggle:hover {
+        background: transparent;
+    }
+
+.navbar .navbar-nav .open .dropdown-menu {
+    background: #faf7fd;
+    border-radius: 1px;
+    border-color: #faf7fd;
+    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+
+.navbar .divider {
+    background-color: #e9ecef !important;
+}
+
+@media (min-width: 1200px) {
+    .form-inline .input-group {
+        width: 350px;
+        margin-left: 30px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .navbar .navbar-nav > a > i {
+        display: inline-block;
+        text-align: left;
+        min-width: 30px;
+        position: relative;
+        top: 4px;
+    }
+
+    .navbar .navbar-collapse {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .navbar .navbar-form {
+        border: none;
+        display: block;
+        margin: 10px 0;
+        padding: 0;
+    }
+
+    .navbar .navbar-nav {
+        margin: 8px 0;
+    }
+
+    .navbar .navbar-toggle {
+        margin-right: 0;
+    }
+
+    .input-group {
+        width: 100%;
+    }
+}
+
+.main {
+    width: 50%;
+    margin: 50px auto;
+}
+
+#more {
+    display: none;
+}
+
+/* Bootstrap 4 text input with search icon */
+
+.font-size14 {
+    font-size: 14px;
+}
+
+.margin-right14 {
+    margin-right: 14px;
+}
+
+.introduction {
+    margin-left: 13%;
+    max-width: 80%;
+}
+
+.shoppingcartpage {
+    margin-top: 100px;
+    text-align: center;
+}
+
+td {
+    font-size: 14px;
+}
+
+.purchaseHistoryPage {
+    margin: auto;
+    width: 85%;
+    margin-bottom: 1rem;
+    color: #212529;
+    vertical-align: top;
+    border-color: #dee2e6;
+    font-size: 18px;
+}
+
+.margin-top15{
+    margin-top: 100px;
+}
+
+.carousel_margin {
+    margin-bottom: 31%;
+}
+
+.purchaseHistoryTitle {
+    margin-top: 100px;
+    text-align: center;
+}
+

@@ -45,7 +45,7 @@ namespace Core2Base.Controllers
             ViewData["Products"] = ProductList;
 
             var pageNumber = page ?? 1; // if no page was specified in the querystring, default to the first page (1)
-            var onePageOfProducts = ProductList.ToPagedList(pageNumber, 3); // will only contain 25 products max because of the pageSize
+            var onePageOfProducts = ProductList.ToPagedList(pageNumber, 6); // will only contain 25 products max because of the pageSize
 
             ViewBag.OnePageOfProducts = onePageOfProducts;
 
@@ -103,7 +103,7 @@ namespace Core2Base.Controllers
             ViewData["firstname"] = HttpContext.Session.GetString("firstname");
 
             var pageNumber = page ?? 1; // if no page was specified in the querystring, default to the first page (1)
-            var onePageOfProducts = foundProducts.ToPagedList(pageNumber, 3); // will only contain 25 products max because of the pageSize
+            var onePageOfProducts = foundProducts.ToPagedList(pageNumber, 6); // will only contain 25 products max because of the pageSize
 
             ViewBag.OnePageOfProducts = onePageOfProducts;
 
