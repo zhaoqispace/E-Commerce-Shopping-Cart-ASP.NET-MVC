@@ -55,7 +55,6 @@ window.onload = function () {
     let elemList = document.getElementsByName("add-to-cart");
     let elemList1 = document.getElementsByName("subtract-from-cart");
     let elemList2 = document.getElementsByName("remove-from-cart");
-    let elemList3 = document.getElementsByName("edit-cart-quantity");
 
     for (let i = 0; i < elemList.length; i++) {
         elemList[i].addEventListener("click", onAdd);
@@ -65,9 +64,6 @@ window.onload = function () {
     }
     for (let k = 0; k < elemList2.length; k++) {
         elemList2[k].addEventListener("click", onRemove)
-    }
-    for (let l = 0; l < elemList3.length; l++) {
-        elemList3[l].addEventListener("change", onEdit)
     }
 }
 
@@ -102,7 +98,6 @@ function addcartlogin(elemId) {
                 let elemList = document.getElementsByName("add-to-cart");
                 let elemList1 = document.getElementsByName("subtract-from-cart");
                 let elemList2 = document.getElementsByName("remove-from-cart");
-                let elemList3 = document.getElementsByName("edit-cart-quantity");
 
                 for (let i = 0; i < elemList.length; i++) {
                     elemList[i].addEventListener("click", onAdd);
@@ -113,9 +108,6 @@ function addcartlogin(elemId) {
                 for (let k = 0; k < elemList2.length; k++) {
                     elemList2[k].addEventListener("click", onRemove)
                 }
-                for (let l = 0; l < elemList3.length; l++) {
-                elemList3[l].addEventListener("change", onEdit)
-            }
         });
             return;
         }
@@ -156,7 +148,6 @@ function subtractcartlogin(elem1Id) {
                 let elemList = document.getElementsByName("add-to-cart");
                 let elemList1 = document.getElementsByName("subtract-from-cart");
                 let elemList2 = document.getElementsByName("remove-from-cart");
-                let elemList3 = document.getElementsByName("edit-cart-quantity");
 
                 for (let i = 0; i < elemList.length; i++) {
                     elemList[i].addEventListener("click", onAdd);
@@ -167,9 +158,6 @@ function subtractcartlogin(elem1Id) {
                 for (let k = 0; k < elemList2.length; k++) {
                     elemList2[k].addEventListener("click", onRemove)
                 }
-                for (let l = 0; l < elemList3.length; l++) {
-                elemList3[l].addEventListener("change", onEdit)
-            }
         });
             return;
         }
@@ -209,7 +197,6 @@ function removecartlogin(elem2Id) {
                 let elemList = document.getElementsByName("add-to-cart");
                 let elemList1 = document.getElementsByName("subtract-from-cart");
                 let elemList2 = document.getElementsByName("remove-from-cart");
-                let elemList3 = document.getElementsByName("edit-cart-quantity");
 
                 for (let i = 0; i < elemList.length; i++) {
                     elemList[i].addEventListener("click", onAdd);
@@ -220,9 +207,6 @@ function removecartlogin(elem2Id) {
                 for (let k = 0; k < elemList2.length; k++) {
                     elemList2[k].addEventListener("click", onRemove)
                 }
-                for (let l = 0; l < elemList3.length; l++) {
-                elemList3[l].addEventListener("change", onEdit)
-            }
         });
             return;
         }
@@ -256,7 +240,6 @@ function onEdit(elem3Id, e) {
                 let elemList = document.getElementsByName("add-to-cart");
                 let elemList1 = document.getElementsByName("subtract-from-cart");
                 let elemList2 = document.getElementsByName("remove-from-cart");
-                let elemList3 = document.getElementsByName("edit-cart-quantity");
 
                 for (let i = 0; i < elemList.length; i++) {
                     elemList[i].addEventListener("click", onAdd);
@@ -267,9 +250,6 @@ function onEdit(elem3Id, e) {
                 for (let k = 0; k < elemList2.length; k++) {
                     elemList2[k].addEventListener("click", onRemove)
                 }
-                for (let l = 0; l < elemList3.length; l++) {
-                elemList3[l].addEventListener("change", onEdit)
-            }
         });
             return;
         }
