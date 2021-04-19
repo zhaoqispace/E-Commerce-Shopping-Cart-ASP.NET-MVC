@@ -3,18 +3,19 @@
     ViewData["Title"] = "Shopping Cart";
 }
 
+@{ Layout = "/Views/Shared/_Layout_ShoppingCart.cshtml";}
+
 @{
     var cartitems = (List<CartDetail>)ViewData["usercart"];
     double totalprice = 0;
 }
 
-@using X.PagedList.Mvc.Core;
-@using X.PagedList;
+
 
 <h3 class="pageHeader">Shopping Cart</h3>
 
 <div class="shoppingCartTable" , id="shoppingCartTable">
-    <script>AddListeners();</script>
+    @*<script>AddListeners();</script>*@
     <table class="table">
         <thead class="thead-light">
             <tr>
@@ -27,7 +28,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var cartitem in ViewBag.OnePageOfProducts)
+            @foreach (var cartitem in cartitems)
             {
                 {
                     totalprice = totalprice + cartitem.UnitPrice * cartitem.qty;
@@ -36,11 +37,11 @@
                         <td>@cartitem.ProductName</td>
                         <td>@cartitem.ProductDesc</td>
                         <td>
-                            <button type="button" name="subtract-from-cart" class="minusButton" id="@cartitem.ProductId">-</button><input class="quantity" type="text" onkeypress="return event.charCode >= 48" value=@cartitem.qty><button type="button" name="add-to-cart" class="plusButton" id="@cartitem.ProductId">+</button>
+                            <button type="button" name="subtract-from-cart" class="minusButton" id="@cartitem.ProductId">-</button><input class="quantity" name="edit-cart-quantity" type="text" onkeypress="return event.charCode >= 48" value=@cartitem.qty id="@cartitem.ProductId"><button type="button" name="add-to-cart" class="plusButton" id="@cartitem.ProductId">+</button>
                             <br />
-                            <button type="button" class="removeAllButton">Remove From Cart</button>
+                            <button type="button" name ="remove-from-cart"class="removeAllButton" id="@cartitem.ProductId">Remove From Cart</button>
                         </td>
-                        <td>@cartitem.UnitPrice</td>
+                        <td>@string.Format("{0:C}", cartitem.UnitPrice)</td>
                         <td>@string.Format("{0:C}", (cartitem.UnitPrice * cartitem.qty))</td>
                     </tr>
                 }
@@ -51,88 +52,23 @@
                 <td></td>
                 <td></td>
                 <td><b>Total:</b></td>
-                <td class="totalPrice">@string.Format("{0:C}", totalprice)</td>
+                <td id="total"class="totalPrice">@string.Format("{0:C}", totalprice)</td>
             </tr>
         </tbody>
     </table>
 </div>
 
-<input type="submit" value="Checkout" class="checkoutBtn btn btn-primary">
+<input type="submit" id="myBtn"value="Checkout" class="checkoutBtn btn btn-primary"/>
 
-<div style="display: flex; width: 30%; flex:auto; justify-content: flex-end;">
-    @Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts, page => Url.Action("Index", new { page }))
-</div>
+<script>
+    document.getElementById("myBtn").addEventListener("click", transferTotal);
+    function transferTotal() {
+        if (typeof (Storage) !== "undefined") {
+            // Store
+            localStorage.setItem("total", $("#total").html());
+            window.location.href = '/Payment/Index';
+        }
+    }
+   
+</script>
 
-
-@*<h3 class="pageHeader">Shopping Cart</h3>*@
-
-@*<div class="shoppingCartTable">
-    <table class="table">
-        <thead class="thead-light">
-            <tr>
-                <th scope="col"></th>
-                <th scope="col">Name</th>
-                <th scope="col">Description</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Unit Price</th>
-                <th scope="col">Sub-Total</th>
-            </tr>
-        </thead>
-        <tbody>*@
-@*<tr>
-                        <td><img src="~/productimages/dota2_2.jpg" alt="Dota2 Logo" height="150" width="150"></td>
-                        <td>Dota 2</td>
-                        <td>
-                            Dota 2 is a multiplayer online battle arena (MOBA) video game.
-                        </td>
-                        <td>
-                            <button type="button" class="minusButton">-</button>1<button type="button" class="plusButton">+</button>
-                            <br />
-                            <button type="button" class="removeAllButton">Remove All</button>
-                        </td>
-                        <td>$89</td>
-                        <td>$89</td>
-                    </tr>
-
-                <tr>
-                    <td><img src="~/productimages/worldofwarcraft_2.jpg" alt="WorldofWarcraft Logo" height="150" width="150"></td>
-                    <td>World of Warcraft</td>
-                    <td>
-                        A "Massively Multiplayer" online game (MMORPG).
-                    </td>
-                    <td>
-                        <button type="button" class="minusButton">-</button>2<button type="button" class="plusButton">+</button>
-                        <br />
-                        <button type="button" class="removeAllButton">Remove All</button>
-                    </td>
-                    <td>$59</td>
-                    <td>$108</td>
-                </tr>
-
-                <tr>
-                    <td><img src="~/productimages/counterstrike.jpg" alt="Counterstrike Logo" height="150" width="150"></td>
-                    <td>Counterstrike</td>
-                    <td>
-                        Counter-Strike: Global Offensive (CS:GO) expands upon the team-based first person shooter gameplay that
-                        was extremely fun.
-                    </td>
-                    <td>
-                        <button type="button" class="minusButton">-</button>2<button type="button" class="plusButton">+</button>
-                        <br />
-                        <button type="button" class="removeAllButton">Remove All</button>
-                    </td>
-                    <td>$49</td>
-                    <td>$98</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><b>Total:</b></td>
-                    <td class="totalPrice">$295</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>*@
-@*<input type="submit" value="Checkout" class="checkoutBtn btn btn-primary">*@

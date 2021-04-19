@@ -49,6 +49,18 @@
                 </form>
 
 
+                <!-- NO LOGIN END TEXT-->
+                @if (firstname == "" || firstname == null)
+                {
+                    <div class="ml-auto">
+                        <a href="/Home/Login/" type="button" class="btn btn-outline-light me-2">Login</a>
+                        <a href="/Home/SignUp/" type="button" class="btn btn-primary">Sign-up</a>
+                    </div>
+                }
+                else
+                {
+                }
+                <!--END OF NO LOGIN END TEXT MENU -->
 
             </div>
         </div>
@@ -58,13 +70,21 @@
 <!-- HEADER END-->
 <br />
 <!-- GAP BETWEEN HEADER & BODY -->
-
+@if (firstname == "" || firstname == null)
+{
+    <div class="welcomeBar">
+        <a href="/Home/Index">Continue Shopping</a>
+    </div>
+}
+else
+{
     <div class="welcomeBar">
         <p>Hello, <b>@firstname</b></p>
-        <a href="/ShoppingCart/Index">View Your Shopping Cart</a>
+        <a href="/Home/Index">Continue Shopping</a>
         <p>|</p>
         <a href="/Home/Logout">Logout</a>
     </div>
+}
 
 
 <body>

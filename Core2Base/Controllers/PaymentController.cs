@@ -16,6 +16,7 @@ namespace Core2Base.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+            ViewData["firstname"] = HttpContext.Session.GetString("firstname");
             return View();
         }
 
@@ -29,7 +30,10 @@ namespace Core2Base.Controllers
             if (UserID != null)
             {
                 int i = PaymentData.InsertCardInfo(cardNumber, UserID);
+                PaymentData.InsertOrderDetails(UserID);
+                PaymentData.DeleteOrderFromCart(UserID);
             }
+            ViewData["firstname"] = HttpContext.Session.GetString("firstname");
             return View();
         }
 
@@ -37,6 +41,7 @@ namespace Core2Base.Controllers
         // retrieving payment history
         public IActionResult ViewHistory()
         {
+            ViewData["firstname"] = HttpContext.Session.GetString("firstname");
             return View();
         }
 
@@ -44,6 +49,7 @@ namespace Core2Base.Controllers
 
         public IActionResult Alternate()
         {
+            ViewData["firstname"] = HttpContext.Session.GetString("firstname");
             return View();
         }
 

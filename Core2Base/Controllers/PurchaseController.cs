@@ -35,17 +35,17 @@ namespace Core2Base.Controllers
                 ViewBag.OnePageOfProducts = onePageOfProducts;
 
             }
-
+            ViewData["firstname"] = HttpContext.Session.GetString("firstname");
             return View();
         }
 
         // Retrieving activation status  
         public IActionResult GetActivationStatus([FromBody] ProductDate pDate)
         {
-            string activationCode = "";
             Debug.WriteLine("Date", pDate.Date);
+            List<string> activationCode = new List<string> { };
             Debug.WriteLine("ProductID", pDate.ProductID);
-            string newFormat = DateTime.ParseExact(pDate.Date, "dd/MM/yyyy", CultureInfo.InvariantCulture).ToString("yyyy-dd-MM", CultureInfo.InvariantCulture);
+            string newFormat = DateTime.ParseExact(pDate.Date, "MM/dd/yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
             Debug.WriteLine("New format", newFormat);
             string UserID = HttpContext.Session.GetString("UserID");
             if (UserID != null)

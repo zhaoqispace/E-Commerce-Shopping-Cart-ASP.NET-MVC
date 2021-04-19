@@ -42,7 +42,6 @@ namespace Core2Base.Controllers
             List<Product> ProductList = ProductData.GetProductInfo();
             ViewData["firstname"] = HttpContext.Session.GetString("firstname");
             HttpContext.Session.SetString("sessionid", session.SessionID);
-            // this ViewData key-value pair is to pass data from Controller to View
             ViewData["Products"] = ProductList;
 
             var pageNumber = page ?? 1; // if no page was specified in the querystring, default to the first page (1)
@@ -52,7 +51,11 @@ namespace Core2Base.Controllers
 
             if (HttpContext.Session.GetString("UserID")!= null)
             {
-                ViewData["numberofcartitems"] = CartData.NumberOfCartItems(HttpContext.Session.GetString("UserID"));
+                ViewData["qtyInCart"] = CartData.NumberOfCartItems(HttpContext.Session.GetString("UserID"));
+            }
+            else
+            {
+                ViewData["qtyInCart"] = CartData.NumberOfCartItemsTemp(HttpContext.Session.GetString("sessionid"));
             }
             return View();
         }
@@ -60,6 +63,14 @@ namespace Core2Base.Controllers
         //Search Results method and page
         public IActionResult SearchResults(string searchTerm, int? page)
         {
+            if (HttpContext.Session.GetString("UserID") != null)
+            {
+                ViewData["qtyInCart"] = CartData.NumberOfCartItems(HttpContext.Session.GetString("UserID"));
+            }
+            else
+            {
+                ViewData["qtyInCart"] = CartData.NumberOfCartItemsTemp(HttpContext.Session.GetString("sessionid"));
+            }
             if (searchTerm != null)
             {
                 //Remove all leading and trailing white-spaces
@@ -115,6 +126,7 @@ namespace Core2Base.Controllers
         // showing the about us
         public IActionResult About()
         {
+            ViewData["firstname"] = HttpContext.Session.GetString("firstname");
             return View();
         }
 
@@ -141,6 +153,7 @@ namespace Core2Base.Controllers
                 {
                     HttpContext.Session.SetString("UserID", Convert.ToString(user.UserId));
                     HttpContext.Session.SetString("firstname", user.FirstName);
+                    int sucess = CartData.MergeTempCartAndDelete(HttpContext.Session.GetString("UserID"), HttpContext.Session.GetString("sessionid"));
                     return RedirectToAction("Index", "Home");
 
                     
