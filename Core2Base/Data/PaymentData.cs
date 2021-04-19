@@ -15,9 +15,11 @@ namespace Core2Base.Data
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                string sql = @"SELECT * FROM [UserPayment] WHERE UserID = '" + userID + "' and CreditCardNum ='"+ cardNumber+"'";
+                string sql = @"SELECT * FROM [UserPayment] WHERE UserID = @UserID and CreditCardNum=@CardNumber";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("UserID", userID);
+                cmd.Parameters.AddWithValue("CardNumber", cardNumber);
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
@@ -28,8 +30,10 @@ namespace Core2Base.Data
                 {
                     conn.Close();
 
-                    string query = "INSERT INTO [UserPayment](CreditCardNum,UserID) values ('" + cardNumber + "','" + userID+"')";
+                    string query = "INSERT INTO [UserPayment](CreditCardNum,UserID) values (@CardNumber,@UserID)";
                     SqlCommand cmd2 = new SqlCommand(query, conn);
+                    cmd2.Parameters.AddWithValue("CardNumber", cardNumber);
+                    cmd2.Parameters.AddWithValue("UserID", userID);
                     conn.Open();
                     int i = cmd2.ExecuteNonQuery();
                     conn.Close();
@@ -46,8 +50,10 @@ namespace Core2Base.Data
             {
                 conn.Open();
                 Debug.WriteLine(DateTime.Now.ToString("yyyy-MM-dd"));
-                string query = "INSERT INTO [Order](UserID,DateOfPurchase) values ('" + userID + "','" + DateTime.Now.ToString("yyyy-MM-dd") + "')";
+                string query = "INSERT INTO [Order](UserID,DateOfPurchase) values (@UserID,@DateOfPurchase)";
                 SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("UserID", userID);
+                cmd.Parameters.AddWithValue("DateOfPurchase", DateTime.Now.ToString("yyyy-MM-dd"));
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
@@ -74,9 +80,10 @@ namespace Core2Base.Data
             {
                 conn3.Open();
                 //query data from Cartdetail table
-                string sql = @"SELECT * FROM [CartDetails] WHERE UserID = '" + userID + "'";
+                string sql = @"SELECT * FROM [CartDetails] WHERE UserID =@UserID";
 
                 SqlCommand cmd3 = new SqlCommand(sql, conn3);
+                cmd3.Parameters.AddWithValue("UserID", userID);
                 SqlDataReader reader1 = cmd3.ExecuteReader();
                 while (reader1.Read())
                 {
@@ -88,8 +95,9 @@ namespace Core2Base.Data
                     {
                         conn5.Open();
                         Debug.WriteLine(DateTime.Now.ToString("yyyy-MM-dd"));
-                        string query = "select  Price from [Product] where ProductID= '" + productID + "'";
+                        string query = "select  Price from [Product] where ProductID=@ProductID";
                         SqlCommand cmd5 = new SqlCommand(query, conn5);
+                        cmd5.Parameters.AddWithValue("ProductID", productID);
                         SqlDataReader reader = cmd5.ExecuteReader();
                         while (reader.Read())
                         {
@@ -102,8 +110,11 @@ namespace Core2Base.Data
                         using (SqlConnection conn4 = new SqlConnection(connectionString))
                         {
                             conn4.Open();
-                            string query = "INSERT INTO [OrderDetails](ProductID,BuyPrice,OrderID) values ('" + productID + "','" + price +"','"+ orderID + "')";
+                            string query = "INSERT INTO [OrderDetails](ProductID,BuyPrice,OrderID) values (@ProductID,@BuyPrice,@OrderID)";
                             SqlCommand cmd4 = new SqlCommand(query, conn4);
+                            cmd4.Parameters.AddWithValue("ProductID", productID);
+                            cmd4.Parameters.AddWithValue("BuyPrice", price);
+                            cmd4.Parameters.AddWithValue("OrderID", orderID);
                             cmd4.ExecuteNonQuery();
                             conn4.Close();
                         }
@@ -119,8 +130,9 @@ namespace Core2Base.Data
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                string query = "Delete from [CartDetails] where UserID= '" + userID + "'";
+                string query = "Delete from [CartDetails] where UserID=@UserID";
                 SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("UserID", userID);
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
