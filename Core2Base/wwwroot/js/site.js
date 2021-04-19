@@ -302,12 +302,12 @@ togglePassword.addEventListener('click', function (e) {
 });
 
 const togglePassword2 = document.querySelector('#togglePassword2');
-const password2 = document.querySelector('#reenterpassword');
+const password2 = document.querySelector('#confirmpassword');
 
 togglePassword2.addEventListener('click', function (e) {
     //toggle the type of attribute
 
-    const type = password2.getAttribute('type') === 'password' ? 'text' : 'reenterpassword'
+    const type = password2.getAttribute('type') === 'password' ? 'text' : 'confirmpassword'
     password2.setAttribute('type', type);
 
 

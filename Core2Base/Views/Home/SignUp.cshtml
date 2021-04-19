@@ -22,20 +22,18 @@
 
     function validatePassword() {
 
+        var password = document.getElementById("password");
+        var confirmpassword = document.getElementById("confirmpassword");
 
-        let password = document.getElementById("password");
-        var reenterpassword = document.getElementById("reenterpassword");
 
-
-        if (password != reenterpassword) {
+        if (password.value != confirmpassword.value) {
             alert("Sorry. Password and Re-entered passwords do not return a match");
             return false;
         }
-        else {
+        else
             return true;
         }
 
-    }
  
 </script>
 
@@ -100,7 +98,7 @@
             </div>
 
             <div class="form-floating">
-                <input type="password" class="form-control" name="reenterpassword" id="reenterpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*\W+)(?=.*[A-Z]).{8,}"
+                <input type="password" class="form-control" name="reenterpassword" id="confirmpassword" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
                        placeholder="re-enter password: " required>
                 <label for="re-enter password"><i class="fa fa-eye"></i> Re-Enter Password (Press 'key' icon to set visibility on:) </label>
                 <i class="fa fa-key" id="togglePassword2"></i>
