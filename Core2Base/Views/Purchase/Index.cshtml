@@ -40,7 +40,7 @@
                     <td style="display:none" id="product" class="product">@purchase.ProductID</td>
                     <td>@purchase.ProductName</td>
                     <td style="text-align:center">@purchase.Quantity</td>
-                    <td>@purchase.Price</td>
+                    <td>@string.Format("{0:C}", purchase.Price)</td>
                     <td style="text-align:center">
                         <select name="date" id="date" class="date_option">
                             @foreach (var item in purchase.DateOfPurchase)

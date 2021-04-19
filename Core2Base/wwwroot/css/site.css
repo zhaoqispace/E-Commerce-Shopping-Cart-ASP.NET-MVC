@@ -286,6 +286,12 @@ tr td:nth-child(6) {
         line-height: 5px;
         padding: 5px;
     }
+
+    .carousel-caption {
+        margin-bottom: 35%;
+        position: sticky;
+    }
+
 }
 
 
@@ -770,6 +776,17 @@ tr td:nth-child(6) {
     }
 }
 
+@media only screen and (max-width: 2400px){
+    .carousel-caption {
+        margin-bottom: 25%;
+    }
+}
+
+.carousel-caption {
+    margin-bottom: 25%;
+    position: sticky;
+}
+
 .text-red {
     color: red;
 }
@@ -1024,10 +1041,6 @@ td {
 
 .margin-top15{
     margin-top: 100px;
-}
-
-.carousel_margin {
-    margin-bottom: 31%;
 }
 
 .purchaseHistoryTitle {
