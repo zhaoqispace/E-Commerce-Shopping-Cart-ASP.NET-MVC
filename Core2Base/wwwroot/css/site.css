@@ -168,15 +168,12 @@ body {
     }
 
 tr th:nth-child(2) {
-    width: 20%;
 }
 
 tr th:nth-child(3) {
-    width: 20%;
 }
 
 tr td:nth-child(3) {
-    width: 20%;
 }
 
 tr th:nth-child(4) {
@@ -262,14 +259,6 @@ tr td:nth-child(6) {
     .registerOrLogin {
         margin-right: 55%;
     }
-
-    tr th:nth-child(2) {
-        width: 10%;
-    }
-
-    tr th:nth-child(3) {
-        width: 10%;
-    }
 }
 
 
@@ -323,14 +312,6 @@ tr td:nth-child(6) {
         text-align: center;
         border: none;
         color: black;
-    }
-
-    tr th:nth-child(2) {
-        width: 10%;
-    }
-
-    tr th:nth-child(3) {
-        width: 10%;
     }
 }
 
@@ -386,13 +367,6 @@ tr td:nth-child(6) {
         border: none;
         color: black;
     }
-    tr th:nth-child(2) {
-        width: 10%;
-    }
-
-    tr th:nth-child(3) {
-        width: 10%;
-    }
 }
 
 @media only screen and (max-width: 1300px) and (min-width: 1199px) {
@@ -444,14 +418,6 @@ tr td:nth-child(6) {
         text-align: center;
         border: none;
         color: black;
-    }
-
-    tr th:nth-child(2) {
-        width: 12%;
-    }
-
-    tr th:nth-child(3) {
-        width: 12%;
     }
 }
 
@@ -506,28 +472,6 @@ tr td:nth-child(6) {
         text-align: center;
         border: none;
         color: black;
-    }
-
-    tr th:nth-child(2) {
-        width: 18%;
-    }
-
-    tr th:nth-child(3) {
-        width: 18%;
-    }
-
-    tr td:nth-child(4) {
-        width: 12%;
-    }
-
-    tr th:nth-child(4) {
-        text-align: center;
-        width: 12%;
-    }
-
-    tr td:nth-child(4) {
-        text-align: center;
-        width: 12%;
     }
 }
 
@@ -587,28 +531,6 @@ tr td:nth-child(6) {
         border: none;
         color: black;
     }
-
-    tr th:nth-child(2) {
-        width: 18%;
-    }
-
-    tr th:nth-child(3) {
-        width: 18%;
-    }
-
-    tr td:nth-child(4) {
-        width: 12%;
-    }
-
-    tr th:nth-child(4) {
-        text-align: center;
-        width: 12%;
-    }
-
-    tr td:nth-child(4) {
-        text-align: center;
-        width: 12%;
-    }
 }
 
 @media only screen and (max-width: 1600px) and (min-width: 1533px) {
@@ -659,29 +581,6 @@ tr td:nth-child(6) {
         text-align: center;
         border: none;
     }
-
-    tr th:nth-child(2) {
-        width: 20%;
-    }
-
-    tr th:nth-child(3) {
-        width: 20%;
-    }
-
-    tr td:nth-child(4) {
-        width: 15%;
-    }
-
-    tr th:nth-child(4) {
-        text-align: center;
-        width: 15%;
-    }
-
-    tr td:nth-child(4) {
-        text-align: center;
-        width: 15%;
-    }
-
 }
 
 .text-red {
