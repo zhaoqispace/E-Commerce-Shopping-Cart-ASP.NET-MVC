@@ -13,6 +13,10 @@
     <script src="/lib/font-awesome/js/purchaseDate.js"></script>
 }
 
+@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+
+
 <h4 class="purchaseHistoryTitle">My Purchases</h4>
 
 <table class="table purchaseHistoryPage">
@@ -57,10 +61,13 @@
 
                         </select>
                     </td>
+
                 </tr>
             }
-            
         }
-
     </tbody>
 </table>
+<div style="display: flex; width: 52%; flex:auto; justify-content: flex-end;">
+    @Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts, page => Url.Action("Index", new { page }))
+</div>
+
