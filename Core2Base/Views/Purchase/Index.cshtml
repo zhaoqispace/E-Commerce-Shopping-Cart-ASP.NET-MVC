@@ -13,6 +13,10 @@
     <script src="/lib/font-awesome/js/purchaseDate.js"></script>
 }
 
+@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+
+
 <h4 class="purchaseHistoryTitle">My Purchases</h4>
 
 <table class="table purchaseHistoryPage">
@@ -20,8 +24,7 @@
         <tr>
             <th scope="col"></th>
             <th scope="col">Name</th>
-            <th scope="col">Description</th>
-            <th scope="col">Quantity</th>
+            <th scope="col" style="text-align:center">Quantity</th>
             <th scope="col">Price</th>
             <th scope="col">Purchase Date</th>
             <th scope="col">Activation Code</th>
@@ -36,10 +39,9 @@
                     <td><img src="@purchase.Image" alt="CounterStrike Logo" height="150" width="150"></td>
                     <td style="display:none" id="product" class="product">@purchase.ProductID</td>
                     <td>@purchase.ProductName</td>
-                    <td style="text-align: left;">@purchase.ProductDescription</td>
-                    <td>@purchase.Quantity</td>
+                    <td style="text-align:center">@purchase.Quantity</td>
                     <td>@purchase.Price</td>
-                    <td>
+                    <td style="text-align:center">
                         <select name="date" id="date" class="date_option">
                             @foreach (var item in purchase.DateOfPurchase)
                             {
@@ -48,7 +50,7 @@
                         </select>
                     </td>
 
-                    <td>
+                    <td style="text-align:center">
                         <select name="status" id="status" class="activation_status">
                             @foreach (var status in purchase.ActivationStatus)
                             {
@@ -57,10 +59,13 @@
 
                         </select>
                     </td>
+
                 </tr>
             }
-            
         }
-
     </tbody>
 </table>
+<div style="display: flex; width: 52%; flex:auto; justify-content: flex-end;">
+    @Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts, page => Url.Action("Index", new { page }))
+</div>
+
