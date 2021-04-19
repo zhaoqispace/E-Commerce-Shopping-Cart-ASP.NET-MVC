@@ -89,7 +89,7 @@
 
             <div class="form-floating">
 
-                <input type="password" class="form-control" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*\W+)(?=.*[A-Z]).{8,}"
+                <input type="password" class="form-control" name="password" id="password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
                        placeholder="password: " title="Your password must consist of at least a digit, one lower case letter,
                        one upper case letter, one special character and at least a length of 8 characters" required>
                 <label for="password"><i class="fa fa-key"></i> Password (Toggle 'eye' icon to set visibility on and off:) </label>
@@ -98,7 +98,7 @@
             </div>
 
             <div class="form-floating">
-                <input type="password" class="form-control" name="reenterpassword" id="confirmpassword" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                <input type="password" class="form-control" name="reenterpassword" id="confirmpassword" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z_])(?=.*[a-z_]).*$"
                        placeholder="re-enter password: " required>
                 <label for="re-enter password"><i class="fa fa-eye"></i> Re-Enter Password (Press 'key' icon to set visibility on:) </label>
                 <i class="fa fa-key" id="togglePassword2"></i>
