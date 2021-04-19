@@ -111,8 +111,10 @@
 
                     <label for="ccnumber">Credit Card Number</label>
                     <p>
-                        <input type="tel" id="ccnumber" inputmode="numeric" pattern="[0-9\s]{16,20}" autocomplete="cc-number"
-                               name="cardnumber" placeholder="3125222211119880"
+                        <input type="tel" id="ccnumber" inputmode="numeric" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}"
+                               autocomplete="cc-number"
+                               title="Your credit card number should match the format (include the dashes behind every 4 digits) "
+                               name="cardnumber" placeholder="xxxx-xxxx-xxxx-xxxx"
                                required>
                     </p>
                     <div class="row">
@@ -180,7 +182,9 @@
                         <div class="col-25">
                             <label for="contact">Contact Number</label>
                             <p>
-                                <input type="tel" id="contact" name="contact" pattern="[0-9]{50}$" placeholder="+16467980487" required>
+                                <input type="tel" id="contact" name="contact" pattern="/(+)\d{20}" 
+                                       title="kindly include your country's extension(+dd/ddd)"
+                                       placeholder="+16467980487" required>
                             </p>
                         </div>
                         <div class="col-75">
@@ -199,7 +203,7 @@
                                     <option>Afghanistan</option>
                                     <option>Albania</option>
                                     <option>Algeria</option>
-                                    <option>merican Samoa</option>
+                                    <option>American Samoa</option>
                                     <option>Andorra</option>
                                     <option>Angola</option>
                                     <option>Anguilla</option>
@@ -438,7 +442,7 @@
                                     <option>Virgin Islands (USA)</option>
                                     <option>Wake Island</option>
                                     <option>Wallis & Futana Is</option>
-                                    <option value="Yemen">Yemen</option>
+                                    <option>Yemen</option>
                                     <option>Zaire</option>
                                     <option>Zambia</option>
                                     <option>Zimbabwe</option>
@@ -451,13 +455,16 @@
                         </div>
                         <div class="col-25">
                             <label for="state">State</label>
-                            <input type="text" id="state" name="state" pattern="[A-Za-z]{100}"  placeholder="New York" required>
+                            <input type="text" id="state" name="state" pattern="(?=.*[A-Z])(?=.*[a-z]).*$" placeholder="New York"
+                                   title="Be sure to begin entering your state with a Capital Letter. No digits are allowed for this field"
+                                   required>
                         </div>
+                    </div>
                     </div>
 
                 </div>
             </div>
-        </div>
+
 
         <br />
         <br />
