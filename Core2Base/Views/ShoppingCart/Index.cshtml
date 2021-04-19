@@ -57,7 +57,7 @@
     </table>
 </div>
 
-<input type="submit" id="myBtn"value="Checkout" class="checkoutBtn btn btn-primary"/>
+<input type="submit" id="myBtn"value="Checkout" class="checkoutBtn btn btn-primary" onclick="location.href='@Url.Action("Direct","ShoppingCart")'"/>
 
 <script>
     document.getElementById("myBtn").addEventListener("click", transferTotal);
@@ -65,9 +65,9 @@
         if (typeof (Storage) !== "undefined") {
             // Store
             localStorage.setItem("total", $("#total").html());
-            window.location.href = '/Payment/Index';
+            window.location.href ='@Url.Action("Direct","ShoppingCart")';
         }
     }
-   
+
 </script>
 
