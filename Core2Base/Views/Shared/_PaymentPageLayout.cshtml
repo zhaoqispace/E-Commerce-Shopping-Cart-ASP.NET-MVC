@@ -1,6 +1,6 @@
 ﻿@{ var firstname = (string)ViewData["firstname"];
     //var qtyIncart = (int)ViewData["qtyInCart"];
-    }}
+    }
 
 
 
@@ -47,7 +47,7 @@
                 }
                 else
                 {
-    <a href="/Home/" type="button" class="btn btn-primary">Continue Shopping</a>
+                     <a href="/Home/" type="button" class="btn btn-primary">Continue Shopping</a>
                     <div class="nav-item dropdown">
                         <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"> Hello, @firstname</a>
                         <div class="dropdown-menu">
@@ -55,7 +55,8 @@
                             <div class="divider dropdown-divider"></div>
                             <a href="/Home/Logout" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a>
                         </div>
-                    </div>}
+                    </div>
+                 }
             </div>
             <!--END OF NO LOGIN END TEXT MENU -->
         </div>

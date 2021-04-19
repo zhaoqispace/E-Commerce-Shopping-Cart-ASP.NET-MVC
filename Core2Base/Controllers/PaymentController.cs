@@ -47,11 +47,6 @@ namespace Core2Base.Controllers
 
         // retrieving alternative page, which is catered for returning users
 
-        public IActionResult Alternate()
-        {
-            ViewData["firstname"] = HttpContext.Session.GetString("firstname");
-            return View();
-        }
-
+      
     }
 }
